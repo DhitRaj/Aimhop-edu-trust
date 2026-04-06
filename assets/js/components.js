@@ -19,7 +19,7 @@ const HEADER_HTML = `
       <div class="top-bar-right">
         <div class="lang-selector" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.1); padding:4px 10px; border-radius:4px; margin-right:15px;">
           <i class="fas fa-globe" style="font-size:0.75rem; color:var(--accent);"></i>
-          <select id="lang-switcher" style="background:transparent; border:none; color:inherit; font-size:0.75rem; font-weight:600; cursor:pointer; outline:none;">
+          <select class="lang-switcher" style="background:transparent; border:none; color:inherit; font-size:0.75rem; font-weight:600; cursor:pointer; outline:none;">
             <option value="hi" style="color:#333;">हिन्दी (Hindi)</option>
             <option value="en" style="color:#333;">English</option>
           </select>
@@ -122,7 +122,15 @@ const HEADER_HTML = `
       </ul>
     </nav>
 
-    <div class="nav-right" style="display:flex; align-items:center; gap:20px;">
+    <div class="nav-right" style="display:flex; align-items:center; gap:12px;">
+      <!-- Language switcher visible to everyone in mobile header -->
+      <div class="mobile-lang-box mobile-only">
+        <select class="lang-switcher" style="background:#f8fafc; border:1px solid #cbd5e1; color:#1e293b; font-size:0.75rem; font-weight:700; cursor:pointer; padding:6px 10px; border-radius:8px; outline:none;">
+          <option value="hi">हिन्दी</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+
       <a href="${pg}student-registration.html" class="btn-apply" data-langkey="apply">अभी आवेदन करें</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
@@ -134,11 +142,16 @@ const HEADER_HTML = `
 </header>
 <style>
   .mobile-only { display: none !important; }
+  @media (max-width: 1350px) {
+    .main-nav > ul > li > a, .main-nav > ul > li > .nav-link-wrapper { padding: 6px 10px; font-size: 0.78rem; }
+    .main-nav > ul { gap: 6px; }
+  }
   @media (max-width: 1200px) {
-    .main-nav > ul > li > a { padding: 8px 10px; font-size: 0.75rem; }
+    .main-nav > ul > li > a, .main-nav > ul > li > .nav-link-wrapper { padding: 6px 8px; font-size: 0.75rem; }
+    .main-nav > ul { gap: 4px; }
   }
   @media (max-width: 900px) {
-    .mobile-only { display: block !important; }
+    .mobile-only { display: flex !important; align-items: center; }
     .btn-apply { display: none !important; }
   }
 </style>
@@ -2123,13 +2136,16 @@ function initComps() {
   setLanguage(savedLang);
 
   // Wire up the language switcher dropdown in the header
-  const langSel = document.getElementById('lang-switcher');
-  if (langSel) {
-    langSel.value = savedLang;           // reflect current language in the UI
-    langSel.addEventListener('change', e => {
-      const newLang = e.target.value;
-      localStorage.setItem('aimhop-lang', newLang);
-      setLanguage(newLang);              // switch entire page instantly
+  const langSels = document.querySelectorAll('.lang-switcher');
+  if (langSels.length > 0) {
+    langSels.forEach(sel => {
+      sel.value = savedLang;
+      sel.addEventListener('change', e => {
+        const newLang = e.target.value;
+        localStorage.setItem('aimhop-lang', newLang);
+        langSels.forEach(s => s.value = newLang); // Sync all dropdowns
+        setLanguage(newLang);
+      });
     });
   }
 
