@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>कोर्स – Aimhop Educational Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .page-hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 80px 0 60px; text-align: center; color: var(--white); }
+    .page-hero h1 { font-size: 2.4rem; font-weight: 900; margin-bottom: 12px; }
+    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); }
+    .course-tabs { display: flex; gap: 12px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
+    .tab-btn { padding: 12px 28px; border-radius: 100px; border: 2px solid var(--gray-200); background: var(--white); font-family: var(--font-hindi); font-size: 0.9rem; font-weight: 600; color: var(--gray-600); cursor: pointer; transition: var(--transition); }
+    .tab-btn.active, .tab-btn:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
+    .course-content-section { padding: 80px 0; background: var(--light-bg); }
+    .course-detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .course-detail-card { background: var(--white); border-radius: var(--radius); padding: 28px; border: 2px solid var(--gray-200); transition: var(--transition); }
+    .course-detail-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .cd-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .cd-icon { width: 52px; height: 52px; background: var(--light-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .cd-header h3 { font-size: 1rem; font-weight: 700; color: var(--primary); }
+    .cd-header span { font-size: 0.75rem; color: var(--gray-400); }
+    .cd-body p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 14px; }
+    .cd-tag { display: inline-flex; background: rgba(245,158,11,0.1); color: var(--accent-dark); border-radius: 100px; padding: 4px 12px; font-size: 0.72rem; font-weight: 700; margin: 2px; }
+    @media (max-width: 900px) { .course-detail-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .course-detail-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="loading-skeleton">
+  <div id="skeleton-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:9999; display:flex; flex-direction:column; padding:20px; gap:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="skeleton" style="width:150px; height:40px;"></div>
+      <div class="skeleton" style="width:220px; height:20px;"></div>
+    </div>
+    <div class="skeleton" style="width:100%; height:150px; margin-top:10px;"></div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin-top:30px;">
+       <div class="skeleton" style="height:280px;"></div>
+       <div class="skeleton" style="height:280px;"></div>
+       <div class="skeleton" style="height:280px;"></div>
+    </div>
+  </div>
+  <div id="site-header" class="skeleton-comp"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html" data-langkey="breadcrumb_home">होम</a><i class="fas fa-chevron-right" style="font-size:0.65rem"></i><span data-langkey="course">कोर्स</span></div>
+    <h1 data-langkey="course_hero_title">100% छात्रवृत्ति के साथ कोर्स</h1>
+    <p data-langkey="courses_desc">इन पाठ्यक्रमों की पूरी अवधि के लिए छात्रों को पूर्ण ट्यूशन कवरेज मिलती है।</p>
+  </div>
+</section>
+
+<section class="course-content-section">
+  <div class="container">
+    <div class="course-tabs">
+      <button class="tab-btn active" onclick="showTab('all', this)" data-langkey="all_courses">सभी कोर्स</button>
+      <button class="tab-btn" onclick="showTab('10th', this)" data-langkey="after_10th">10वीं के बाद</button>
+      <button class="tab-btn" onclick="showTab('12th', this)" data-langkey="after_12th">12वीं के बाद</button>
+      <button class="tab-btn" onclick="showTab('grad', this)" data-langkey="after_grad">ग्रेजुएशन के बाद</button>
+    </div>
+
+    <div class="course-detail-grid" id="courseGrid">
+
+      <!-- 10th courses -->
+      <div class="course-detail-card" data-cat="10th">
+        <div class="cd-header"><div class="cd-icon">🔧</div><div><h3 data-langkey="c1_title">Diploma in Engineering</h3><span data-langkey="dur_3yr">अवधि: 3 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c1_desc">मैकेनिकल, सिविल, इलेक्ट्रिकल, कंप्यूटर साइंस में डिप्लोमा। 10वीं पास छात्रों के लिए।</p>
+          <div><span class="cd-tag">Mechanical</span><span class="cd-tag">Civil</span><span class="cd-tag">Electrical</span><span class="cd-tag">CS</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="10th">
+        <div class="cd-header"><div class="cd-icon">⚙️</div><div><h3 data-langkey="c2_title">ITI Courses</h3><span data-langkey="dur_1_2yr">अवधि: 1-2 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c2_desc">औद्योगिक प्रशिक्षण संस्थान पाठ्यक्रम। तकनीकी कौशल विकास।</p>
+          <div><span class="cd-tag">Electrician</span><span class="cd-tag">Fitter</span><span class="cd-tag">Turner</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="10th">
+        <div class="cd-header"><div class="cd-icon">🏥</div><div><h3 data-langkey="c3_title">Paramedical Diploma</h3><span data-langkey="dur_1_3yr">अवधि: 1-3 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c3_desc">स्वास्थ्य सेवा क्षेत्र में करियर के लिए पैरामेडिकल डिप्लोमा।</p>
+          <div><span class="cd-tag">DMLT</span><span class="cd-tag">X-Ray</span><span class="cd-tag">OT Tech</span></div>
+        </div>
+      </div>
+
+      <!-- 12th courses -->
+      <div class="course-detail-card" data-cat="12th">
+        <div class="cd-header"><div class="cd-icon">💻</div><div><h3 data-langkey="c4_title">B.Tech / B.E</h3><span data-langkey="dur_4yr">अवधि: 4 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c4_desc">बैचलर ऑफ टेक्नोलॉजी – सबसे लोकप्रिय इंजीनियरिंग कोर्स।</p>
+          <div><span class="cd-tag">CS/IT</span><span class="cd-tag">AI/ML</span><span class="cd-tag">Mechanical</span><span class="cd-tag">Civil</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="12th">
+        <div class="cd-header"><div class="cd-icon">💊</div><div><h3 data-langkey="c5_title">B.Pharma</h3><span data-langkey="dur_4yr">अवधि: 4 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c5_desc">बैचलर ऑफ फार्मेसी – दवा उद्योग में करियर।</p>
+          <div><span class="cd-tag">Pharmacy</span><span class="cd-tag">Drug</span><span class="cd-tag">Healthcare</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="12th">
+        <div class="cd-header"><div class="cd-icon">🏥</div><div><h3 data-langkey="c6_title">B.Sc Nursing</h3><span data-langkey="dur_4yr">अवधि: 4 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c6_desc">बीएससी नर्सिंग – स्वास्थ्य सेवा में करियर का सर्वश्रेष्ठ विकल्प।</p>
+          <div><span class="cd-tag">Nursing</span><span class="cd-tag">Healthcare</span><span class="cd-tag">Hospital</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="12th">
+        <div class="cd-header"><div class="cd-icon">📊</div><div><h3 data-langkey="c7_title">BCA / BBA / B.Com</h3><span data-langkey="dur_3yr">अवधि: 3 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c7_desc">कंप्यूटर एप्लीकेशन, बिजनेस एडमिनिस्ट्रेशन और कॉमर्स में डिग्री।</p>
+          <div><span class="cd-tag">BCA</span><span class="cd-tag">BBA</span><span class="cd-tag">B.Com</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="12th">
+        <div class="cd-header"><div class="cd-icon">🔬</div><div><h3 data-langkey="c8_title">BMLT / B.Sc</h3><span data-langkey="dur_3yr">अवधि: 3 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c8_desc">बैचलर ऑफ मेडिकल लैब टेक्नोलॉजी और विज्ञान में स्नातक।</p>
+          <div><span class="cd-tag">BMLT</span><span class="cd-tag">B.Sc Bio</span><span class="cd-tag">B.Sc Math</span></div>
+        </div>
+      </div>
+
+      <!-- Graduation courses -->
+      <div class="course-detail-card" data-cat="grad">
+        <div class="cd-header"><div class="cd-icon">🎓</div><div><h3 data-langkey="c9_title">M.Tech / M.E</h3><span data-langkey="dur_2yr">अवधि: 2 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c9_desc">मास्टर ऑफ टेक्नोलॉजी – उच्च तकनीकी शिक्षा।</p>
+          <div><span class="cd-tag">M.Tech</span><span class="cd-tag">Research</span><span class="cd-tag">Advanced</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="grad">
+        <div class="cd-header"><div class="cd-icon">💼</div><div><h3 data-langkey="c10_title">MBA / MCA</h3><span data-langkey="dur_2yr">अवधि: 2 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c10_desc">मास्टर ऑफ बिजनेस एडमिनिस्ट्रेशन और कंप्यूटर एप्लीकेशन।</p>
+          <div><span class="cd-tag">MBA</span><span class="cd-tag">MCA</span><span class="cd-tag">Management</span></div>
+        </div>
+      </div>
+
+      <div class="course-detail-card" data-cat="grad">
+        <div class="cd-header"><div class="cd-icon">🔭</div><div><h3 data-langkey="c11_title">M.Sc / M.Com</h3><span data-langkey="dur_2yr">अवधि: 2 वर्ष</span></div></div>
+        <div class="cd-body">
+          <p data-langkey="c11_desc">मास्टर ऑफ साइंस और कॉमर्स में स्नातकोत्तर।</p>
+          <div><span class="cd-tag">M.Sc</span><span class="cd-tag">M.Com</span><span class="cd-tag">Research</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="student-registration.html" class="btn-primary" style="font-size:1rem; padding: 16px 40px;" data-langkey="student_reg">
+        <i class="fas fa-graduation-cap"></i> छात्रवृत्ति के लिए आवेदन करें
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<button class="scroll-top" id="scrollTop" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
+<script src="../assets/js/components.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+function showTab(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.course-detail-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>फोटो गैलरी – Aimhop Educational Trust</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="../assets/css/style.css"/>
+<link rel="stylesheet" href="../assets/css/pages.css"/>
+</head>
+<body>
+<div id="site-header"></div>
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html" data-langkey="breadcrumb_home">होम</a><i class="fas fa-chevron-right"></i><span data-langkey="nav_photo_gallery">फोटो गैलरी</span></div>
+    <h1 data-langkey="photo_gallery_title">फोटो गैलरी</h1>
+    <p data-langkey="photo_gallery_desc">Aimhop Trust की गतिविधियों और कार्यक्रमों की झलकियाँ</p>
+  </div>
+</section>
+<section class="inner-section">
+  <div class="container">
+    <div class="gallery-filter">
+      <button class="filter-btn active" onclick="filterGallery('all',this)" data-langkey="filter_all">सभी</button>
+      <button class="filter-btn" onclick="filterGallery('event',this)" data-langkey="filter_event">कार्यक्रम</button>
+      <button class="filter-btn" onclick="filterGallery('campus',this)" data-langkey="filter_campus">कैंपस</button>
+      <button class="filter-btn" onclick="filterGallery('award',this)" data-langkey="filter_award">पुरस्कार</button>
+      <button class="filter-btn" onclick="filterGallery('student',this)" data-langkey="filter_student">छात्र</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-cat="event"><div class="gallery-thumb">🎉</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_1">वार्षिक समारोह 2024</div></div>
+      <div class="gallery-item" data-cat="campus"><div class="gallery-thumb">🏢</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_2">मुख्यालय – Patna</div></div>
+      <div class="gallery-item" data-cat="award"><div class="gallery-thumb">🏆</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption">Best Trust Award 2023</div></div>
+      <div class="gallery-item" data-cat="student"><div class="gallery-thumb">🎓</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_4">छात्र दीक्षांत समारोह</div></div>
+      <div class="gallery-item" data-cat="event"><div class="gallery-thumb">🤝</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_5">काउंसलिंग शिविर 2024</div></div>
+      <div class="gallery-item" data-cat="campus"><div class="gallery-thumb">📚</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_6">सूचना केंद्र</div></div>
+      <div class="gallery-item" data-cat="student"><div class="gallery-thumb">👨‍💻</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_7">B.Tech छात्र कैंपस में</div></div>
+      <div class="gallery-item" data-cat="award"><div class="gallery-thumb">🎖</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption">Social Impact Award</div></div>
+      <div class="gallery-item" data-cat="event"><div class="gallery-thumb">🌟</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption">Chairman's College Visit</div></div>
+      <div class="gallery-item" data-cat="student"><div class="gallery-thumb">👩‍🎓</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption">Nursing Graduation</div></div>
+      <div class="gallery-item" data-cat="event"><div class="gallery-thumb">📋</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_11">एडमिशन कैंप 2025</div></div>
+      <div class="gallery-item" data-cat="campus"><div class="gallery-thumb">🌏</div><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div><div class="gallery-caption" data-langkey="gal_caption_12">नेपाल विंग लॉन्च</div></div>
+    </div>
+  </div>
+</section>
+<div id="site-footer"></div>
+<script src="../assets/js/components.js"></script><script src="../assets/js/main.js"></script>
+<script>
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
+

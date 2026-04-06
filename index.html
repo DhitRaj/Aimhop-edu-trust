@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aimhop Educational Trust – Padhega India, Badhega India</title>
+  <meta name="description"
+    content="Aimhop Educational & Charitable Trust - 100% छात्रवृत्ति के साथ सरकारी विश्वविद्यालय से संबद्ध कॉलेज में प्रवेश।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Baloo+2:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="loading-skeleton">
+  <!-- SKELETON SCREEN OVERLAY (Simulated) -->
+  <div id="skeleton-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:9999; display:flex; flex-direction:column; padding:20px; gap:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="skeleton" style="width:150px; height:40px;"></div>
+      <div style="display:flex; gap:15px;">
+        <div class="skeleton" style="width:80px; height:20px;"></div>
+        <div class="skeleton" style="width:80px; height:20px;"></div>
+      </div>
+    </div>
+    <div class="skeleton" style="width:100%; height:450px; border-radius:20px; margin-top:20px;"></div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:40px;">
+       <div class="skeleton" style="height:250px;"></div>
+       <div class="skeleton" style="height:250px;"></div>
+       <div class="skeleton" style="height:250px;"></div>
+    </div>
+  </div>
+
+  <div id="site-header" class="skeleton-comp"></div>
+
+  <!-- ======= HERO SECTION ======= -->
+  <section class="hero-section">
+    <div class="hero-slider" id="heroSlider">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg" style="background: linear-gradient(135deg, #0a1628 0%, #1a3a6e 50%, #0d2447 100%);"></div>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <div class="hero-badge" data-langkey="hero_badge">🎓 100% छात्रवृत्ति के साथ प्रवेश</div>
+            <h1 data-langkey="hero_slide1_title">Aimhop Educational <br /><span class="highlight">& Charitable Trust</span></h1>
+            <p data-langkey="hero_slide1_desc">सरकारी विश्वविद्यालय से संबद्ध कॉलेज में 100% तक की छात्रवृत्ति के साथ प्रवेश सुनिश्चित करें। हम असंभव को
+              संभव बनाते हैं।</p>
+            <div class="hero-cta">
+              <a href="pages/student-registration.html" class="btn-primary" data-langkey="reg_now">अभी रजिस्ट्रेशन करें</a>
+              <a href="pages/about.html" class="btn-outline" data-langkey="learn_more">और जानें</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><strong>25K+</strong><span data-langkey="happy_students">खुश छात्र</span></div>
+                <div class="stat"><strong>221+</strong><span data-langkey="associates_count">एसोसिएट</span></div>
+                <div class="stat"><strong>100+</strong><span data-langkey="institutions_count">संस्थान</span></div>
+            </div>
+          </div>
+          <div class="hero-image-box">
+            <div class="hero-card floating">
+              <div class="hero-card-icon">🎓</div>
+              <div>
+                <strong data-langkey="scholarship_title">100% छात्रवृत्ति</strong>
+                <span data-langkey="no_loan_desc">ट्यूशन फीस पर</span>
+              </div>
+            </div>
+            <div class="hero-big-icon">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="280" height="280">
+                <defs>
+                  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="90" fill="url(#grad1)" opacity="0.15" />
+                <circle cx="100" cy="100" r="70" fill="url(#grad1)" opacity="0.2" />
+                <text x="100" y="90" font-size="60" text-anchor="middle" fill="#f59e0b">🎓</text>
+                <text x="100" y="140" font-size="18" text-anchor="middle" fill="#ffffff" font-family="Poppins"
+                  font-weight="700">AIMHOP</text>
+                <text x="100" y="160" font-size="11" text-anchor="middle" fill="#f59e0b"
+                  font-family="Poppins">EDUCATIONAL TRUST</text>
+              </svg>
+            </div>
+            <div class="hero-card floating-2">
+              <div class="hero-card-icon">⭐</div>
+              <div>
+                <strong data-langkey="no_loan_title">No Loan, No EMI</strong>
+                <span data-langkey="no_loan_subtitle">बिना कर्ज के पढ़ाई</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);"></div>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <div class="hero-badge" data-langkey="hero_slide2_badge">⭐ No Loan, No EMI</div>
+            <h1 data-langkey="hero_slide2_title">बिना कर्ज के <br /><span class="highlight">पढ़ाई का मौका</span></h1>
+            <p data-langkey="hero_slide2_desc">हमारे साथ पढ़ाई करें बिना किसी लोन या ईएमआई के। शिक्षा सबके लिए!</p>
+            <div class="hero-cta">
+              <a href="pages/student-registration.html" class="btn-primary" data-langkey="apply">Apply Now</a>
+              <a href="pages/about.html" class="btn-outline" data-langkey="learn_more">Details</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat"><strong>50+</strong><span data-langkey="courses_count">कोर्स</span></div>
+              <div class="stat"><strong>10+</strong><span data-langkey="states_count">राज्य</span></div>
+              <div class="stat"><strong>100%</strong><span data-langkey="placement_label">प्लेसमेंट</span></div>
+            </div>
+          </div>
+          <div class="hero-image-box">
+            <div class="hero-card floating">
+              <div class="hero-card-icon">⭐</div>
+              <div>
+                <strong data-langkey="zero_emi">Zero EMI</strong>
+                <span data-langkey="affordable_edu">Affordable Education</span>
+              </div>
+            </div>
+            <div class="hero-big-icon">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="280" height="280">
+                <defs>
+                  <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0a1628;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1a3a6e;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="90" fill="url(#grad2)" opacity="0.15" />
+                <circle cx="100" cy="100" r="70" fill="url(#grad2)" opacity="0.2" />
+                <text x="100" y="90" font-size="60" text-anchor="middle" fill="#0a1628">⭐</text>
+                <text x="100" y="140" font-size="18" text-anchor="middle" fill="#ffffff" font-family="Poppins"
+                  font-weight="700">AIMHOP</text>
+                <text x="100" y="160" font-size="11" text-anchor="middle" fill="#0a1628"
+                  font-family="Poppins">EDUCATIONAL TRUST</text>
+              </svg>
+            </div>
+            <div class="hero-card floating-2">
+              <div class="hero-card-icon">🎓</div>
+              <div>
+                <strong data-langkey="scholarship_title">100% Scholarship</strong>
+                <span data-langkey="no_loan_desc">On Tuition Fee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span></span>
+    </div>
+
+    <!-- Hero Slider Controls (Professional Absolute Overlay) -->
+    <button class="hero-nav-btn prev" id="heroPrevBtn" aria-label="Previous Banner">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="hero-nav-btn next" id="heroNextBtn" aria-label="Next Banner">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </section>
+
+  <!-- ======= ABOUT SECTION ======= -->
+  <section class="about-section section-pad" id="about">
+    <div class="container about-grid">
+      <div class="about-image-col">
+        <div class="about-img-wrapper">
+          <div class="about-img-placeholder">
+            <div class="img-card-top">
+              <!-- Professional 'No Image' Placeholder -->
+              <div class="no-image-placeholder">
+                <div class="placeholder-icon">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="placeholder-info">
+                  <span class="designation" data-langkey="founder_ceo">FOUNDER & CEO</span>
+                  <h3 class="name">O.P YADAV (ex-Army)</h3>
+                  <p class="org" data-langkey="aimhop_trust">Aimhop Educational Trust</p>
+                </div>
+              </div>
+            </div>
+            <div class="about-badge-overlay">
+              <span>✓</span> <span data-langkey="verified_trust">Verified Trust</span>
+            </div>
+          </div>
+          <div class="about-no-loan-badge">
+            <div class="badge-text" data-langkey="no_loan_badge">
+              <span>NO LOAN</span>
+              <span>NO STUDENT CREDIT</span>
+              <span>CARD REQUIRED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content-col">
+        <div class="section-label" data-langkey="about_us_label">हमारे बारे में</div>
+        <h2 class="section-title" data-langkey="about_us_title">सरकारी विश्वविद्यालय से संबद्ध कॉलेज में <span class="accent">100% छात्रवृत्ति</span>
+          के साथ प्रवेश सुरक्षित करें</h2>
+        <p class="section-desc" data-langkey="about_us_desc">
+          अपनी शैक्षणिक यात्रा इस अविश्वसनीय अवसर के साथ शुरू करें। हम सरकारी विश्वविद्यालय से संबद्ध कॉलेज में 100% तक
+          की लागत को कवर करने वाली छात्रवृत्ति के साथ प्रवेश दिलाते हैं। हम असंभव को संभव बनाते हैं — हर कदम पर विशेषज्ञ
+          मार्गदर्शन प्रदान करते हुए।
+        </p>
+
+        <div class="mvv-grid">
+          <div class="mvv-card">
+            <div class="mvv-icon">🎯</div>
+            <h4 data-langkey="mission">मिशन</h4>
+            <p data-langkey="mission_desc">पढ़ेगा India, बढ़ेगा India: हम योग्य छात्रों को पूर्ण ट्यूशन सहायता प्रदान करते हैं।</p>
+          </div>
+          <div class="mvv-card">
+            <div class="mvv-icon">👁</div>
+            <h4 data-langkey="vision">विजन</h4>
+            <p data-langkey="vision_desc">एक ऐसा समाज बनाना जहाँ हर योग्य छात्र को गुणवत्तापूर्ण शिक्षा मिले।</p>
+          </div>
+          <div class="mvv-card">
+            <div class="mvv-icon">💎</div>
+            <h4 data-langkey="values">मूल्य</h4>
+            <p data-langkey="values_desc">हम समान शैक्षणिक अवसरों, छात्रों को सशक्त बनाने और उत्कृष्टता में विश्वास करते हैं।</p>
+          </div>
+        </div>
+
+        <div class="about-cta-row">
+          <a href="pages/chairman-message.html" class="btn-primary" data-langkey="learn_more">और जानें</a>
+          <div class="founder-mini">
+            <div class="founder-avatar">SK</div>
+            <div>
+              <strong data-langkey="founder_name">O.P YADAV (ex-Army)</strong>
+              <span data-langkey="founder_title">Chief Managing Director</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= STATS SECTION ======= -->
+  <section class="stats-section">
+    <div class="stats-bg-pattern"></div>
+    <div class="container">
+      <div class="stats-header">
+        <div class="section-label white" data-langkey="achievements_label">हमारी उपलब्धियाँ</div>
+        <h2 data-langkey="trust_title">Aimhop Educational Trust – <span>भारत भर के छात्रों का विश्वास</span></h2>
+        <p data-langkey="trust_desc">सिर्फ हमारी बात पर नहीं, संख्याओं पर भरोसा करें!</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card" data-count="25000">
+          <div class="stat-icon">🎓</div>
+          <div class="stat-number" id="stat1">25K+</div>
+          <div class="stat-label" data-langkey="happy_students_label">खुश छात्र</div>
+        </div>
+        <div class="stat-card" data-count="221">
+          <div class="stat-icon">🤝</div>
+          <div class="stat-number" id="stat2">221+</div>
+          <div class="stat-label" data-langkey="associates_label">भारत और नेपाल में एसोसिएट</div>
+        </div>
+        <div class="stat-card" data-count="1849">
+          <div class="stat-icon">👥</div>
+          <div class="stat-number" id="stat3">1849+</div>
+          <div class="stat-label" data-langkey="coordinators_label">भारत और नेपाल में कोऑर्डिनेटर</div>
+        </div>
+        <div class="stat-card" data-count="100">
+          <div class="stat-icon">🏛</div>
+          <div class="stat-number" id="stat4" data-count="100">100+</div>
+          <div class="stat-label" data-langkey="top_inst">शीर्ष संस्थान</div>
+        </div>
+      </div>
+      <div class="stats-cta">
+        <a href="pages/student-registration.html" class="btn-primary" data-langkey="apply_scholarship">छात्रवृत्ति के लिए आवेदन करें</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SUCCESS STORY ======= -->
+  <section class="success-section section-pad">
+    <div class="container success-grid">
+      <div class="success-img-col">
+        <div class="success-img-box">
+          <svg viewBox="0 0 380 460" width="380" height="460" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="succGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#1a3a6e" />
+                <stop offset="100%" style="stop-color:#2563eb" />
+              </linearGradient>
+            </defs>
+            <rect width="380" height="460" rx="24" fill="url(#succGrad)" />
+            <circle cx="190" cy="160" r="80" fill="rgba(255,255,255,0.1)" />
+            <text x="190" y="185" font-size="80" text-anchor="middle" fill="white">🏆</text>
+            <rect x="30" y="280" width="320" height="150" rx="14" fill="rgba(255,255,255,0.12)" />
+            <text x="190" y="315" font-size="16" text-anchor="middle" fill="#f59e0b" font-family="Poppins"
+              font-weight="700" data-langkey="success_story">सफलता की कहानी</text>
+            <text x="190" y="345" font-size="13" text-anchor="middle" fill="white" font-family="Poppins"
+              font-weight="400">Aimhop Educational &amp; Charitable Trust</text>
+            <text x="190" y="370" font-size="13" text-anchor="middle" fill="rgba(255,255,255,0.8)"
+              font-family="Poppins">श्री O.P YADAV (ex-Army) के नेतृत्व में</text>
+            <text x="190" y="395" font-size="13" text-anchor="middle" fill="rgba(255,255,255,0.8)"
+              font-family="Poppins">आर्थिक रूप से वंचित छात्रों को</text>
+            <text x="190" y="415" font-size="13" text-anchor="middle" fill="rgba(255,255,255,0.8)"
+              font-family="Poppins">100% ट्यूशन सहायता</text>
+          </svg>
+          <div class="success-badge-side">
+            <div class="rotating-badge">
+              <svg viewBox="0 0 120 120" width="120" height="120">
+                <circle cx="60" cy="60" r="55" fill="#f59e0b" />
+                <text x="60" y="55" font-size="11" text-anchor="middle" fill="#1a3a6e" font-family="Poppins"
+                  font-weight="700">SINCE</text>
+                <text x="60" y="72" font-size="22" text-anchor="middle" fill="#1a3a6e" font-family="Poppins"
+                  font-weight="900">2018</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="success-content-col">
+        <div class="section-label" data-langkey="success_label">प्रेरणादायक परिवर्तन</div>
+        <h2 class="section-title" data-langkey="success_title">सफलता की कहानियाँ: <span class="accent">प्रेरणादायक परिवर्तन</span></h2>
+        <p class="section-desc" data-langkey="success_desc">
+          Aimhop Educational &amp; Charitable Trust, श्री O.P YADAV (ex-Army) के नेतृत्व में आर्थिक रूप से वंचित छात्रों को
+          100% ट्यूशन सहायता प्रदान करता है। डॉ. APJ अब्दुल कलाम और स्वामी विवेकानंद से प्रेरित, यह ट्रस्ट छात्रों को
+          अपने मिशन "पढ़ेगा India, बढ़ेगा India" के माध्यम से उच्च शिक्षा प्राप्त करने में मदद करता है।
+        </p>
+        <div class="quote-box">
+          <i class="fas fa-quote-left"></i>
+          <p data-langkey="success_quote">"हमें ऐसी शिक्षा चाहिए जिससे चरित्र निर्मित हो, मन की शक्ति बढ़े, बुद्धि का विकास हो और मनुष्य अपने पैरों
+            पर खड़ा हो सके।"</p>
+          <span data-langkey="success_author">— स्वामी विवेकानंद</span>
+        </div>
+        <a href="pages/success-story.html" class="btn-primary" data-langkey="read_more">और पढ़ें</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= COURSES SECTION ======= -->
+  <section class="courses-section section-pad">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label" data-langkey="courses_label">शैक्षणिक मार्ग</div>
+        <h2 class="section-title" data-langkey="courses_title">शैक्षणिक मार्ग: <span class="accent">भविष्य को सशक्त बनाना</span></h2>
+        <p data-langkey="courses_desc">इन पाठ्यक्रमों की पूरी अवधि के लिए छात्रों को पूर्ण ट्यूशन कवरेज मिलती है।</p>
+      </div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-icon">📚</div>
+          <h3 data-langkey="after_10th">10वीं के बाद</h3>
+          <p data-langkey="after_10th_desc">डिप्लोमा, ITI और अन्य व्यावसायिक पाठ्यक्रम 10वीं के बाद उपलब्ध हैं।</p>
+          <ul>
+            <li data-langkey="c_dip_eng">Diploma in Engineering</li>
+            <li data-langkey="c_iti">ITI Courses</li>
+            <li data-langkey="c_poly">Polytechnic</li>
+            <li data-langkey="c_para">Paramedical Diploma</li>
+          </ul>
+          <a href="pages/course.html" class="course-btn" data-langkey="click_here">यहाँ क्लिक करें</a>
+        </div>
+        <div class="course-card featured">
+          <div class="course-badge-top" data-langkey="popular">सबसे लोकप्रिय</div>
+          <div class="course-icon">🎓</div>
+          <h3 data-langkey="after_12th">12वीं के बाद</h3>
+          <p data-langkey="after_12th_desc">इंटरमीडिएट के बाद B.Tech, B.Sc, B.Com और अन्य ग्रेजुएशन कोर्स।</p>
+          <ul>
+            <li data-langkey="c_btech">B.Tech / B.E</li>
+            <li data-langkey="c_nursing">B.Sc Nursing</li>
+            <li data-langkey="c_bca">BCA / BBA / B.Com</li>
+            <li data-langkey="c_pharma">B.Pharma / BMLT</li>
+          </ul>
+          <a href="pages/course.html" class="course-btn" data-langkey="click_here">यहाँ क्लिक करें</a>
+        </div>
+        <div class="course-card">
+          <div class="course-icon">🏫</div>
+          <h3 data-langkey="after_grad">ग्रेजुएशन के बाद</h3>
+          <p data-langkey="after_grad_desc">ग्रेजुएशन पूरी होने के बाद M.Tech, MBA, MCA और अन्य पोस्टग्रेजुएट कोर्स।</p>
+          <ul>
+            <li data-langkey="c_mtech">M.Tech / M.E</li>
+            <li data-langkey="c_mba">MBA / MCA</li>
+            <li data-langkey="c_msc">M.Sc / M.Com</li>
+            <li data-langkey="c_mpharma">M.Pharma</li>
+          </ul>
+          <a href="pages/course.html" class="course-btn" data-langkey="click_here">यहाँ क्लिक करें</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SCHOLARSHIP GATEWAY ======= -->
+  <section class="gateway-section section-pad">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label" data-langkey="apply_process">आवेदन प्रक्रिया</div>
+        <h2 class="section-title" data-langkey="gateway_title">100% छात्रवृत्ति की <span class="accent">ओर प्रवेश द्वार</span></h2>
+      </div>
+      <div class="gateway-visual">
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-circle">1</div>
+            <h4 data-langkey="step1_title">रजिस्ट्रेशन करें</h4>
+            <p data-langkey="step1_desc">ऑनलाइन फॉर्म भरें</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-item">
+            <div class="step-circle">2</div>
+            <h4 data-langkey="step2_title">दस्तावेज़ जमा करें</h4>
+            <p data-langkey="step2_desc">आवश्यक डॉक्यूमेंट</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-item">
+            <div class="step-circle">3</div>
+            <h4 data-langkey="step3_title">काउंसलिंग</h4>
+            <p data-langkey="step3_desc">हमारे विशेषज्ञ से मिलें</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-item">
+            <div class="step-circle">4</div>
+            <h4 data-langkey="step4_title">प्रवेश सुनिश्चित</h4>
+            <p data-langkey="step4_desc">प्रवेश सुनिश्चित</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= UNIVERSITIES SECTION ======= -->
+  <section class="university-section section-pad">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label" data-langkey="our_uni">हमारे विश्वविद्यालय</div>
+          <h2 class="section-title">✅ <span data-langkey="why_different">हम अलग क्यों हैं?</span></h2>
+        <p data-langkey="uni_subtitle">हम राज्य सरकारी विश्वविद्यालय से संबद्ध कॉलेजों में <strong>100% छात्रवृत्ति</strong> के साथ प्रवेश दिलाते हैं</p>
+      </div>
+      <div class="uni-marquee-wrapper">
+        <div class="uni-marquee">
+          <div class="uni-track" id="uniTrack">
+            <!-- University logos placeholders -->
+            <div class="uni-logo">U1<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U2<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U3<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U4<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U5<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U6<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U7<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U8<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U9<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U10<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U11<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U12<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U13<span data-langkey="university">विश्वविद्यालय</span></div>
+            <!-- Duplicate for infinite loop -->
+            <div class="uni-logo">U1<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U2<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U3<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U4<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U5<span data-langkey="university">विश्वविद्यालय</span></div>
+            <div class="uni-logo">U6<span data-langkey="university">विश्वविद्यालय</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= AWARDS SECTION ======= -->
+  <section class="awards-section section-pad">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label" data-langkey="awards_label">हमारे पुरस्कार</div>
+        <h2 class="section-title" data-langkey="awards_title">हमारे प्रभाव का <span class="accent">सम्मान</span></h2>
+        <p data-langkey="awards_desc">ये पुरस्कार शैक्षिक सशक्तिकरण के प्रति Aimhop Trust की प्रतिबद्धता का जश्न मनाते हैं।</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="award-icon">🏆</div>
+          <p data-langkey="award1">Best Educational Trust Award 2023</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🥇</div>
+          <p data-langkey="award2">Excellence in Social Service</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">⭐</div>
+          <p data-langkey="award3">National Education Leadership</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🎖</div>
+          <p data-langkey="award4">Youth Empowerment Award</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🏅</div>
+          <p data-langkey="award5">Outstanding Contribution to Education</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">💫</div>
+          <p data-langkey="award6">Social Impact Award 2024</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🌟</div>
+          <p data-langkey="award7">Best NGO for Students</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🎗</div>
+          <p data-langkey="award8">Padhe India Badhe India Award</p>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🏵</div>
+          <p data-langkey="award9">Bihar Education Champion 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= LATEST ACTIVITY ======= -->
+  <section class="activity-section section-pad">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label" data-langkey="activity_label">नवीनतम गतिविधि</div>
+        <h2 class="section-title" data-langkey="activity_title">नवीनतम <span class="accent">गतिविधियाँ</span></h2>
+      </div>
+      <div class="activity-grid">
+        <div class="activity-card">
+          <div class="activity-img-placeholder">
+            <span>📸</span>
+            <p data-langkey="visit_chairman">चेयरमैन का छात्रों से मिलने का दौरा</p>
+          </div>
+          <div class="activity-content">
+            <div class="activity-date"><i class="far fa-calendar-alt"></i> <span data-langkey="date_march_25">मार्च 2025</span></div>
+            <h3 data-langkey="visit_desc1">छात्रों को प्रेरित करने और जोड़ने के लिए चेयरमैन का दौरा</h3>
+            <a href="pages/latest-activity.html" class="activity-link" data-langkey="read_more">और जानें <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img-placeholder">
+            <span>🎓</span>
+            <p data-langkey="inspiring_college">जून में प्रेरणादायक कॉलेज दौरा</p>
+          </div>
+          <div class="activity-content">
+            <div class="activity-date"><i class="far fa-calendar-alt"></i> <span data-langkey="date_june_25">जून 2025</span></div>
+            <h3 data-langkey="visit_desc2">अगली पीढ़ी को प्रेरित करना: चेयरमैन का कॉलेज दौरा</h3>
+            <a href="pages/latest-activity.html" class="activity-link" data-langkey="read_more">और जानें <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img-placeholder">
+            <span>🤝</span>
+            <p data-langkey="relationship_building">संबंध निर्माण: चेयरमैन का हालिया दौरा</p>
+          </div>
+          <div class="activity-content">
+            <div class="activity-date"><i class="far fa-calendar-alt"></i> <span data-langkey="date_feb_25">फरवरी 2025</span></div>
+            <h3 data-langkey="visit_desc3">संबंध निर्माण: चेयरमैन का हालिया कॉलेज दौरा</h3>
+            <a href="pages/latest-activity.html" class="activity-link" data-langkey="read_more">और जानें <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= VIDEO SECTION ======= -->
+  <section class="video-section section-pad">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label" data-langkey="video_label">नवीनतम वीडियो</div>
+        <h2 class="section-title" data-langkey="video_title">नवीनतम <span class="accent">वीडियो</span></h2>
+        <p data-langkey="video_quote"><strong>Aimhop Educational &amp; Charitable Trust – क्या आप जानते हैं, सपने कैसे पूरे होते हैं…</strong></p>
+      </div>
+      <div class="video-grid">
+        <div class="video-card" onclick="openVideo('https://www.youtube.com/watch?v=CAkXBp-wjXU')">
+          <div class="video-thumb">
+            <div class="play-overlay">
+              <div class="play-btn"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="video-thumb-bg">
+              <span>🎬</span>
+              <p data-langkey="v1_thumb_title">🎓 बिना एंट्रेंस एग्जाम सीधा एडमिशन 2026!</p>
+            </div>
+          </div>
+          <div class="video-info">
+            <h4 data-langkey="v1_title">🎓 बिना एंट्रेंस एग्जाम सीधा एडमिशन 2026! नि:शुल्क उच्च शिक्षा अभियान की पूरी जानकारी।</h4>
+          </div>
+        </div>
+        <div class="video-card" onclick="openVideo('https://www.youtube.com/watch?v=y6kJZuSYwtw')">
+          <div class="video-thumb">
+            <div class="play-overlay">
+              <div class="play-btn"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="video-thumb-bg">
+              <span>🎬</span>
+              <p data-langkey="v2_thumb_title">भारत के किसी भी राज्य में मुफ्त पढ़ाई!</p>
+            </div>
+          </div>
+          <div class="video-info">
+            <h4 data-langkey="v2_title">भारत के किसी भी राज्य में अपने मनपसंद कोर्स की पढ़ाई करें वो भी बिल्कुल मुफ्त!</h4>
+          </div>
+        </div>
+        <div class="video-card" onclick="openVideo('https://www.youtube.com/watch?v=SnvvfyJiVFU')">
+          <div class="video-thumb">
+            <div class="play-overlay">
+              <div class="play-btn"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="video-thumb-bg">
+              <span>🎬</span>
+              <p data-langkey="v3_thumb_title">कॉलेज लाइफ: रहना और खाना</p>
+            </div>
+          </div>
+          <div class="video-info">
+            <h4 data-langkey="v3_title">कॉलेज लाइफ का सबसे बड़ा हिस्सा: रहना और खाना। देखिए बिहार के छात्र का अपना अनुभव। 🍱📖</h4>
+          </div>
+        </div>
+      </div>
+      <div class="video-subscribe">
+        <a href="https://www.youtube.com/channel/UC42F1t1PeenBsVCudVFU-5g" target="_blank" class="btn-youtube" data-langkey="btn_subscribe">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="videoModal">
+    <div class="modal-backdrop" onclick="closeVideo()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+      <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ======= TESTIMONIALS ======= -->
+  <section class="testimonials-section section-pad">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label" data-langkey="testimonials_label">छात्रों की राय</div>
+        <h2 class="section-title" data-langkey="testimonials_title">छात्रों की <span class="accent">प्रशंसापत्र</span></h2>
+      </div>
+      <div class="testimonials-slider" id="testimonialsSlider">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p data-langkey="testi1_text">"B Pharma course me 0 tution fees pr admission liya bahut dhanyawaad Aimhop trust ka jisne mujhe nishulk padhne ka moka Diya. Thank you Aimhop trust. ❤"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AK</div>
+              <div><strong>Abhishek Kumar Singh</strong><span data-langkey="student">Student</span></div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p data-langkey="testi2_text">"Good experience in Aimhop trust. Mai yenha se B TECH in AI machine learning kr rha hu. Mujhe yenha akr acha lga ar ye trust bhut helpful hai."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">RR</div>
+              <div><strong>Rajiv Ray</strong><span data-langkey="student">Student</span></div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p data-langkey="testi3_text">"This is the best institute for take a admission in b.tech without any fee. When I said about this institute then I do not trust but at this I surely said this the best institute for students."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SM</div>
+              <div><strong>Sunil Kumar Mishra</strong><span data-langkey="student">Student</span></div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p data-langkey="testi4_text">"Mera naam sunil hai. Maine apna admission bpt, bsc nursing course me 0 tution fees pr Aimhop trust ke dwara karwaya hai. Thanks to Aimhop trust!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SC</div>
+              <div><strong>Sunil Chaurasiya</strong><span data-langkey="student">Student</span></div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p data-langkey="testi5_text">"Mujhe Aimhop me ake bhut acha lga. Ye trust bhut acha kam kr rhi h samaj ke liye. Hmare jaise hajaro bacho ki admission zero clg fee me krwa rhe h."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JM</div>
+              <div><strong>Jaleshwai Mahto</strong><span data-langkey="student">Student</span></div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p data-langkey="testi6_text">"Mai aman kumar patna pgs mor ka rhne wala hu. Maine apna admission BCA Course Me 0 tution fees pe Aimhop trust ke dwara karaya hai. Thankyou Aimhop trust."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AP</div>
+              <div><strong>Aman Kumar Pandey</strong><span data-langkey="student">Student</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="testi-prev" onclick="prevTestimonial()"><i class="fas fa-chevron-left"></i></button>
+        <div class="testi-dots" id="testiDots"></div>
+        <button class="testi-next" onclick="nextTestimonial()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= INFRASTRUCTURE SECTION ======= -->
+  <section class="infra-section section-pad">
+    <div class="container infra-grid">
+      <div class="infra-img-col">
+        <div class="infra-img-placeholder">
+          <svg viewBox="0 0 400 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" rx="16" fill="#e8f4fd" />
+            <rect x="40" y="80" width="320" height="180" rx="8" fill="#1a3a6e" opacity="0.1" />
+            <rect x="60" y="100" width="100" height="140" rx="4" fill="#1a3a6e" opacity="0.2" />
+            <rect x="180" y="120" width="70" height="120" rx="4" fill="#1a3a6e" opacity="0.2" />
+            <rect x="270" y="110" width="80" height="130" rx="4" fill="#1a3a6e" opacity="0.2" />
+            <text x="200" y="50" font-size="18" text-anchor="middle" fill="#1a3a6e" font-family="Poppins"
+              font-weight="700" data-langkey="infra_svg_title">हमारा बुनियादी ढाँचा</text>
+            <text x="200" y="260" font-size="13" text-anchor="middle" fill="#666" font-family="Poppins" data-langkey="infra_svg_desc">Aimhop
+              Educational Trust - Head Office</text>
+          </svg>
+        </div>
+      </div>
+      <div class="infra-content-col">
+        <div class="section-label" data-langkey="infra_label">बुनियादी ढाँचा</div>
+        <h2 class="section-title" data-langkey="infra_title">आधुनिक और <span class="accent">सुविधाजनक</span> परिवेश</h2>
+        <p data-langkey="infra_p1">Aimhop Educational &amp; Charitable Trust में हम अपने छात्रों और उनके अभिभावकों की सुविधा को हर पहलू में प्राथमिकता देते हैं। हमारा सुव्यवस्थित बुनियादी ढाँचा एक स्वागत योग्य और सहायक वातावरण प्रदान करता है।</p>
+        <p data-langkey="infra_p2">हमने खुली चर्चाओं, सूचना सत्रों और व्यक्तिगत परामर्श के लिए स्थान बनाए हैं ताकि अभिभावक अपने बच्चों के भविष्य के बारे में सूचित निर्णय ले सकें।</p>
+        <a href="pages/infrastructure.html" class="btn-primary" data-langkey="btn_learn_more">और जानें</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <div id="site-footer" class="skeleton-comp"></div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

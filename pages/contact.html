@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>संपर्क करें – Aimhop Educational Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .page-hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 80px 0 60px; text-align: center; color: var(--white); }
+    .page-hero h1 { font-size: 2.4rem; font-weight: 900; margin-bottom: 12px; }
+    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); }
+    .contact-section { padding: 80px 0; background: var(--light-bg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start; }
+    .contact-info-cards { display: flex; flex-direction: column; gap: 20px; }
+    .c-card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--accent); }
+    .c-card-icon { font-size: 2rem; margin-bottom: 12px; }
+    .c-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .c-card p, .c-card a { font-size: 0.88rem; color: var(--gray-600); line-height: 1.7; display: block; }
+    .c-card a:hover { color: var(--accent); }
+    .contact-form-card { background: var(--white); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-lg); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 16px; border: 2px solid var(--gray-200); border-radius: 8px; font-family: var(--font-hindi); font-size: 0.9rem; outline: none; transition: var(--transition); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(26,58,110,0.08); }
+    .form-submit { width: 100%; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-dark); padding: 16px; border-radius: 8px; font-weight: 800; font-size: 1rem; border: none; cursor: pointer; font-family: var(--font-hindi); transition: var(--transition); }
+    .form-submit:hover { transform: translateY(-2px); }
+    .map-section { padding: 0 0 80px; background: var(--light-bg); }
+    .map-placeholder { background: var(--gray-200); border-radius: var(--radius-lg); height: 350px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--gray-600); }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="loading-skeleton">
+  <div id="skeleton-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:9999; display:flex; flex-direction:column; padding:20px; gap:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="skeleton" style="width:150px; height:40px;"></div>
+      <div class="skeleton" style="width:180px; height:20px;"></div>
+    </div>
+    <div class="skeleton" style="width:100%; height:150px; margin-top:10px;"></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:20px;">
+       <div class="skeleton" style="height:400px;"></div>
+       <div class="skeleton" style="height:400px;"></div>
+    </div>
+  </div>
+  <div id="site-header" class="skeleton-comp"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html" data-langkey="breadcrumb_home">होम</a><i class="fas fa-chevron-right" style="font-size:0.65rem"></i><span data-langkey="breadcrumb_contact">संपर्क करें</span></div>
+    <h1 data-langkey="contact_title">संपर्क करें</h1>
+    <p data-langkey="contact_subtitle">हमसे जुड़ें और अपनी शिक्षा यात्रा शुरू करें।</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container contact-grid">
+    <div class="contact-info-cards">
+      <div class="c-card">
+        <div class="c-card-icon">📍</div>
+        <h4 data-langkey="hq_address_title">मुख्यालय पता</h4>
+        <p data-langkey="hq_address">Road No. 2, Gokhula Path, Abhiyanta Nagar, Gola Road, Bailey Rd, Patna, Bihar 801503</p>
+      </div>
+      <div class="c-card">
+        <div class="c-card-icon">📞</div>
+        <h4 data-langkey="helpline_title">हेल्पलाइन नंबर</h4>
+        <a href="tel:+919151385320" data-langkey="helpline1">+91 9151385320</a>
+        <a href="tel:+919151385320" data-langkey="helpline2">+91 9151385320</a>
+      </div>
+      <div class="c-card">
+        <div class="c-card-icon">📧</div>
+        <h4 data-langkey="email_title">ईमेल पता</h4>
+        <a href="mailto:aimhopgroup@gmail.com" data-langkey="email">aimhopgroup@gmail.com</a>
+      </div>
+      <div class="c-card">
+        <div class="c-card-icon">⏰</div>
+        <h4 data-langkey="office_hours_title">कार्यालय समय</h4>
+        <p data-langkey="office_hours1">सोमवार – शनिवार: सुबह 9:00 – शाम 6:00</p>
+        <p data-langkey="office_hours2">रविवार: बंद</p>
+      </div>
+      <div class="c-card" style="border-color: var(--primary);">
+        <h4 data-langkey="follow_us">📱 हमें फॉलो करें</h4>
+        <div style="display:flex; gap:12px; margin-top:12px;">
+          <a href="#" style="width:38px;height:38px;background:var(--primary);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" style="width:38px;height:38px;background:#ff0000;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;"><i class="fab fa-youtube"></i></a>
+          <a href="#" style="width:38px;height:38px;background:#e1306c;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <h2 style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:8px;" data-langkey="form_title">संदेश भेजें</h2>
+      <p style="font-size:0.88rem;color:var(--gray-600);margin-bottom:28px;" data-langkey="form_subtitle">हम 24-48 घंटे में जवाब देंगे।</p>
+      <form>
+        <div class="form-group"><label data-langkey="label_name">पूरा नाम *</label><input type="text" data-langkey="ph_name" placeholder="आपका नाम" required /></div>
+        <div class="form-group"><label data-langkey="label_mobile">मोबाइल नंबर *</label><input type="tel" data-langkey="ph_mobile" placeholder="10 अंक का मोबाइल नंबर" required /></div>
+        <div class="form-group"><label data-langkey="label_email">ईमेल</label><input type="email" data-langkey="ph_email" placeholder="आपका ईमेल" /></div>
+        <div class="form-group"><label data-langkey="label_subject">विषय</label><input type="text" data-langkey="ph_subject" placeholder="संदेश का विषय" /></div>
+        <div class="form-group"><label data-langkey="label_message">संदेश *</label><textarea rows="5" data-langkey="ph_message" placeholder="अपना संदेश लिखें..." required></textarea></div>
+        <button type="submit" class="form-submit" data-langkey="btn_send">संदेश भेजें <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="container">
+    <div class="map-placeholder">
+      <div style="text-align:center;">
+        <div style="font-size:3rem;margin-bottom:12px;">📍</div>
+        <p><strong data-langkey="map_org">Aimhop Educational Trust</strong></p>
+        <p data-langkey="map_address">First Floor, Meena Bhawan, Suba Bazar Block, Gorakhpur (U.P) 273010</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../assets/js/components.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

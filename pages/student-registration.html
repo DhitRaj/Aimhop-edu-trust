@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>छात्र रजिस्ट्रेशन – Aimhop Educational Trust</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .reg-hero {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      padding: 80px 0 60px;
+      text-align: center;
+      color: var(--white);
+    }
+    .reg-hero h1 { font-size: 2.4rem; font-weight: 900; margin-bottom: 12px; }
+    .reg-hero p { opacity: 0.8; font-size: 1rem; }
+    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); }
+    .reg-section { padding: 80px 0; background: var(--light-bg); }
+    .reg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .reg-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-title { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+    .form-subtitle { font-size: 0.88rem; color: var(--gray-600); margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+    .form-group label span { color: var(--accent-red); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid var(--gray-200);
+      border-radius: 8px;
+      font-family: var(--font-hindi);
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: var(--transition);
+      background: var(--white);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(26,58,110,0.08);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--primary-dark);
+      padding: 16px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-hindi);
+      margin-top: 8px;
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.4); }
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+    .info-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 16px; }
+    .info-list { display: flex; flex-direction: column; gap: 12px; }
+    .info-item { display: flex; gap: 12px; align-items: flex-start; }
+    .info-item i { color: var(--accent); width: 18px; flex-shrink: 0; margin-top: 3px; }
+    .info-item p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: var(--radius);
+      padding: 28px;
+      color: var(--white);
+    }
+    .contact-box h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+    .contact-box a { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-bottom: 10px; }
+    .contact-box a i { color: var(--accent); }
+    @media (max-width: 900px) {
+      .reg-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="loading-skeleton">
+  <div id="skeleton-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:9999; display:flex; flex-direction:column; padding:20px; gap:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="skeleton" style="width:150px; height:40px;"></div>
+      <div class="skeleton" style="width:200px; height:20px;"></div>
+    </div>
+    <div class="skeleton" style="width:100%; height:120px; margin-top:10px;"></div>
+    <div class="skeleton" style="width:70%; height:30px; margin-top:20px;"></div>
+    <div class="skeleton" style="width:100%; height:300px; margin-top:10px;"></div>
+  </div>
+<div id="site-header" class="skeleton-comp"></div>
+
+<!-- HERO -->
+<section class="reg-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html" data-langkey="breadcrumb_home">होम</a>
+      <i class="fas fa-chevron-right" style="font-size:0.65rem"></i>
+      <span data-langkey="student_reg_hero">छात्र रजिस्ट्रेशन</span>
+    </div>
+    <h1 data-langkey="student_reg_title">छात्र रजिस्ट्रेशन</h1>
+    <p data-langkey="student_reg_subtitle">100% छात्रवृत्ति के साथ अपनी शिक्षा यात्रा शुरू करें। आज ही रजिस्टर करें!</p>
+  </div>
+</section>
+
+<!-- REGISTRATION SECTION -->
+<section class="reg-section">
+  <div class="container reg-grid">
+
+    <!-- FORM -->
+    <div class="reg-form-card">
+      <h2 class="form-title" data-langkey="reg_form_title">रजिस्ट्रेशन फॉर्म</h2>
+      <p class="form-subtitle" data-langkey="reg_form_subtitle">सभी जानकारी सही-सही भरें। हमारी टीम जल्द आपसे संपर्क करेगी।</p>
+
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-langkey="label_name">पूरा नाम <span>*</span></label>
+            <input type="text" data-langkey="ph_name" placeholder="अपना पूरा नाम लिखें" required />
+          </div>
+          <div class="form-group">
+            <label data-langkey="label_mobile">मोबाइल नंबर <span>*</span></label>
+            <input type="tel" data-langkey="ph_mobile" placeholder="10 अंकों का मोबाइल नंबर" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label data-langkey="label_email">ईमेल</label>
+            <input type="email" data-langkey="ph_email" placeholder="आपका ईमेल पता" />
+          </div>
+          <div class="form-group">
+            <label data-langkey="label_father">पिता का नाम <span>*</span></label>
+            <input type="text" data-langkey="ph_father" placeholder="पिता का नाम" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label data-langkey="label_dob">जन्म तिथि <span>*</span></label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label data-langkey="label_gender">लिंग <span>*</span></label>
+            <select required>
+              <option value="" data-langkey="opt_gender">लिंग चुनें</option>
+              <option data-langkey="opt_male">पुरुष</option>
+              <option data-langkey="opt_female">महिला</option>
+              <option data-langkey="opt_other">अन्य</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label data-langkey="label_state">राज्य <span>*</span></label>
+            <select required>
+              <option value="" data-langkey="opt_state">राज्य चुनें</option>
+              <option data-langkey="st_bihar">बिहार</option>
+              <option data-langkey="st_up">उत्तर प्रदेश</option>
+              <option data-langkey="st_jharkhand">झारखंड</option>
+              <option data-langkey="st_wb">पश्चिम बंगाल</option>
+              <option data-langkey="st_delhi">दिल्ली</option>
+              <option data-langkey="st_maharashtra">महाराष्ट्र</option>
+              <option data-langkey="st_other">अन्य</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-langkey="label_district">जिला <span>*</span></label>
+            <input type="text" data-langkey="ph_district" placeholder="अपना जिला लिखें" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label data-langkey="label_qual">शैक्षणिक योग्यता <span>*</span></label>
+          <select required>
+            <option value="" data-langkey="opt_qual">योग्यता चुनें</option>
+            <option data-langkey="q_10th">10वीं पास / पास होने वाले</option>
+            <option data-langkey="q_12th">12वीं पास / पास होने वाले</option>
+            <option data-langkey="q_grad">ग्रेजुएशन पास / पास होने वाले</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-langkey="label_pref_course">पसंदीदा कोर्स <span>*</span></label>
+          <select required>
+            <option value="" data-langkey="opt_course">कोर्स चुनें</option>
+            <option data-langkey="c_btech">B.Tech / B.E</option>
+            <option data-langkey="c_nursing">B.Sc Nursing</option>
+            <option data-langkey="c_bca">BCA / BBA / B.Com</option>
+            <option data-langkey="c_pharma">B.Pharma / BMLT</option>
+            <option data-langkey="c_dip_eng">Diploma in Engineering</option>
+            <option data-langkey="c_para">Paramedical Diploma</option>
+            <option data-langkey="c_mtech">M.Tech</option>
+            <option data-langkey="c_mba">MBA / MCA</option>
+            <option data-langkey="c_msc">M.Sc / M.Com</option>
+            <option data-langkey="c_other">अन्य</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-langkey="label_address">पता <span>*</span></label>
+          <textarea rows="3" data-langkey="ph_address" placeholder="अपना पूरा पता लिखें" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label data-langkey="label_query">कोई प्रश्न या संदेश</label>
+          <textarea rows="3" data-langkey="ph_query" placeholder="अपना प्रश्न या संदेश लिखें (वैकल्पिक)"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" data-langkey="btn_reg_submit">
+          <i class="fas fa-paper-plane"></i> रजिस्ट्रेशन सबमिट करें
+        </button>
+      </form>
+    </div>
+
+    <!-- INFO SIDEBAR -->
+    <div>
+      <div class="info-card">
+        <h3 data-langkey="reg_info_title">📋 रजिस्ट्रेशन की जानकारी</h3>
+        <div class="info-list">
+          <div class="info-item">
+            <i class="fas fa-check-circle"></i>
+            <p data-langkey="reg_info_p1">रजिस्ट्रेशन बिल्कुल <strong>मुफ्त</strong> है। कोई शुल्क नहीं।</p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-check-circle"></i>
+            <p data-langkey="reg_info_p2">फॉर्म भरने के बाद हमारी टीम <strong>24-48 घंटे</strong> में संपर्क करेगी।</p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-check-circle"></i>
+            <p data-langkey="reg_info_p3">100% ट्यूशन फीस माफी। <strong>कोई लोन नहीं, कोई EMI नहीं।</strong></p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-check-circle"></i>
+            <p data-langkey="reg_info_p4">सरकारी विश्वविद्यालय से संबद्ध <strong>मान्यता प्राप्त कॉलेजों</strong> में प्रवेश।</p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-check-circle"></i>
+            <p data-langkey="reg_info_p5">बिना <strong>एंट्रेंस एग्जाम</strong> के सीधा एडमिशन।</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3 data-langkey="req_docs_title">📄 आवश्यक दस्तावेज़</h3>
+        <div class="info-list">
+          <div class="info-item"><i class="fas fa-file-alt"></i><p data-langkey="doc_marksheet">10वीं / 12वीं / ग्रेजुएशन की मार्कशीट</p></div>
+          <div class="info-item"><i class="fas fa-id-card"></i><p data-langkey="doc_aadhar">आधार कार्ड / पहचान पत्र</p></div>
+          <div class="info-item"><i class="fas fa-image"></i><p data-langkey="doc_photo">पासपोर्ट साइज फोटो (4 नग)</p></div>
+          <div class="info-item"><i class="fas fa-file"></i><p data-langkey="doc_caste">जाति प्रमाण पत्र (यदि लागू हो)</p></div>
+          <div class="info-item"><i class="fas fa-home"></i><p data-langkey="doc_residence">निवास प्रमाण पत्र</p></div>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <h4 data-langkey="contact_help_title">📞 सहायता के लिए संपर्क करें</h4>
+        <a href="tel:+919151385320"><i class="fas fa-phone-alt"></i> +91 9151385320</a>
+        <a href="mailto:aimhopgroup@gmail.com"><i class="fas fa-envelope"></i> aimhopgroup@gmail.com</a>
+        <a href="#" data-langkey="whatsapp_contact"><i class="fab fa-whatsapp"></i> WhatsApp पर संपर्क करें</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+
+<button class="scroll-top" id="scrollTop" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
+<script src="../assets/js/components.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
+

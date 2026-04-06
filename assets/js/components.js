@@ -1,0 +1,2155 @@
+/* ============================================
+   AIMHOP EDUCATIONAL TRUST – COMPONENTS & LOCALIZATION
+   ============================================ */
+
+const pathname = window.location.pathname;
+const isRoot = !pathname.includes('/pages/');
+const rt = isRoot ? '' : '../';
+const pg = isRoot ? 'pages/' : '';
+
+// HEADER HTML TEMPLATE
+const HEADER_HTML = `
+<header class="main-header" id="mainHeader">
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <a href="tel:+919151385320"><i class="fas fa-phone-alt"></i> +91 9151385320</a>
+        <a href="mailto:aimhopgroup@gmail.com" class="hide-mobile"><i class="fas fa-envelope"></i> aimhopgroup@gmail.com</a>
+      </div>
+      <div class="top-bar-right">
+        <div class="lang-selector" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.1); padding:4px 10px; border-radius:4px; margin-right:15px;">
+          <i class="fas fa-globe" style="font-size:0.75rem; color:var(--accent);"></i>
+          <select id="lang-switcher" style="background:transparent; border:none; color:inherit; font-size:0.75rem; font-weight:600; cursor:pointer; outline:none;">
+            <option value="hi" style="color:#333;">हिन्दी (Hindi)</option>
+            <option value="en" style="color:#333;">English</option>
+          </select>
+        </div>
+        <a href="${pg}blog.html" data-langkey="blog" class="hide-mobile" style="font-weight:600; font-size:0.8rem; margin-right:15px; color:rgba(255,255,255,0.8);">Blog Spot</a>
+        <div class="social-icons hide-mobile">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-inner">
+    <a href="${rt}index.html" class="logo">
+      <div class="logo-box">
+        <i class="fas fa-graduation-cap logo-icon"></i>
+        <div class="logo-text">
+          <span class="logo-main">AIMHOP</span>
+          <span class="logo-sub">Educational Trust</span>
+        </div>
+      </div>
+    </a>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="main-nav" id="mainNav">
+      <div class="mobile-nav-header">
+        <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+      </div>
+      <ul>
+        <li><a href="${rt}index.html" data-langkey="home">होम</a></li>
+        <li class="has-dropdown mobile-acc">
+          <div class="nav-link-wrapper">
+            <a href="#" data-langkey="about">हमारे बारे में</a>
+            <span class="toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul class="dropdown">
+             <li><a href="${pg}about.html" data-langkey="about_aimhop">About Aimhop</a></li>
+             <li><a href="${pg}chairman-message.html" data-langkey="chairman">Chairman's Message</a></li>
+             <li><a href="${pg}success-story.html" data-langkey="success">Success Story</a></li>
+             <li><a href="${pg}achievements.html" data-langkey="achievements">Achievements</a></li>
+             <li><a href="${pg}our-team.html" data-langkey="our_team">Our Team</a></li>
+             <li><a href="${pg}our-mentors.html" data-langkey="our_mentors">Our Mentors</a></li>
+             <li><a href="${pg}appeal-parents.html" data-langkey="appeal">Appeal to Parents</a></li>
+             <li><a href="${pg}awards.html" data-langkey="awards">Awards</a></li>
+             <li><a href="${pg}infrastructure.html" data-langkey="infra">Infrastructure</a></li>
+          </ul>
+        </li>
+        <li><a href="${pg}course.html" data-langkey="course">कोर्स</a></li>
+        <li><a href="${pg}university.html" data-langkey="university">University</a></li>
+        <li class="has-dropdown mobile-acc">
+          <div class="nav-link-wrapper">
+            <a href="#" data-langkey="service">Services</a>
+            <span class="toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul class="dropdown">
+            <li><a href="${pg}for-student.html" data-langkey="for_student">Services for Students</a></li>
+            <li><a href="${pg}latest-activity.html" data-langkey="latest_activity">Latest Activity</a></li>
+            <li><a href="${pg}download.html" data-langkey="download">Downloads</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown mobile-acc">
+          <div class="nav-link-wrapper">
+            <a href="#" data-langkey="registration">Registration</a>
+            <span class="toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul class="dropdown">
+             <li><a href="${pg}student-registration.html" data-langkey="student_reg">छात्र रजिस्ट्रेशन</a></li>
+             <li><a href="${pg}college-registration.html" data-langkey="college_reg">कॉलेज रजिस्ट्रेशन</a></li>
+             <li><a href="${pg}associate-registration.html" data-langkey="associate_reg">एसोसिएट रजिस्ट्रेशन</a></li>
+             <li><a href="${pg}coordinator-registration.html" data-langkey="coordinator_reg">Coordinator Registration</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown mobile-acc">
+          <div class="nav-link-wrapper">
+            <a href="#" data-langkey="gallery">Gallery</a>
+            <span class="toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul class="dropdown">
+             <li><a href="${pg}photo-gallery.html" data-langkey="photo_gallery">Photo Gallery</a></li>
+             <li><a href="${pg}video-gallery.html" data-langkey="video_gallery">Video Gallery</a></li>
+             <li><a href="${pg}news.html" data-langkey="news">ताज़ा समाचार</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown mobile-acc">
+          <div class="nav-link-wrapper">
+            <a href="#" data-langkey="our_wing">Our Wing</a>
+            <span class="toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul class="dropdown">
+             <li><a href="${pg}educational-wing.html" data-langkey="edu_wing">Educational Wing</a></li>
+             <li><a href="${pg}placement-wing.html" data-langkey="place_wing">Placement Wing</a></li>
+             <li><a href="${pg}media-wing.html" data-langkey="media_wing">Media Wing</a></li>
+             <li><a href="${pg}it-wing.html" data-langkey="it_wing">IT Wing</a></li>
+          </ul>
+        </li>
+        <li><a href="${pg}contact.html" data-langkey="contact">संपर्क करें</a></li>
+        <li class="mobile-only"><a href="${pg}student-registration.html" class="mobile-apply" data-langkey="apply">Apply Now</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right" style="display:flex; align-items:center; gap:20px;">
+      <a href="${pg}student-registration.html" class="btn-apply" data-langkey="apply">अभी आवेदन करें</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<style>
+  .mobile-only { display: none !important; }
+  @media (max-width: 1200px) {
+    .main-nav > ul > li > a { padding: 8px 10px; font-size: 0.75rem; }
+  }
+  @media (max-width: 900px) {
+    .mobile-only { display: block !important; }
+    .btn-apply { display: none !important; }
+  }
+</style>
+`;
+
+// FOOTER HTML TEMPLATE
+const FOOTER_HTML = `
+<footer class="main-footer">
+  <div class="footer-top">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="${rt}index.html" class="footer-logo">
+          <i class="fas fa-graduation-cap logo-icon"></i>
+          <div class="logo-text">
+            <span class="logo-main">AIMHOP</span>
+            <span class="logo-sub">Educational Trust</span>
+          </div>
+        </a>
+        <p data-langkey="footer_desc">देशभर के विद्यार्थियों को श्रेष्ठ और गुणवत्तापूर्ण शिक्षा के लिए सरकारी विश्वविद्यालयों से संबद्ध महाविद्यालयों में प्रवेश दिलाने हेतु समर्पित एक गैर-लाभकारी संगठन।</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-langkey="quick_links">त्वरित लिंक्स</h4>
+        <ul>
+          <li><a href="${rt}index.html" data-langkey="home">होम</a></li>
+          <li><a href="${pg}about.html" data-langkey="about">हमारे बारे में</a></li>
+          <li><a href="${pg}course.html" data-langkey="course">कोर्स</a></li>
+          <li><a href="${pg}gallery.html" data-langkey="gallery">गैलरी</a></li>
+          <li><a href="${pg}contact.html" data-langkey="contact">संपर्क करें</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-langkey="important_links">महत्वपूर्ण लिंक्स</h4>
+        <ul>
+          <li><a href="${pg}student-registration.html" data-langkey="student_reg">छात्र रजिस्ट्रेशन</a></li>
+          <li><a href="${pg}college-registration.html" data-langkey="college_reg">कॉलेज रजिस्ट्रेशन</a></li>
+          <li><a href="${pg}associate-registration.html" data-langkey="associate_reg">एसोसिएट रजिस्ट्रेशन</a></li>
+          <li><a href="${pg}news.html" data-langkey="news">ताज़ा समाचार</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-langkey="contact_info">संपर्क जानकारी</h4>
+        <div class="footer-address">
+          <i class="fas fa-map-marker-alt"></i>
+          <span data-langkey="address_text">बिहार, झारखंड, उत्तर प्रदेश, दिल्ली, मध्य प्रदेश, राजस्थान (पूरे भारत में उपलब्ध)</span>
+        </div>
+        <div class="footer-contact">
+          <a href="tel:+919151385320"><i class="fas fa-phone-alt"></i> +91 9151385320</a>
+          <a href="mailto:aimhopgroup@gmail.com"><i class="fas fa-envelope"></i> aimhopgroup@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p data-langkey="copyright">Copyright &copy; 2024 <strong>Aimhop Educational Trust</strong>. All Rights Reserved.</p>
+      <p>Designed with <i class="fas fa-heart" style="color:var(--accent-red);"></i> for India</p>
+    </div>
+  </div>
+</footer>
+`;
+
+// LANGUAGE MAP
+const langMap = {
+  hi: {
+    blog: 'ब्लॉग',
+    home: 'होम',
+    about: 'हमारे बारे में',
+    associate: 'हमारे सहयोगी',
+    coordinator: 'हमारे समन्वयक',
+    download: 'डाउनलोड',
+    career: 'करियर',
+    about_aimhop: 'Aimhop के बारे में',
+    chairman: 'अध्यक्ष का संदेश',
+    success: 'सफलता की कहानी',
+    achievements: 'उपलब्धियां',
+    our_team: 'हमारी टीम',
+    our_mentors: 'हमारे संरक्षक',
+    appeal: 'अभिभावकों से अपील',
+    awards: 'पुरस्कार',
+    infra: 'इन्फ्रास्ट्रक्चर',
+    course: 'कोर्स',
+    university: 'विश्वविद्यालय',
+    registration: 'पंजीकरण',
+    student_reg: 'छात्र पंजीकरण',
+    college_reg: 'कॉलेज पंजीकरण',
+    associate_reg: 'सहयोगी पंजीकरण',
+    coordinator_reg: 'समन्वयक पंजीकरण',
+    gallery: 'गैलरी',
+    photo_gallery: 'फोटो गैलरी',
+    video_gallery: 'वीडियो गैलरी',
+    news: 'समाचार',
+    contact: 'संपर्क करें',
+    our_wing: 'हमारे विंग',
+    apply: 'अभी आवेदन करें',
+    footer_desc: 'Aimhop एजुकेशनल एंड चैरिटेबल ट्रस्ट – हर योग्य छात्र को गुणवत्तापूर्ण शिक्षा प्रदान करना।',
+    quick_links: 'क्विक लिंक्स',
+    important_links: 'महत्वपूर्ण लिंक्स',
+    contact_info: 'संपर्क विवरण',
+    address_text: 'बिहार – झारखंड – उत्तर प्रदेश – दिल्ली – मध्य प्रदेश – राजस्थान (देशभर में उपलब्ध)',
+    news_gallery: 'समाचार एवं गैलरी',
+    hq: 'मुख्यालय',
+    latest_activity: 'नवीनतम गतिविधियाँ',
+    blog_spot: 'ब्लॉग स्पॉट',
+    nepal_wing: 'नेपाल विंग',
+    kashmir_wing: 'कश्मीर विंग',
+    maharashtra_wing: 'महाराष्ट्र विंग',
+    for_student: 'छात्रों के लिए',
+    service: 'सेवा',
+    copyright: 'कॉपीराइट &copy; 2025 <a href="${rt}index.html">Aimhop</a>. सर्वाधिकार सुरक्षित।',
+    terms: 'नियम',
+    privacy: 'गोपनीयता',
+    refund: 'रिफंड',
+    site_title: 'Aimhop एजुकेशनल ट्रस्ट – पढ़ेगा इंडिया, बढ़ेगा इंडिया',
+    c_other: 'अन्य',
+    designed_by: '<strong>Aimhop Educational Trust</strong> के लिए प्यार के साथ डिज़ाइन किया गया',
+
+    // index.html
+    hero_badge: '🎓 100% छात्रवृत्ति के साथ एडमिशन',
+    hero_slide1_title: 'Aimhop Educational <br /><span class="highlight">& Charitable Trust</span>',
+    hero_slide1_desc: 'सरकारी विश्वविद्यालय से संबद्ध कॉलेजों में 100% छात्रवृत्ति के साथ प्रवेश सुरक्षित करें। हम असंभव को संभव बनाते हैं।',
+    reg_now: 'अभी पंजीकरण करें',
+    learn_more: 'अधिक जानें',
+    happy_students: 'खुश छात्र',
+    associates_count: 'सहयोगी',
+    institutions_count: 'संस्थान',
+    scholarship_title: '100% छात्रवृत्ति',
+    no_loan_desc: 'ट्यूशन फीस पर',
+    no_loan_title: 'कोई लोन नहीं, कोई ईएमआई नहीं',
+    no_loan_subtitle: 'बिना कर्ज के शिक्षा',
+    hero_slide2_badge: '⭐ कोई लोन नहीं, कोई ईएमआई नहीं',
+    hero_slide2_title: 'बिना किसी <br /><span class="highlight">कर्ज के पढ़ें</span>',
+    hero_slide2_desc: 'बिना किसी लोन या ईएमआई के हमारे साथ पढ़ाई करें। शिक्षा सबके लिए!',
+    courses_count: 'कोर्स',
+    states_count: 'राज्य',
+    placement_label: 'प्लेसमेंट',
+    zero_emi: 'जीरो ईएमआई',
+    affordable_edu: 'सस्ती शिक्षा',
+    founder_ceo: 'चीफ मैनेजिंग डायरेक्टर',
+    aimhop_trust: 'Aimhop एजुकेशनल ट्रस्ट',
+    verified_trust: 'वेरिफाइड ट्रस्ट',
+    no_loan_badge: '<span>कोई लोन नहीं</span><span>कोई स्टूडेंट क्रेडिट</span><span>कार्ड की आवश्यकता नहीं</span>',
+    about_us_label: 'हमारे बारे में',
+    about_us_title: 'कम फीस में Govt. University Affiliated Colleges में <span class="accent">100% Scholarship</span> के साथ एडमिशन',
+    about_us_desc: 'इस शानदार अवसर के साथ अपनी शैक्षणिक यात्रा शुरू करें। हम छात्रवृत्ति प्रदान करते हैं जो ट्यूशन फीस का 100% तक कवर करती है। हम असंभव को संभव बनाते हैं — हर कदम पर विशेषज्ञों का मार्गदर्शन प्रदान करते हैं।',
+    mission: 'मिशन',
+    mission_desc: 'पढ़ेगा इंडिया, बढ़ेगा इंडिया: हम योग्य छात्रों को पूरी ट्यूशन सहायता प्रदान करते हैं।',
+    vision_desc: 'एक ऐसे समाज का निर्माण करना जहाँ हर योग्य छात्र को गुणवत्तापूर्ण शिक्षा मिल सके।',
+    values: 'मूल्य',
+    values_desc: 'हम समान शिक्षा के अवसरों, छात्रों के सशक्तिकरण और उत्कृष्टता में विश्वास करते हैं।',
+
+    // about.html
+    about_aimhop_title: 'Aimhop Educational Trust के बारे में',
+    about_aimhop_subtitle: 'आर्थिक रूप से पिछड़े छात्रों के लिए 100% ट्यूशन सहायता',
+    identity_label: 'हमारी पहचान',
+    identity_title: 'Aimhop Educational <span class="accent">&amp; Charitable Trust</span>',
+    identity_p1: 'Aimhop Educational &amp; Charitable Trust एक समर्पित संस्थान है जो आर्थिक रूप से पिछड़े छात्रों के लिए उच्च शिक्षा को सुलभ बनाने के लिए प्रतिबद्ध है। डॉ. एपीजे अब्दुल कलाम और स्वामी विवेकानंद के सपनों से प्रेरित होकर, यह ट्रस्ट उन छात्रों के सशक्तिकरण पर ध्यान केंद्रित करता है जो रहने और परीक्षा शुल्क का खर्च उठा सकते हैं लेकिन कॉलेज की भारी फीस के बोझ से संघर्ष करते हैं।',
+    identity_p2: 'कॉलेज की फीस की जिम्मेदारी लेकर, यह ट्रस्ट छात्रों की शैक्षणिक आकांक्षाओं को वास्तविकता में बदलने में महत्वपूर्ण भूमिका निभाता है। ट्रस्ट का लक्ष्य भारत के ग्रॉस एनरोलमेंट रेशियो (GER) में सुधार करना है।',
+    identity_p3: 'स्वामी विवेकानंद ने कहा था — "हमें वह शिक्षा चाहिए जिससे चरित्र निर्माण हो, मानसिक शक्ति बढ़े, बुद्धि का विकास हो और जिससे व्यक्ति अपने पैरों पर खड़ा हो सके।" Aimhop Trust इसी उद्देश्य के लिए शिक्षा के क्षेत्र में निरंतर नई क्रांतियाँ कर रहा है।',
+    ahi_students: 'लाभान्वित छात्र',
+    ahi_tuition: 'ट्यूशन छूट',
+    ahi_associates: 'सहयोगी नेटवर्क',
+    ahi_est: 'स्थापना वर्ष',
+    apply_scholarship: 'छात्रवृत्ति के लिए आवेदन करें',
+    why_different: '✅ हम अलग क्यों हैं',
+    diff_tuition: '100% ट्यूशन फीस माफी',
+    diff_no_loan: 'कोई लोन नहीं, कोई ईएमआई नहीं',
+    diff_no_exam: 'प्रवेश परीक्षा के बिना सीधा प्रवेश',
+    diff_colleges: 'सरकारी मान्यता प्राप्त कॉलेज',
+    diff_network: 'अखिल भारतीय नेटवर्क',
+    breadcrumb_home: 'होम',
+
+    // chairman-message.html
+    chairman_page_title: 'अध्यक्ष का संदेश – Aimhop Educational Trust',
+    chairman_hero_title: 'अध्यक्ष का संदेश',
+    chairman_hero_subtitle: 'ओ.पी यादव (पूर्व सैनिक) – संस्थापक CEO, Aimhop Educational Trust',
+    chairman_name: 'ओ.पी यादव (पूर्व सैनिक)',
+    chairman_post: 'चीफ मैनेजिंग डायरेक्टर',
+    chairman_edu: 'एम.ए. (राजनीति विज्ञान)',
+    chairman_location: 'पटना, बिहार',
+    chairman_active: '2018 से सक्रिय',
+    kalam_quote: '"सपने वो नहीं जो आप सोते समय देखते हैं, सपने वो हैं जो आपको सोने नहीं देते।"',
+    vivek_quote: '"उठो, जागो और तब तक मत रुको जब तक लक्ष्य प्राप्त न हो जाए।"',
+    chairman_msg_label: 'अध्यक्ष का संदेश',
+    chairman_msg_title: 'प्रिय <span class="accent">छात्रों और अभिभावकों</span>,',
+    chairman_msg_p1: 'Aimhop Educational & Charitable Trust में आपका स्वागत है। मैं, ओ.पी यादव (पूर्व सैनिक), इस ट्रस्ट का CMD, आज आपसे एक महत्वपूर्ण बात साझा करना चाहता हूँ।',
+    chairman_msg_p2: 'जब मैंने इस ट्रस्ट की स्थापना की थी, तो मेरा सिर्फ एक ही सपना था — भारत के उन प्रतिभाशाली छात्रों तक शिक्षा पहुंचाना जो आर्थिक तंगी के कारण अपनी पढ़ाई अधूरी छोड़ देते हैं। डॉ. एपीजे अब्दुल कलाम कहते थे, "सपने वो नहीं जो आप सोते समय देखते हैं, सपने वो हैं जो आपको सोने नहीं देते।" हम इसी सपने को लेकर आगे बढ़ रहे हैं।',
+    chairman_mission_title: 'हमारी यात्रा',
+    chairman_mission_p1: '2018 में शुरू हुए इस सफर में आज 25,000 से अधिक छात्र लाभान्वित हो चुके हैं। हमने साबित कर दिया है कि पैसे की कमी शिक्षा की राह में बाधा नहीं बन सकती। हमारा मिशन "पढ़ेगा इंडिया, बढ़ेगा इंडिया" इसी विचारधारा का प्रतीक है।',
+    chairman_mission_p2: 'स्वामी विवेकानंद ने कहा था, "हमें वह शिक्षा चाहिए जिससे चरित्र निर्माण हो, मानसिक शक्ति बढ़े, बुद्धि का विकास हो।" हम इसी आदर्श का पालन कर रहे हैं।',
+    chairman_req_title: 'आपसे अपील',
+    chairman_req_p: 'अगर आप या आपके परिवार में कोई भी प्रतिभाशाली छात्र आर्थिक कारणों से उच्च शिक्षा से वंचित है, तो आज ही Aimhop Trust से जुड़ें। कॉलेज फीस की जिम्मेदारी हम लेते हैं ताकि आप बिना किसी चिंता के अपने सपनों की ओर बढ़ सकें।',
+    chairman_msg_footer: 'याद रखें — शिक्षा ही वह हथियार है जिससे आप दुनिया बदल सकते हैं। और हम वो हाथ हैं जो इस हथियार को आप तक पहुंचाएंगे।',
+    founder_name: 'ओ.पी यादव (पूर्व सैनिक)',
+    founder_title: 'संस्थापक CEO',
+    achievements_label: 'हमारी उपलब्धियां',
+    trust_title: 'Aimhop एजुकेशनल ट्रस्ट – <span>पूरे भारत में छात्रों का भरोसा</span>',
+    trust_desc: 'सिर्फ हमारी बात न मानें, आँकड़ों पर भरोसा करें!',
+    happy_students_label: 'खुश छात्र',
+    associates_label: 'भारत और नेपाल में सहयोगी',
+    coordinators_label: 'भारत और नेपाल में समन्वयक',
+    top_inst: 'शीर्ष संस्थान',
+    success_story: 'सफलता की कहानी',
+    success_label: 'प्रेरक परिवर्तन',
+    success_title: 'सफलता की कहानियाँ: <span class="accent">प्रेरक परिवर्तन</span>',
+    success_desc: 'Aimhop Educational & Charitable Trust, श्री ओ.पी यादव (पूर्व सैनिक) के नेतृत्व में, आर्थिक रूप से पिछड़े छात्रों को 100% ट्यूशन सहायता प्रदान करता है। डॉ. एपीजे अब्दुल कलाम और स्वामी विवेकानंद से प्रेरित होकर, ट्रस्ट अपने मिशन "पढ़ेगा इंडिया, बढ़ेगा इंडिया" के माध्यम से छात्रों को उच्च शिक्षा प्राप्त करने में मदद करता है।',
+    success_quote: '"हमें वह शिक्षा चाहिए जिससे चरित्र निर्माण हो, मानसिक शक्ति बढ़े, बुद्धि का विकास हो और जिससे व्यक्ति अपने पैरों पर खड़ा हो सके।"',
+    success_author: '— स्वामी विवेकानंद',
+    read_more: 'और पढ़ें',
+    courses_label: 'अकादमिक पथ',
+    courses_title: 'अकादमिक मार्ग: <span class="accent">भविष्य को सशक्त बनाना</span>',
+    after_10th: '10वीं के बाद',
+    after_10th_desc: '10वीं के बाद डिप्लोमा, आईटीआई और अन्य व्यावसायिक पाठ्यक्रम उपलब्ध हैं।',
+    c_dip_eng: 'इंजीनियरिंग में डिप्लोमा',
+    c_iti: 'आईटीआई कोर्स',
+    c_poly: 'पॉलिटेक्निक',
+    c_para: 'पैरामेडिकल डिप्लोमा',
+    click_here: 'यहाँ क्लिक करें',
+    popular: 'सबसे लोकप्रिय',
+    after_12th: '12वीं के बाद',
+    after_12th_desc: 'इंटरमीडिएट के बाद बी.टेक, बी.एससी, बी.कॉम और अन्य स्नातक पाठ्यक्रम।',
+    c_btech: 'बी.टेक / बी.ई',
+    c_nursing: 'बी.एससी नर्सिंग',
+    c_bca: 'बीसीए / बीबीए / बी.कॉम',
+    c_pharma: 'बी.फार्मा / बीएमएलटी',
+    after_grad: 'स्नातक के बाद',
+    after_grad_desc: 'स्नातक के बाद एम.टेक, एमबीए, एमसीए और अन्य स्नातकोत्तर पाठ्यक्रम।',
+    c_mtech: 'एम.टेक / एम.ई',
+    c_mba: 'एमबीए / एमसीए',
+    c_msc: 'एम.एससी / एम.कॉम',
+    c_mpharma: 'एम.फार्मा',
+    apply_process: 'आवेदन प्रक्रिया',
+    gateway_title: '<span class="accent">100% छात्रवृत्ति</span> का प्रवेश द्वार',
+    step1_title: 'पंजीकरण',
+    step1_desc: 'ऑनलाइन फॉर्म भरें',
+    step2_title: 'दस्तावेज़ जमा करें',
+    step2_desc: 'आवश्यक दस्तावेज़',
+    step3_title: 'परामर्श',
+    step3_desc: 'हमारे विशेषज्ञ से मिलें',
+    step4_title: 'प्रवेश की पुष्टि',
+    step4_desc: 'दाखिला सुरक्षित',
+    our_uni: 'हमारे विश्वविद्यालय',
+    uni_list: 'विश्वविद्यालयों की सूची',
+    uni_subtitle: 'हम सरकारी विश्वविद्यालय से संबद्ध कॉलेजों में <strong>100% छात्रवृत्ति</strong> के साथ प्रवेश प्रदान करते हैं',
+    awards_label: 'हमारे पुरस्कार',
+    awards_title: '<span class="accent">हमारे प्रभाव</span> का जश्न',
+    awards_desc: 'ये पुरस्कार शैक्षिक सशक्तिकरण के प्रति Aimhop Trust की प्रतिबद्धता का सम्मान करते हैं।',
+    activity_label: 'नवीनतम गतिविधियाँ',
+    activity_title: 'नवीनतम <span class="accent">गतिविधियाँ</span>',
+    visit_chairman: 'अध्यक्ष का छात्र दौरा',
+    date_march_25: 'मार्च 2025',
+    visit_desc1: 'छात्रों को प्रेरित करने और उनसे जुड़ने के लिए अध्यक्ष का दौरा',
+    inspiring_college: 'जून में प्रेरणादायक कॉलेज दौरा',
+    date_june_25: 'जून 2025',
+    visit_desc2: 'अगली पीढ़ी को प्रेरित करना: अध्यक्ष का कॉलेज दौरा',
+    relationship_building: 'रिश्ते बनाना: हालिया दौरा',
+    date_feb_25: 'फरवरी 2025',
+    visit_desc3: 'रिश्ते बनाना: अध्यक्ष का हालिया कॉलेज दौरा',
+    video_label: 'नवीनतम वीडियो',
+    video_title: 'नवीनतम <span class="accent">वीडियो</span>',
+    video_quote: '<strong>Aimhop Educational & Charitable Trust – क्या आप जानते हैं सपने कैसे सच होते हैं...</strong>',
+    v1_thumb_title: '🎓 प्रवेश परीक्षा 2026 के बिना सीधा प्रवेश!',
+    v1_title: '🎓 प्रवेश परीक्षा 2026 के बिना सीधा प्रवेश! मुफ्त उच्च शिक्षा अभियान का पूरा विवरण।',
+    v2_thumb_title: 'भारत के किसी भी राज्य में मुफ्त शिक्षा!',
+    v2_title: 'भारत के किसी भी राज्य में अपना पसंदीदा कोर्स बिल्कुल मुफ्त पढ़ें!',
+    v3_thumb_title: 'कॉलेज लाइफ: रहना और खाना',
+    v3_title: 'कॉलेज लाइफ का सबसे बड़ा हिस्सा: रहना और खाना। बिहार के एक छात्र का अनुभव देखें। 🍱📚',
+    btn_subscribe: 'सब्सक्राइब',
+    testimonials_label: 'छात्रों की प्रतिक्रिया',
+    testimonials_title: 'छात्रों के <span class="accent">प्रशंसापत्र</span>',
+    testi1_text: '"0 ट्यूशन फीस पर B Pharma कोर्स में एडमिशन लिया, Aimhop Trust को बहुत-बहुत धन्यवाद जिसने मुझे मुफ्त में पढ़ने का मौका दिया। धन्यवाद Aimhop Trust। ❤️"',
+    student: 'छात्र',
+    infra_label: 'इन्फ्रास्ट्रक्चर',
+    infra_title: 'आधुनिक और <span class="accent">सुविधाजनक</span> वातावरण',
+    infra_p1: 'Aimhop Educational & Charitable Trust में हम हर पहलू में अपने छात्रों और उनके अभिभावकों की सुविधा को प्राथमिकता देते हैं। हमारा सुव्यवस्थित बुनियादी ढांचा एक स्वागत योग्य और सहायक वातावरण प्रदान करता है।',
+    infra_p2: 'हमने खुली चर्चा, सूचना सत्र और व्यक्तिगत परामर्श के लिए स्थान बनाए हैं ताकि माता-पिता अपने बच्चों के भविष्य के बारे में सूचित निर्णय ले सकें।',
+    btn_learn_more: 'अधिक जानें',
+    infra_svg_title: 'हमारा इन्फ्रास्ट्रक्चर',
+    infra_svg_desc: 'Aimhop एजुकेशनल ट्रस्ट - प्रधान कार्यालय',
+
+    // contact.html
+    breadcrumb_home: 'होम',
+    contact_hero: 'संपर्क करें',
+    contact_title: 'संपर्क करें',
+    contact_subtitle: 'हम यहाँ आपकी मदद के लिए हैं। आज ही हमसे संपर्क करें।',
+    info_title: 'संपर्क जानकारी',
+    info_p: 'कोई सवाल है? हमें कॉल करें या संदेश भेजें, हमारी टीम जल्द ही आपसे संपर्क करेगी।',
+    label_name: 'पूरा नाम *',
+    label_email: 'ईमेल *',
+    label_subject: 'विषय',
+    label_message: 'संदेश *',
+    ph_name: 'अपना नाम लिखें',
+    ph_email: 'ईमेल पता',
+    ph_subject: 'विषय लिखें',
+    ph_message: 'अपना संदेश लिखें...',
+    btn_send: 'संदेश भेजें',
+    map_org: 'Aimhop एजुकेशनल ट्रस्ट',
+    map_address: 'प्रथम तल, मीणा भवन, सूबा बाजार ब्लॉक, गोरखपुर (यू.पी.) 273010',
+
+    // student-registration.html
+    student_reg_hero: 'छात्र पंजीकरण',
+    student_reg_title: 'छात्र पंजीकरण',
+    student_reg_subtitle: '100% छात्रवृत्ति के साथ अपनी शैक्षिक यात्रा शुरू करें। आज ही पंजीकरण करें!',
+    reg_form_title: 'पंजीकरण फॉर्म',
+    reg_form_subtitle: 'कृपया सभी जानकारी सही-सही भरें। हमारी टीम जल्द ही आपसे संपर्क करेगी।',
+    label_mobile: 'मोबाइल नंबर *',
+    label_father: 'पिता का नाम *',
+    label_dob: 'जन्म तिथि *',
+    label_gender: 'लिंग *',
+    label_state: 'राज्य *',
+    label_district: 'जिला *',
+    label_qual: 'शैक्षणिक योग्यता *',
+    label_pref_course: 'पसंदीदा कोर्स *',
+    label_address: 'पता *',
+    label_query: 'कोई प्रश्न या संदेश',
+    ph_mobile: '10 अंकों का मोबाइल नंबर',
+    ph_father: 'पिता का नाम',
+    ph_district: 'अपना जिला लिखें',
+    ph_address: 'अपना पूरा पता लिखें',
+    ph_query: 'अपना प्रश्न या संदेश लिखें (वैकल्पिक)',
+    opt_gender: 'लिंग चुनें',
+    opt_male: 'पुरुष',
+    opt_female: 'महिला',
+    opt_other: 'अन्य',
+    opt_state: 'राज्य चुनें',
+    st_bihar: 'बिहार',
+    st_up: 'उत्तर प्रदेश',
+    st_jharkhand: 'झारखंड',
+    st_wb: 'पश्चिम बंगाल',
+    st_delhi: 'दिल्ली',
+    st_maharashtra: 'महाराष्ट्र',
+    st_nepal: 'नेपाल',
+    st_other: 'अन्य',
+    opt_qual: 'योग्यता चुनें',
+    q_10th: '10वीं पास / अध्ययनरत',
+    q_12th: '12वीं पास / अध्ययनरत',
+    q_grad: 'स्नातक पास / अध्ययनरत',
+    opt_course: 'कोर्स चुनें',
+    btn_reg_submit: 'पंजीकरण जमा करें',
+    reg_info_title: '📋 पंजीकरण जानकारी',
+    reg_info_p1: 'पंजीकरण बिल्कुल <strong>मुफ्त</strong> है। कोई शुल्क नहीं।',
+    reg_info_p2: 'फॉर्म भरने के बाद हमारी टीम <strong>24-48 घंटों</strong> के भीतर आपसे संपर्क करेगी।',
+    reg_info_p3: '100% ट्यूशन फीस माफी। <strong>कोई लोन नहीं, कोई ईएमआई नहीं।</strong>',
+    reg_info_p4: 'सरकारी विश्वविद्यालयों से संबद्ध <strong>मान्यता प्राप्त कॉलेजों</strong> में प्रवेश।',
+    reg_info_p5: 'बिना किसी <strong>प्रवेश परीक्षा</strong> के सीधा प्रवेश।',
+    req_docs_title: '📄 आवश्यक दस्तावेज़',
+    doc_marksheet: '10वीं / 12वीं / स्नातक मार्कशीट',
+    doc_aadhar: 'आधार कार्ड / पहचान पत्र',
+    doc_photo: 'पासपोर्ट साइज फोटो (4 प्रतियाँ)',
+    doc_caste: 'जाति प्रमाण पत्र (यदि लागू हो)',
+    doc_residence: 'निवास प्रमाण पत्र',
+    contact_help_title: '📞 सहायता के लिए संपर्क करें',
+    whatsapp_contact: 'व्हाट्सएप पर संपर्क करें',
+    all_courses: 'सभी कोर्स',
+    nepal_wing_h1: '🇳🇵 नेपाल विंग',
+    nepal_wing_desc: 'नेपाल में Aimhop Trust का विशेष विंग',
+    nepal_wing_label: 'नेपाल विंग',
+    nepal_wing_h2: 'नेपाल विंग – <span class="accent">नेपाल</span>',
+    nepal_wing_p1: 'नेपाल विंग की स्थापना 2023 में हुई थी। नेपाल के छात्र जो भारत में उच्च शिक्षा प्राप्त करना चाहते हैं, वे Aimhop Trust के माध्यम से 100% ट्यूशन छात्रवृत्ति के साथ प्रवेश पा सकते हैं।',
+    nepal_wing_p2: 'Aimhop Trust के इस विंग के माध्यम से, नेपाल के छात्र 100% ट्यूशन छात्रवृत्ति के साथ सरकारी मान्यता प्राप्त कॉलेजों में प्रवेश ले सकते हैं।',
+    our_goal_h3: '🎯 हमारा लक्ष्य',
+    our_goal_nepal: 'नेपाल के हर पात्र छात्र को 100% छात्रवृत्ति प्रदान करना।',
+    achieve_h3: '📊 उपलब्धियां',
+    achieve_nepal: 'नेपाल के 1000+ छात्र Aimhop Trust से लाभान्वित हो चुके हैं।',
+    network_h3: '🤝 नेटवर्क',
+    network_nepal: 'नेपाल में 30+ सहयोगी और 100+ समन्वयक सक्रिय हैं।',
+    contact_h3: '📞 संपर्क',
+    cr_hero_subtitle: 'Aimhop Trust के साथ अपना कॉलेज पंजीकृत करें',
+    cr_form_title: 'कॉलेज पंजीकरण फॉर्म',
+    label_whatsapp: 'व्हाट्सएप नंबर',
+    ph_whatsapp: 'व्हाट्सएप नंबर',
+    label_college_title: 'कॉलेज का नाम *',
+    ph_college: 'कॉलेज का नाम',
+    label_uni: 'विश्वविद्यालय *',
+    ph_uni: 'संबद्ध विश्वविद्यालय',
+    label_principal: 'प्राचार्य का नाम',
+    ph_principal: 'प्राचार्य का नाम',
+    cb_title: '📋 कॉलेज पंजीकरण के लाभ',
+    cb_1: 'Aimhop Trust से जुड़ने का अवसर',
+    cb_2: 'आकर्षक कमीशन और पुरस्कार',
+    cb_3: 'अखिल भारतीय नेटवर्क',
+    cb_4: 'प्रशिक्षण और सहायता',
+    cb_5: 'समाज सेवा का अवसर',
+    wing_leader: 'विंग लीडर',
+    nepal_wing_head: 'नेपाल विंग प्रमुख',
+    avail_courses_h3: '📋 उपलब्ध पाठ्यक्रम',
+    courses_list: 'इंजीनियरिंग • नर्सिंग • फार्मा • बीसीए • बीबीए • बी.कॉम • डिप्लोमा • आईटीआई • एमबीए • एम.टेक और बहुत कुछ।',
+    eligibility_h3: '✅ पात्रता',
+    elig_1: '• 10वीं / 12वीं / स्नातक पास',
+    elig_2: '• आर्थिक रूप से कमजोर परिवार',
+    elig_3: '• पढ़ाई के प्रति रुचि और समर्पण',
+
+    // Kashmir Wing
+    kw_breadcrumb: 'कश्मीर विंग',
+    kw_hero_title: '🏔️ कश्मीर विंग',
+    kw_hero_subtitle: 'कश्मीर में Aimhop Trust का विशेष विंग',
+    kw_label: 'कश्मीर विंग',
+    kw_p1: 'कश्मीर विंग के माध्यम से जम्मू-कश्मीर के छात्रों को उच्च शिक्षा के अवसर प्रदान किए जाते हैं। घाटी के होनहार छात्र जो आर्थिक तंगी के कारण शिक्षा का खर्च नहीं उठा सकते, उन्हें Aimhop Trust द्वारा 100% ट्यूशन छात्रवृत्ति दी जाती है।',
+    kw_p2: 'Aimhop Trust के इस विंग के माध्यम से, कश्मीर के छात्र 100% ट्यूशन छात्रवृत्ति के साथ सरकारी मान्यता प्राप्त कॉलेजों में प्रवेश सुरक्षित कर सकते हैं।',
+    kw_goal_title: '🎯 हमारा लक्ष्य',
+    kw_goal_desc: 'कश्मीर के हर योग्य छात्र को 100% छात्रवृत्ति प्रदान करना।',
+    kw_achieve_title: '📊 उपलब्धियां',
+    kw_achieve_desc: 'कश्मीर के 1000+ छात्र Aimhop Trust से लाभान्वित हो चुके हैं।',
+    kw_network_title: '🤝 नेटवर्क',
+    kw_network_desc: 'कश्मीर में 30+ सहयोगी और 100+ समन्वयक सक्रिय हैं।',
+    kw_contact_title: '📞 संपर्क',
+    kw_leader_title: 'विंग लीडर',
+    kw_leader_desc: 'कश्मीर विंग प्रमुख',
+    kw_courses_title: '📋 उपलब्ध पाठ्यक्रम',
+    kw_courses_desc: 'इंजीनियरिंग • नर्सिंग • फार्मा • बीसीए • बीबीए • बी.कॉम • डिप्लोमा • आईटीआई • एमबीए • एम.टेक और बहुत कुछ।',
+    kw_eligibility_title: '✅ पात्रता',
+    kw_eli_1: '• 10वीं / 12वीं / स्नातक पास',
+    kw_eli_2: '• आर्थिक रूप से कमजोर पारिवारिक पृष्ठभूमि',
+    kw_eli_3: '• पढ़ाई में समर्पण और रुचि',
+
+    // Maharashtra Wing
+    mw_breadcrumb: 'महाराष्ट्र विंग',
+    mw_hero_title: '🏙️ महाराष्ट्र विंग',
+    mw_hero_subtitle: 'महाराष्ट्र में Aimhop Trust का विशेष विंग',
+    mw_label: 'महाराष्ट्र विंग',
+    mw_p1: 'महाराष्ट्र विंग के तहत हम मुंबई, पुणे, नागपुर और अन्य शहरों में सक्रिय हैं। महाराष्ट्र के ग्रामीण और शहरी दोनों क्षेत्रों के छात्रों को 100% छात्रवृत्ति के साथ उच्च शिक्षा प्राप्त करने का अवसर दिया जाता है।',
+    mw_p2: 'Aimhop Trust के इस विंग के माध्यम से, महाराष्ट्र के छात्र भी 100% ट्यूशन छात्रवृत्ति के साथ सरकारी मान्यता प्राप्त कॉलेजों में प्रवेश सुरक्षित कर सकते हैं।',
+    mw_goal_title: '🎯 हमारा लक्ष्य',
+    mw_goal_desc: 'महाराष्ट्र के हर योग्य छात्र को 100% छात्रवृत्ति प्रदान करना।',
+    mw_achieve_title: '📊 उपलब्धियां',
+    mw_achieve_desc: 'महाराष्ट्र के 1000+ छात्र Aimhop Trust से लाभान्वित हो चुके हैं।',
+    mw_network_title: '🤝 नेटवर्क',
+    mw_network_desc: 'महाराष्ट्र में 30+ सहयोगी और 100+ समन्वयक सक्रिय हैं।',
+    mw_contact_title: '📞 संपर्क',
+    mw_leader_title: 'विंग लीडर',
+    mw_leader_desc: 'महाराष्ट्र विंग प्रमुख',
+    mw_courses_title: '📋 उपलब्ध पाठ्यक्रम',
+    mw_courses_desc: 'इंजीनियरिंग • नर्सिंग • फार्मा • बीसीए • बीबीए • बी.कॉम • डिप्लोमा • आईटीआई • एमबीए • एम.टेक और बहुत कुछ।',
+    mw_eligibility_title: '✅ पात्रता',
+
+    // Extra keys
+    course: 'कोर्स',
+    course_hero_title: '100% छात्रवृत्ति के साथ कोर्स',
+    courses_desc: 'छात्रों को इन पाठ्यक्रमों की पूरी अवधि के लिए पूर्ण ट्यूशन कवरेज मिलता है।',
+    c1_title: 'इंजीनियरिंग में डिप्लोमा',
+    dur_3yr: 'अवधि: 3 वर्ष',
+    c1_desc: 'मैकेनिकल, सिविल, इलेक्ट्रिकल, सीएस में डिप्लोमा। 10वीं पास के लिए।',
+    c2_title: 'आईटीआई कोर्स',
+    dur_1_2yr: 'अवधि: 1-2 वर्ष',
+    c2_desc: 'औद्योगिक प्रशिक्षण संस्थान पाठ्यक्रम। तकनीकी कौशल विकास।',
+    c3_title: 'पैरामेडिकल डिप्लोमा',
+    dur_1_3yr: 'अवधि: 1-3 वर्ष',
+    c3_desc: 'स्वास्थ्य सेवा में करियर के लिए पैरामेडिकल डिप्लोमा।',
+    c4_title: 'बी.टेक / बी.ई',
+    dur_4yr: 'अवधि: 4 वर्ष',
+    c4_desc: 'बैचलर ऑफ टेक्नोलॉजी - सबसे लोकप्रिय इंजीनियरिंग कोर्स।',
+    c5_title: 'बी.फार्मा',
+    c5_desc: 'बैचलर ऑफ फार्मेसी - फार्मा उद्योग में करियर।',
+    c6_title: 'बी.एससी नर्सिंग',
+    c6_desc: 'बी.एससी नर्सिंग - स्वास्थ्य सेवा करियर के लिए सबसे अच्छा विकल्प।',
+    c7_title: 'बीसीए / बीबीए / बी.कॉम',
+    c7_desc: 'कंप्यूटर ऐप्स, बिजनेस एडमिन और कॉमर्स में डिग्री।',
+    c8_title: 'बीएमएलटी / बी.एससी',
+    c8_desc: 'बैचलर ऑफ मेडिकल लैब टेक्नोलॉजी और साइंस।',
+    c9_title: 'एम.टेक / एम.ई',
+    dur_2yr: 'अवधि: 2 वर्ष',
+    c9_desc: 'मास्टर ऑफ टेक्नोलॉजी - उच्च तकनीकी शिक्षा।',
+    c10_title: 'एमबीए / एमसीए',
+    c10_desc: 'मास्टर ऑफ बिजनेस एडमिन और कंप्यूटर ऐप्स।',
+    c11_title: 'एम.एससी / एम.कॉम',
+    c11_desc: 'विज्ञान और वाणिज्य में स्नातकोत्तर।',
+
+    breadcrumb_contact: 'संपर्क करें',
+    hq_address_title: 'मुख्यालय का पता',
+    hq_address: 'प्रथम तल, मीणा भवन, सूबा बाजार ब्लॉक, गोरखपुर (यू.पी.) 273010',
+    helpline_title: 'हेल्पलाइन नंबर',
+    helpline1: '+91 9151385320',
+    helpline2: '+91 9151385320',
+    email_title: 'ईमेल पता',
+    email: 'aimhopgroup@gmail.com',
+    office_hours_title: 'कार्यालय समय',
+    office_hours1: 'सोमवार - शनिवार: सुबह 9:00 बजे - शाम 6:00 बजे',
+    office_hours2: 'रविवार: बंद',
+    follow_us: '📱 हमें फॉलो करें',
+    form_title: 'संदेश भेजें',
+    form_subtitle: 'हम 24-48 घंटों के भीतर उत्तर देंगे।',
+    btn_send: 'संदेश भेजें <i class="fas fa-paper-plane"></i>',
+
+    nav_university: 'विश्वविद्यालय',
+    uni_list: 'विश्वविद्यालयों की सूची',
+    uni_subtitle: 'हम सरकारी विश्वविद्यालय से संबद्ध कॉलेजों में 100% छात्रवृत्ति के साथ प्रवेश प्रदान करते हैं',
+    affiliated_uni_label: 'संबद्ध विश्वविद्यालय',
+    our_affiliated_uni: 'हमारे <span class="accent">संबद्ध विश्वविद्यालय</span>',
+    uni_section_desc: 'इन सरकारी विश्वविद्यालयों से संबद्ध कॉलेजों में Aimhop Trust के माध्यम से 100% छात्रवृत्ति के साथ प्रवेश लें।',
+    more_uni: 'और भी बहुत कुछ...',
+    contact_for_more: 'अधिक विवरण के लिए संपर्क करें',
+    apply_admission_now: 'अभी प्रवेश के लिए आवेदन करें',
+
+    nav_video_gallery: 'वीडियो गैलरी',
+    video_gallery_title: 'वीडियो गैलरी',
+    video_gallery_desc: 'Aimhop Trust के प्रेरणादायक वीडियो देखें',
+    v1_thumb_title: '🎓 प्रवेश परीक्षा के बिना सीधा प्रवेश 2026!',
+    v2_thumb_title: 'भारत में अपना पसंदीदा कोर्स बिल्कुल मुफ्त पढ़ें',
+    v3_thumb_title: 'कॉलेज लाइफ: आवास और भोजन - छात्र का अनुभव',
+    more_videos_yt: 'यूट्यूब पर और वीडियो देखें',
+
+    nav_photo_gallery: 'फोटो गैलरी',
+    photo_gallery_title: 'फोटो गैलरी',
+    photo_gallery_desc: 'Aimhop Trust की गतिविधियों और कार्यक्रमों की झलकियाँ',
+    filter_all: 'सभी',
+    filter_event: 'कार्यक्रम',
+    filter_campus: 'कैंपस',
+    filter_award: 'पुरस्कार',
+    filter_student: 'छात्र',
+    gal_caption_1: 'वार्षिक समारोह 2024',
+    gal_caption_2: 'मुख्यालय - पटना',
+    gal_caption_4: 'छात्र दीक्षांत समारोह',
+    gal_caption_5: 'परामर्श शिविर 2024',
+    gal_caption_6: 'सूचना केंद्र',
+    gal_caption_7: 'कैंपस में बी.टेक छात्र',
+    gal_caption_11: 'प्रवेश शिविर 2025',
+    gal_caption_12: 'नेपाल विंग लॉन्च',
+
+    // achievements.html
+    achievements_page_title: 'उपलब्धियां – Aimhop Educational Trust',
+    achievements_hero_title: 'हमारी उपलब्धियां',
+    achievements_hero_subtitle: 'वे संख्याएँ जो छात्रों के प्रति हमारी प्रतिबद्धता की कहानी कहती हैं',
+    achievements_section_title: 'हमारी <span class="accent">प्रमुख उपलब्धियां</span>',
+    ach1_title: 'अखिल भारतीय उपस्थिति',
+    ach1_desc: 'Aimhop Trust का नेटवर्क बिहार, झारखंड, यूपी, पश्चिम बंगाल, महाराष्ट्र और अन्य सहित 28+ राज्यों में फैला हुआ है।',
+    ach2_title: 'नेपाल में विस्तार',
+    ach2_desc: '2023 में, Aimhop Trust ने अपना नेपाल विंग लॉन्च किया। नेपाली छात्र अब भारत के मान्यता प्राप्त कॉलेजों में 100% छात्रवृत्ति के साथ प्रवेश पा सकते हैं।',
+    ach3_title: 'राष्ट्रीय पुरस्कार',
+    ach3_desc: 'शिक्षा में उत्कृष्ट योगदान के लिए Aimhop Trust को 9+ राष्ट्रीय और राज्य स्तरीय पुरस्कारों से सम्मानित किया गया है।',
+    ach4_title: 'जीईआर (GER) में योगदान',
+    ach4_desc: 'Aimhop Trust के प्रयास उन छात्रों तक पहुंचकर भारत के सकल नामांकन अनुपात को बेहतर बनाने में मदद कर रहे हैं जो अन्यथा उच्च शिक्षा से वंचित रह जाते।',
+    ach5_title: 'बालिका शिक्षा पर ध्यान',
+    ach5_desc: 'Aimhop Trust विशेष रूप से बालिका शिक्षा के लिए प्रतिबद्ध है। हमारे 40%+ लाभार्थी महिला छात्र हैं जो उच्च शिक्षा में नई ऊंचाइयों पर पहुंच रही हैं।',
+    ach6_title: '100+ कॉलेज भागीदारी',
+    ach6_desc: 'छात्रों के लिए सर्वोत्तम शिक्षा सुनिश्चित करने के लिए Aimhop Trust ने 100+ सरकारी विश्वविद्यालय संबद्ध कॉलेजों के साथ समझौता ज्ञापन पर हस्ताक्षर किए हैं।',
+
+    // success-story.html
+    success_page_title: 'सफलता की कहानियाँ – Aimhop Educational Trust',
+    success_hero_title: 'सफलता की कहानियाँ',
+    success_hero_subtitle: 'प्रेरक परिवर्तन – उन छात्रों की कहानियाँ जिन्होंने Aimhop Trust के साथ अपने सपनों को पूरा किया',
+    success_section_title: 'हमारे <span class="accent">सफल छात्र</span>',
+    success_section_desc: 'इन छात्रों ने Aimhop Trust के माध्यम से 0 ट्यूशन फीस पर उच्च शिक्षा प्राप्त की।',
+    s6_title: 'ट्रस्ट पर भरोसा',
+
+    // our-team.html
+    our_team_page_title: 'हमारी टीम – Aimhop Educational Trust',
+    our_team_hero_title: 'हमारी टीम',
+    our_team_hero_subtitle: 'वे समर्पित लोग जो Aimhop Trust के मिशन को आगे बढ़ाते हैं',
+    team_label: 'टीम',
+    team_section_title: 'हमारी <span class="accent">कोर टीम</span>',
+    role_founder_ceo: 'चीफ मैनेजिंग डायरेक्टर',
+    role_vp: 'उपाध्यक्ष',
+    role_md: 'मैनेजिंग डायरेक्टर',
+    role_edu_coord: 'शिक्षा समन्वयक',
+    role_counselor: 'परामर्शदाता',
+    role_student_rel: 'प्रमुख – छात्र संबंध',
+    team_sk_desc: 'Aimhop Trust के संस्थापक और मुख्य कार्यकारी अधिकारी। 6+ वर्षों से शिक्षा क्षेत्र में क्रांति ला रहे हैं।',
+    team_pd_desc: 'ट्रस्ट की उपाध्यक्ष के रूप में छात्र कल्याण और महिला शिक्षा के लिए समर्पित।',
+    team_rk_desc: 'ट्रस्ट के संचालन और रणनीतिक योजना की देखरेख करते हैं।',
+    team_ak_desc: 'छात्रों और कॉलेजों के बीच समन्वय स्थापित करते हैं।',
+    team_sp_desc: 'सही कोर्स और करियर पथ चुनने में छात्रों का मार्गदर्शन करते हैं।',
+    team_vk_desc: 'डिजिटल प्लेटफॉर्म और तकनीकी संचालन का प्रबंधन करते हैं।',
+    team_ms_desc: 'सुनिश्चित करते हैं कि छात्र समस्याओं का समाधान हो और संतुष्टि बनी रहे।',
+    team_nk_desc: 'छात्रों तक पहुँचने के लिए जमीनी स्तर पर काम करते हैं।',
+
+    // our-mentors.html
+    our_mentors_page_title: 'हमारे संरक्षक – Aimhop Educational Trust',
+    mentors_hero_title: 'हमारे संरक्षक',
+    mentors_hero_subtitle: 'प्रेरणा के वे स्रोत जो हमारा मार्ग प्रशस्त करते हैं',
+    mentors_label: 'संरक्षक',
+    mentors_section_title: 'हमारी <span class="accent">प्रेरणा</span>',
+    mentors_section_desc: 'Aimhop Trust इन महान हस्तियों के विचारों और सिद्धांतों से प्रेरणा लेता है।',
+    kalam_role: 'भारत रत्न, भारत के पूर्व राष्ट्रपति',
+    kalam_desc: 'डॉ. कलाम का मानना था कि शिक्षा हर बच्चे का अधिकार है। उनकी "विंग्स ऑफ फायर" और "इग्नाइटेड माइंड्स" ने Aimhop Trust को उसका लक्ष्य दिया।',
+    vivek_role: 'आध्यात्मिक नेता और शिक्षा सुधारक',
+    vivek_desc: 'स्वामी विवेकानंद की शिक्षा – "शिक्षा जो चरित्र का निर्माण करे" – Aimhop Trust के मूल में है। हम उनके विजन को साकार कर रहे हैं।',
+
+    // awards.html
+    awards_page_title: 'पुरस्कार – Aimhop Educational Trust',
+    awards_hero_title: 'हमारे पुरस्कार',
+    awards_hero_subtitle: 'शिक्षा में उत्कृष्ट योगदान के लिए प्राप्त राष्ट्रीय और राज्य स्तरीय पुरस्कार',
+    awards_section_label: 'मान्यताएँ',
+    awards_section_title: 'हमारे <span class="accent">पुरस्कार और सम्मान</span>',
+    aw1_desc: 'आर्थिक रूप से कमजोर छात्रों की शिक्षा में उत्कृष्ट योगदान के लिए राष्ट्रीय स्तर पर सर्वश्रेष्ठ एजुकेशनल ट्रस्ट अवार्ड।',
+    aw2_desc: 'समाज के वंचित वर्गों के लिए किए गए असाधारण कार्यों के लिए समाज सेवा में उत्कृष्टता पुरस्कार।',
+    aw3_desc: 'भारत में शिक्षा की पहुंच के विस्तार में अग्रणी भूमिका के लिए नेशनल एजुकेशन लीडरशिप अवार्ड।',
+    aw4_desc: 'देश के युवाओं को शिक्षित और सशक्त बनाने के लिए यूथ एम्पावरमेंट अवार्ड।',
+    aw5_desc: 'उच्च शिक्षा को सुलभ बनाने के लिए शिक्षा में उत्कृष्ट योगदान पुरस्कार।',
+    aw6_desc: 'लाखों छात्रों के जीवन में सकारात्मक बदलाव लाने के लिए सोशल इम्पैक्ट अवार्ड 2024।',
+    aw7_desc: 'छात्र केंद्रित सेवाओं और 100% छात्रवृत्ति मॉडल के लिए छात्रों के लिए सर्वश्रेष्ठ गैर सरकारी संगठन (NGO) पुरस्कार।',
+    aw8_desc: '"पढ़ेगा इंडिया बढ़ेगा इंडिया" मिशन के तहत राष्ट्रीय साक्षरता और शिक्षा अभियान पुरस्कार।',
+    aw9_desc: 'बिहार के शिक्षा क्षेत्र में क्रांतिकारी बदलाव के लिए बिहार एजुकेशन चैंपियन अवार्ड 2024।',
+
+    // appeal-parents.html
+    appeal_page_title: 'अभिभावकों से अपील – Aimhop Educational Trust',
+    appeal_hero_title: 'अभिभावकों से अपील',
+    appeal_hero_subtitle: 'Aimhop Trust की ओर से सभी माता-पिता के लिए एक महत्वपूर्ण संदेश',
+    appeal_salutation: 'आदरणीय अभिभावकगण,',
+    appeal_p1: 'आपके बच्चे का भविष्य सुरक्षित करना हमारी प्राथमिकता है। हम जानते हैं कि आज कॉलेज की फीस बहुत अधिक है। क्या आपका बच्चा उस वजह से सपने नहीं देख सकता?',
+    appeal_p2: 'Aimhop Trust इसी कारण से अस्तित्व में है। हम आपके बच्चे की पूरी ट्यूशन फीस की जिम्मेदारी लेते हैं ताकि वे पढ़ाई पर ध्यान केंद्रित कर सकें।',
+    appeal_p2_strong: 'बिल्कुल नहीं!',
+    appeal_offer_title: 'हम क्या प्रदान करते हैं?',
+    appeal_offer_list: '✅ सरकारी विश्वविद्यालय संबद्ध कॉलेजों में प्रवेश<br/>✅ 100% ट्यूशन फीस माफी<br/>✅ कोई लोन नहीं, कोई ईएमआई नहीं<br/>✅ प्रवेश परीक्षा के बिना सीधा प्रवेश<br/>✅ इंजीनियरिंग, नर्सिंग, फार्मा, बीसीए, एमबीए सहित 50+ पाठ्यक्रम<br/>✅ पूरे भारत और नेपाल में 221+ सहयोगी नेटवर्क',
+    appeal_concerns_title: 'आपकी चिंताओं का समाधान',
+    appeal_q1: '<strong>क्या यह वाकई मुफ़्त है?</strong> हाँ, ट्यूशन फीस पूरी तरह से माफ़ है। छात्र केवल हॉस्टल और परीक्षा शुल्क का भुगतान करते हैं जो बहुत कम है।',
+    appeal_q2: '<strong>क्या यह ट्रस्ट विश्वसनीय है?</strong> Aimhop Trust 2018 से काम कर रहा है। 25,000+ छात्र लाभान्वित हो चुके हैं। हमारे पास सरकारी पंजीकरण और मान्यता है।',
+    appeal_q3: '<strong>कॉलेज कहाँ होगा?</strong> हम पूरे भारत में 100+ सरकारी मान्यता प्राप्त कॉलेजों के साथ काम करते हैं। आप अपने राज्य या पसंदीदा स्थान पर प्रवेश पा सकते हैं।',
+    appeal_cta_title: 'आज ही कदम उठाएं',
+    appeal_cta_desc: 'यह आपके बच्चे के सपने को पूरा करने का सबसे अच्छा अवसर है। देर न करें – सीटें सीमित हैं।',
+    call_now: 'अभी कॉल करें',
+    founder_sign_title: 'चीफ मैनेजिंग डायरेक्टर, Aimhop एजुकेशनल एंड चैरिटेबल ट्रस्ट',
+
+    // for-student.html
+    for_student_page_title: 'छात्रों के लिए सेवाएँ – Aimhop Educational Trust',
+    for_student_hero_title: 'छात्रों के लिए सेवाएँ',
+    for_student_hero_subtitle: 'Aimhop Trust हर कदम पर छात्रों का समर्थन करता है',
+    for_student_section_title: 'हम <span class="accent">छात्रों को क्या प्रदान करते हैं</span>',
+    sv1_title: '100% ट्यूशन स्कॉलरशिप', sv1_desc: 'पूरी ट्यूशन फीस माफ़। कोई लोन नहीं, कोई ईएमआई नहीं। बस पढ़ाई पर ध्यान दें।',
+    sv2_title: 'नि:शुल्क परामर्श', sv2_desc: 'हमारे विशेषज्ञ सही कोर्स और कॉलेज चुनने में आपका मार्गदर्शन करेंगे।',
+    sv3_title: 'प्रवेश सहायता', sv3_desc: 'दस्तावेजों से लेकर प्रवेश तक हमारी टीम हर कदम पर आपके साथ है।',
+    sv4_title: 'हॉस्टल की जानकारी', sv4_desc: 'कॉलेज के पास किफायती हॉस्टल की जानकारी और सहायता।',
+    sv5_title: 'करियर मार्गदर्शन', sv5_desc: 'कोर्स के बाद करियर के अवसरों की जानकारी और प्लेसमेंट सहायता।',
+    sv6_title: '24/7 हेल्पलाइन', sv6_desc: 'किसी भी समस्या के लिए हमारी हेल्पलाइन हमेशा उपलब्ध है। +91 9151385320',
+    sv7_title: 'ऑनलाइन पोर्टल', sv7_desc: 'ऑनलाइन पंजीकरण, दस्तावेज़ अपलोड और आवेदन स्थिति की जाँच।',
+    sv8_title: 'सहयोगी नेटवर्क', sv8_desc: 'अपने नजदीकी सहयोगी से मिलें और सीधे जानकारी प्राप्त करें।',
+    sv9_title: 'स्कॉलरशिप ट्रैकिंग', sv9_desc: 'अपनी छात्रवृत्ति की स्थिति को ट्रैक करें और अपडेट प्राप्त करें।',
+    sv_cta_title: 'आज ही अपनी यात्रा शुरू करें',
+    sv_cta_desc: 'पंजीकरण पूरी तरह से निःशुल्क है। अभी फॉर्म भरें और हमारी टीम 24 घंटे के भीतर आपसे संपर्क करेगी।',
+
+    // infrastructure.html
+    infra_page_title: 'इन्फ्रास्ट्रक्चर – Aimhop Educational Trust',
+    infra_hero_title: 'हमारा इन्फ्रास्ट्रक्चर',
+    infra_hero_subtitle: 'छात्रों और अभिभावकों के लिए आधुनिक और सुविधाजनक वातावरण',
+    infra_section_title: 'आधुनिक <span class="accent">इन्फ्रास्ट्रक्चर</span>',
+    inf1_title: 'मुख्य कार्यालय', inf1_desc: 'पटना, बिहार में हमारा विशाल मुख्यालय जहाँ छात्र और अभिभावक परामर्श के लिए आ सकते हैं।',
+    inf2_title: 'काउंसलिंग हॉल', inf2_desc: 'खुली चर्चा और व्यक्तिगत परामर्श के लिए एक सुसज्जित काउंसलिंग हॉल।',
+    inf3_title: 'कंप्यूटर लैब', inf3_desc: 'ऑनलाइन पंजीकरण और जानकारी के लिए अत्याधुनिक कंप्यूटर सुविधा।',
+    inf4_title: 'सूचना केंद्र', inf4_desc: 'सभी कोर्स, विश्वविद्यालय और छात्रवृत्ति की जानकारी एक ही स्थान पर।',
+    inf5_title: 'अभिभावक बैठक कक्ष', inf5_desc: 'अभिभावकों के लिए विशेष बैठक कक्ष जहाँ वे आराम से बात कर सकें।',
+    inf6_title: 'देशव्यापी नेटवर्क', inf6_desc: 'पूरे भारत और नेपाल में 221+ सहयोगी कार्यालय सक्रिय हैं।',
+
+    // latest-activity.html
+    activity_page_title: 'नवीनतम गतिविधियाँ – Aimhop Educational Trust',
+    activity_hero_title: 'नवीनतम गतिविधियाँ',
+    activity_hero_subtitle: 'Aimhop Trust की हालिया गतिविधियाँ और कार्यक्रम',
+    date_jan_25: 'जनवरी 2025', date_dec_24: 'दिसंबर 2024', date_nov_24: 'नवंबर 2024',
+    act4_title: 'पटना में विशाल प्रवेश परामर्श शिविर',
+    act4_desc: '5,000 से अधिक छात्रों और अभिभावकों ने भाग लिया। 100% छात्रवृत्ति की जानकारी साझा की गई।',
+    act5_title: 'नेपाल विंग का उद्घाटन – नेपाली छात्रों के लिए नया द्वार',
+    act5_desc: 'Aimhop Trust नेपाल विंग के उद्घाटन समारोह में नेपाल के गणमान्य लोग शामिल हुए।',
+    act6_title: 'पुरस्कार समारोह – Aimhop Trust को मिला सोशल इम्पैक्ट अवार्ड',
+    act6_desc: 'दिल्ली में आयोजित समारोह में Aimhop Trust को सोशल इम्पैक्ट अवार्ड 2024 से नवाजा गया।',
+
+    // download.html
+    download_page_title: 'डाउनलोड – Aimhop Educational Trust',
+    download_hero_title: 'डाउनलोड',
+    download_hero_subtitle: 'Aimhop Trust के उपयोगी फॉर्म और दस्तावेज़ डाउनलोड करें',
+    download_label: 'संसाधन',
+    download_section_title: 'उपयोगी <span class="accent">डाउनलोड</span>',
+    download_section_desc: 'ये सभी फाइलें मुफ्त में डाउनलोड करें।',
+    dl1_title: 'छात्र पंजीकरण फॉर्म',
+    dl2_title: 'कॉलेज पंजीकरण फॉर्म',
+    dl3_title: 'सहयोगी आवेदन फॉर्म',
+    dl4_title: 'समन्वयक आवेदन फॉर्म',
+    dl5_title: 'कोर्स ब्रोशर 2025-26',
+    dl6_title: 'विश्वविद्यालय सूची 2025',
+    dl7_title: 'Aimhop Trust प्रोफाइल',
+    btn_download: 'डाउनलोड',
+  },en: {
+    blog: 'Blog',
+    home: 'Home',
+    about: 'About Us',
+    associate: 'Our Associates',
+    coordinator: 'Our Coordinators',
+    download: 'Download',
+    career: 'Career',
+    about_aimhop: 'About Aimhop',
+    chairman: "Chairman's Message",
+    success: 'Success Story',
+    achievements: 'Achievements',
+    our_team: 'Our Team',
+    our_mentors: 'Our Mentors',
+    appeal: 'Appeal to Parents',
+    awards: 'Awards',
+    infra: 'Infrastructure',
+    course: 'Courses',
+    university: 'University',
+    registration: 'Registration',
+    student_reg: 'Student Registration',
+    college_reg: 'College Registration',
+    associate_reg: 'Associate Registration',
+    coordinator_reg: 'Coordinator Registration',
+    gallery: 'Gallery',
+    photo_gallery: 'Photo Gallery',
+    video_gallery: 'Video Gallery',
+    news: 'News',
+    contact: 'Contact Us',
+    our_wing: 'Our Wing',
+    apply: 'Apply Now',
+    footer_desc: 'Aimhop Educational & Charitable Trust – Providing quality education to every deserving student.',
+    quick_links: 'Quick Links',
+    important_links: 'Important Links',
+    contact_info: 'Contact Info',
+    address_text: 'Bihar – Jharkhand – Uttar Pradesh – Delhi – Madhya Pradesh – Rajasthan (Available nationwide)',
+    news_gallery: 'News & Gallery',
+    hq: 'Headquarters',
+    latest_activity: 'Latest Activity',
+    blog_spot: 'Blog Spot',
+    nepal_wing: 'Nepal Wing',
+    kashmir_wing: 'Kashmir Wing',
+    maharashtra_wing: 'Maharashtra Wing',
+    for_student: 'For Students',
+    service: 'Service',
+    copyright: 'Copyright &copy; 2025 <a href="${rt}index.html">Aimhop</a>. All Rights Reserved.',
+    terms: 'Terms',
+    privacy: 'Privacy',
+    refund: 'Refund',
+    site_title: 'Aimhop Educational Trust – Padhega India, Badhega India',
+    c_other: 'Other',
+    designed_by: 'Designed with ❤️ for <strong>Aimhop Educational Trust</strong>',
+
+    // index.html
+    hero_badge: '🎓 Admission with 100% Scholarship',
+    hero_slide1_title: 'Aimhop Educational <br /><span class="highlight">& Charitable Trust</span>',
+    hero_slide1_desc: 'Secure admission in government university affiliated colleges with up to 100% scholarship. We make the impossible possible.',
+    reg_now: 'Register Now',
+    learn_more: 'Learn More',
+    happy_students: 'Happy Students',
+    associates_count: 'Associates',
+    institutions_count: 'Institutions',
+    scholarship_title: '100% Scholarship',
+    no_loan_desc: 'On Tuition Fees',
+    no_loan_title: 'No Loan, No EMI',
+    no_loan_subtitle: 'Education without debt',
+    hero_slide2_badge: '⭐ No Loan, No EMI',
+    hero_slide2_title: 'Study Without <br /><span class="highlight">Any Debt</span>',
+    hero_slide2_desc: 'Study with us without any loan or EMI. Education for everyone!',
+    courses_count: 'Courses',
+    states_count: 'States',
+    placement_label: 'Placement',
+    zero_emi: 'Zero EMI',
+    affordable_edu: 'Affordable Education',
+    founder_ceo: 'Chief Managing Director',
+    aimhop_trust: 'Aimhop Educational Trust',
+    verified_trust: 'Verified Trust',
+    no_loan_badge: '<span>NO LOAN</span><span>NO STUDENT CREDIT</span><span>CARD REQUIRED</span>',
+    about_us_label: 'About Us',
+    about_us_title: 'Secure Admission in Govt. University Affiliated Colleges with <span class="accent">100% Scholarship</span>',
+    about_us_desc: 'Start your academic journey with this incredible opportunity. We provide admission in govt. university affiliated colleges with scholarships covering up to 100% of the cost. We make the impossible possible — providing expert guidance at every step.',
+    mission: '🎯 Mission',
+    mission_desc: 'Padhega India, Badhega India: We provide full tuition assistance to deserving students.',
+    vision: '👁 Vision',
+    vision_desc: 'To create a society where every deserving student gets quality education.',
+    values: '💎 Values',
+    values_desc: 'We believe in equal educational opportunities, empowering students, and excellence.',
+
+    // about.html
+    about_aimhop_title: 'About Aimhop Educational Trust',
+    about_aimhop_subtitle: '100% Tuition Assistance for Economically Disadvantaged Students',
+    identity_label: 'Our Identity',
+    identity_title: 'Aimhop Educational <span class="accent">&amp; Charitable Trust</span>',
+    identity_p1: 'Aimhop Educational &amp; Charitable Trust is a dedicated organization committed to making higher education accessible to economically disadvantaged students. Inspired by the visionary dreams of Swami Vivekananda and former President Dr. APJ Abdul Kalam, the trust focuses on empowering students who can afford accommodation and exam fees but struggle with the burden of heavy college tuition.',
+    identity_p2: 'By taking responsibility for their college fees, the trust plays a crucial role in turning their academic aspirations into reality. The trust aims to improve India\'s Gross Enrollment Ratio (GER).',
+    identity_p3: 'Swami Vivekananda said — "We want that education by which character is formed, strength of mind is increased, the intellect is expanded, and by which one can stand on one\'s own feet." DLECT is continuously making new revolutions in the field of education for this purpose.',
+    ahi_students: 'Students Benefited',
+    ahi_tuition: 'Tuition Waiver',
+    ahi_associates: 'Associate Network',
+    ahi_est: 'Established Year',
+    apply_scholarship: 'Apply for Scholarship',
+    why_different: '✅ Why We Are Different',
+    diff_tuition: '100% Tuition Fee Waiver',
+    diff_no_loan: 'No Loan, No EMI',
+    diff_no_exam: 'Direct Admission Without Entrance Exam',
+    diff_colleges: 'Government Recognized Colleges',
+    diff_network: 'Network Across India',
+    breadcrumb_home: 'Home',
+
+    // chairman-message.html
+    chairman_page_title: 'Chairman\'s Message – Aimhop Educational Trust',
+    chairman_hero_title: 'Chairman\'s Message',
+    chairman_hero_subtitle: 'O.P YADAV (ex-Army) – Founder CEO, Aimhop Educational Trust',
+    chairman_name: 'O.P YADAV (ex-Army)',
+    chairman_post: 'Chief Managing Director',
+    chairman_edu: 'M.A. (Political Science)',
+    chairman_location: 'Patna, Bihar',
+    chairman_active: 'Active since 2018',
+    kalam_quote: '"Dreams are not those which come while you are sleeping, dreams are those which don\'t let you sleep."',
+    vivek_quote: '"Arise, awake and stop not until the goal is reached."',
+    chairman_msg_label: 'Chairman\'s Message',
+    chairman_msg_title: 'Dear <span class="accent">Students and Parents</span>,',
+    chairman_msg_p1: 'A warm welcome to Aimhop Educational & Charitable Trust. I, O.P YADAV (ex-Army), Chief Managing Director of this trust, want to share an important message with you today.',
+    chairman_msg_p2: 'When I founded this trust, I had only one dream — to bring education to those bright students of India who leave their studies incomplete due to financial constraints. Dr. APJ Abdul Kalam used to say, "Dreams are not those which come while you are sleeping, dreams are those which don\'t let you sleep." We are moving forward with this dream.',
+    chairman_mission_title: 'Our Journey',
+    chairman_mission_p1: 'In this journey that started in 2018, more than 25,000 students have benefited today. We have proved that lack of money cannot be a hindrance in the path of education. Our mission "Padhega India, Badhega India" is a symbol of this ideology.',
+    chairman_mission_p2: 'Swami Vivekananda had said, "We want that education by which character is formed, strength of mind is increased, the intellect is expanded." We are following this ideal.',
+    chairman_req_title: 'Appeal to You',
+    chairman_req_p: 'If you or any bright student in your family is deprived of higher education due to financial reasons, join Aimhop Trust today. We take responsibility for college fees so that you can move towards your dreams without worry.',
+    chairman_msg_footer: 'Remember — education is the weapon with which you can change the world. And we are the hands that will bring this weapon to you.',
+    founder_name: 'O.P YADAV (ex-Army)',
+    founder_title: 'Founder CEO',
+    achievements_label: 'Our Achievements',
+    trust_title: 'Aimhop Educational Trust – <span>Trust of Students Across India</span>',
+    trust_desc: 'Don\'t just take our word for it, trust the numbers!',
+    happy_students_label: 'Happy Students',
+    associates_label: 'Associates in India & Nepal',
+    coordinators_label: 'Coordinators in India & Nepal',
+    top_inst: 'Top Institutions',
+    success_story: 'Success Story',
+    success_label: 'Inspiring Change',
+    success_title: 'Success Stories: <span class="accent">Inspiring Change</span>',
+    success_desc: 'Aimhop Educational & Charitable Trust, under the leadership of Mr. O.P YADAV (ex-Army), provides 100% tuition assistance to economically disadvantaged students. Inspired by Dr. APJ Abdul Kalam and Swami Vivekananda, the trust helps students achieve higher education through its mission "Padhega India, Badhega India".',
+    success_quote: '"We want that education by which character is formed, strength of mind is increased, the intellect is expanded, and by which one can stand on one\'s own feet."',
+    success_author: '— Swami Vivekananda',
+    read_more: 'Read More',
+    courses_label: 'Academic Paths',
+    courses_title: 'Academic Paths: <span class="accent">Empowering Future</span>',
+    after_10th: 'After 10th',
+    after_10th_desc: 'Diploma, ITI and other vocational courses available after 10th.',
+    c_dip_eng: 'Diploma in Engineering',
+    c_iti: 'ITI Courses',
+    c_poly: 'Polytechnic',
+    c_para: 'Paramedical Diploma',
+    click_here: 'Click Here',
+    popular: 'Most Popular',
+    after_12th: 'After 12th',
+    after_12th_desc: 'B.Tech, B.Sc, B.Com and other graduation courses after intermediate.',
+    c_btech: 'B.Tech / B.E',
+    c_nursing: 'B.Sc Nursing',
+    c_bca: 'BCA / BBA / B.Com',
+    c_pharma: 'B.Pharma / BMLT',
+    after_grad: 'After Graduation',
+    after_grad_desc: 'M.Tech, MBA, MCA and other postgraduate courses after graduation.',
+    c_mtech: 'M.Tech / M.E',
+    c_mba: 'MBA / MCA',
+    c_msc: 'M.Sc / M.Com',
+    c_mpharma: 'M.Pharma',
+    apply_process: 'Application Process',
+    gateway_title: 'Gateway to <span class="accent">100% Scholarship</span>',
+    step1_title: 'Register',
+    step1_desc: 'Fill Online Form',
+    step2_title: 'Submit Documents',
+    step2_desc: 'Required Documents',
+    step3_title: 'Counseling',
+    step3_desc: 'Meet Our Expert',
+    step4_title: 'Admission Confirmed',
+    step4_desc: 'Admission Secured',
+    our_uni: 'Our Universities',
+    uni_list: 'List of Universities',
+    uni_subtitle: 'We provide admission in govt. university affiliated colleges with <strong>100% scholarship</strong>',
+    awards_label: 'Our Awards',
+    awards_title: 'Celebrating <span class="accent">Our Impact</span>',
+    awards_desc: 'These awards celebrate Aimhop Trust\'s commitment to educational empowerment.',
+    activity_label: 'Latest Activity',
+    activity_title: 'Latest <span class="accent">Activities</span>',
+    visit_chairman: 'Chairman\'s Student Visit',
+    date_march_25: 'March 2025',
+    visit_desc1: 'Chairman\'s visit to inspire and connect with students',
+    inspiring_college: 'Inspiring College Visit in June',
+    date_june_25: 'June 2025',
+    visit_desc2: 'Inspiring the next generation: Chairman\'s college visit',
+    relationship_building: 'Building Relationships: Recent Visit',
+    date_feb_25: 'February 2025',
+    visit_desc3: 'Building relationships: Chairman\'s recent college visit',
+    video_label: 'Latest Videos',
+    video_title: 'Latest <span class="accent">Videos</span>',
+    video_quote: '<strong>Aimhop Educational & Charitable Trust – Do you know how dreams come true…</strong>',
+    v1_thumb_title: '🎓 Direct Admission Without Entrance Exam 2026!',
+    v1_title: '🎓 Direct Admission Without Entrance Exam 2026! Complete details of Free Higher Education Campaign.',
+    v2_thumb_title: 'Free Education in Any State of India!',
+    v2_title: 'Study your favorite course in any state of India, absolutely free!',
+    v3_thumb_title: 'College Life: Stay and Food',
+    v3_title: 'Biggest part of college life: Stay and Food. See the experience of a Bihar student. 🍛📖',
+    btn_subscribe: 'Subscribe',
+    testimonials_label: 'Students Feedback',
+    testimonials_title: 'Students <span class="accent">Testimonials</span>',
+    testi1_text: '"Took admission in B Pharma course at 0 tuition fees, many thanks to Aimhop trust which gave me a chance to study for free. Thank you Aimhop trust. ❤️"',
+    student: 'Student',
+    infra_label: 'Infrastructure',
+    infra_title: 'Modern and <span class="accent">Convenient</span> Environment',
+    infra_p1: 'At Aimhop Educational & Charitable Trust we prioritize the convenience of our students and their parents in every aspect. Our well-organized infrastructure provides a welcoming and supportive environment.',
+    infra_p2: 'We have created spaces for open discussions, information sessions, and personal counseling so parents can make informed decisions about their children\'s future.',
+    btn_learn_more: 'Learn More',
+    infra_svg_title: 'Our Infrastructure',
+    infra_svg_desc: 'Aimhop Educational Trust - Head Office',
+
+    // contact.html
+    breadcrumb_home: 'Home',
+    contact_hero: 'Contact Us',
+    contact_title: 'Contact Us',
+    contact_subtitle: 'We are here to help you. Contact us today.',
+    info_title: 'Contact Information',
+    info_p: 'Have a question? Call us or send a message, our team will contact you soon.',
+    label_name: 'Full Name *',
+    label_email: 'Email *',
+    label_subject: 'Subject',
+    label_message: 'Message *',
+    ph_name: 'Write your name',
+    ph_email: 'Email address',
+    ph_subject: 'Write subject',
+    ph_message: 'Write your message...',
+    btn_send: 'Send Message',
+    map_org: 'Aimhop Educational Trust',
+    map_address: 'First Floor, Meena Bhawan, Suba Bazar Block, Gorakhpur (U.P) 273010',
+
+    // student-registration.html
+    student_reg_hero: 'Student Registration',
+    student_reg_title: 'Student Registration',
+    student_reg_subtitle: 'Start your educational journey with 100% scholarship. Register today!',
+    reg_form_title: 'Registration Form',
+    reg_form_subtitle: 'Please fill all information correctly. Our team will contact you soon.',
+    label_mobile: 'Mobile Number *',
+    label_father: 'Father\'s Name *',
+    label_dob: 'Date of Birth *',
+    label_gender: 'Gender *',
+    label_state: 'State *',
+    label_district: 'District *',
+    label_qual: 'Educational Qualification *',
+    label_pref_course: 'Preferred Course *',
+    label_address: 'Address *',
+    label_query: 'Any Question or Message',
+    ph_mobile: '10-digit mobile number',
+    ph_father: 'Father\'s name',
+    ph_district: 'Write your district',
+    ph_address: 'Write your full address',
+    ph_query: 'Write your question or message (Optional)',
+    opt_gender: 'Select Gender',
+    opt_male: 'Male',
+    opt_female: 'Female',
+    opt_other: 'Other',
+    opt_state: 'Select State',
+    st_bihar: 'Bihar',
+    st_up: 'Uttar Pradesh',
+    st_jharkhand: 'Jharkhand',
+    st_wb: 'West Bengal',
+    st_delhi: 'Delhi',
+    st_maharashtra: 'Maharashtra',
+    st_nepal: 'Nepal',
+    st_other: 'Other',
+    opt_qual: 'Select Qualification',
+    q_10th: '10th Pass / Appearing',
+    q_12th: '12th Pass / Appearing',
+    q_grad: 'Graduation Pass / Appearing',
+    opt_course: 'Select Course',
+    btn_reg_submit: 'Submit Registration',
+    reg_info_title: '📋 Registration Information',
+    reg_info_p1: 'Registration is absolutely <strong>FREE</strong>. No charges.',
+    reg_info_p2: 'Our team will contact you within <strong>24-48 hours</strong> after filling the form.',
+    reg_info_p3: '100% tuition fee waiver. <strong>No Loan, No EMI.</strong>',
+    reg_info_p4: 'Admission in <strong>recognized colleges</strong> affiliated with Government Universities.',
+    reg_info_p5: 'Direct admission without any <strong>entrance exam</strong>.',
+    req_docs_title: '📄 Required Documents',
+    doc_marksheet: '10th / 12th / Graduation Marksheet',
+    doc_aadhar: 'Aadhar Card / ID Card',
+    doc_photo: 'Passport Size Photo (4 Nos)',
+    doc_caste: 'Caste Certificate (if applicable)',
+    doc_residence: 'Residence Certificate',
+    contact_help_title: '📞 Contact for Help',
+    whatsapp_contact: 'Contact on WhatsApp',
+    all_courses: 'All Courses',
+    nepal_wing_h1: '🇳🇵 Nepal Wing',
+    nepal_wing_desc: 'Special Wing of Aimhop Trust in Nepal',
+    nepal_wing_label: 'Nepal Wing',
+    nepal_wing_h2: 'Nepal Wing – <span class="accent">Nepal</span>',
+    nepal_wing_p1: 'Nepal Wing was established in 2023. Students from Nepal who want to pursue higher education in India can get admission with a 100% tuition scholarship through Aimhop Trust.',
+    nepal_wing_p2: 'Through this wing of Aimhop Trust, students from Nepal can also get admission into government-recognized colleges with a 100% tuition scholarship.',
+    our_goal_h3: '🎯 Our Goal',
+    our_goal_nepal: 'To provide 100% scholarships to every eligible student in Nepal.',
+    achieve_h3: '📊 Achievements',
+    achieve_nepal: '1000+ students from Nepal have benefited from Aimhop Trust.',
+    network_h3: '🤝  Network',
+    network_nepal: '30+ Associates and 100+ Coordinators active in Nepal.',
+    contact_h3: '📞 Contact',
+    college_reg: 'College Registration',
+    cr_hero_subtitle: 'Register your college with Aimhop Trust',
+    cr_form_title: 'College Registration Form',
+    label_whatsapp: 'WhatsApp Number',
+    ph_whatsapp: 'WhatsApp Number',
+    label_college_title: 'College Name *',
+    ph_college: 'College Name',
+    label_uni: 'University *',
+    ph_uni: 'Affiliated University',
+    label_principal: 'Principal Name',
+    ph_principal: 'Principal Name',
+    cb_title: '📋 Benefits of College Registration',
+    cb_1: 'Opportunity to join Aimhop Trust',
+    cb_2: 'Attractive commission and rewards',
+    cb_3: 'All India network',
+    cb_4: 'Training and support',
+    cb_5: 'Opportunity for social service',
+    wing_leader: 'Wing Leader',
+    nepal_wing_head: 'Nepal Wing Head',
+    avail_courses_h3: '📋 Available Courses',
+    courses_list: 'Engineering • Nursing • Pharma • BCA • BBA • B.Com • Diploma • ITI • MBA • M.Tech and more.',
+    eligibility_h3: '✅ Eligibility',
+    elig_1: '• 10th / 12th / Graduation Pass',
+    elig_2: '• Economically weaker family',
+    elig_3: '• Interest and dedication to studies',
+
+    // Kashmir Wing
+    kw_breadcrumb: 'Kashmir Wing',
+    kw_hero_title: '⛰️ Kashmir Wing',
+    kw_hero_subtitle: 'Aimhop Trust\'s Special Wing in Kashmir',
+    kw_label: 'Kashmir Wing',
+    kw_p1: 'Through the Kashmir Wing, higher education opportunities are provided to students in Jammu and Kashmir. Deserving students of the valley who cannot afford education due to financial constraints are given 100% tuition scholarships by Aimhop Trust.',
+    kw_p2: 'Through this wing of Aimhop Trust, students from Kashmir can secure admission in government-recognized colleges with a 100% tuition scholarship.',
+    kw_goal_title: '🎯 Our Goal',
+    kw_goal_desc: 'To provide 100% scholarship to every deserving student in Kashmir.',
+    kw_achieve_title: '📊 Achievements',
+    kw_achieve_desc: '1000+ students from Kashmir have benefited from Aimhop Trust.',
+    kw_network_title: '🤝  Network',
+    kw_network_desc: '30+ Associates and 100+ Coordinators active in Kashmir.',
+    kw_contact_title: '📞 Contact',
+    kw_leader_title: 'Wing Leader',
+    kw_leader_desc: 'Kashmir Wing Head',
+    kw_courses_title: '📋 Available Courses',
+    kw_courses_desc: 'Engineering • Nursing • Pharma • BCA • BBA • B.Com • Diploma • ITI • MBA • M.Tech & More.',
+    kw_eligibility_title: '✅ Eligibility',
+    kw_eli_1: '• 10th / 12th / Graduation Pass',
+    kw_eli_2: '• Economically weak family background',
+    kw_eli_3: '• Dedication and interest in studies',
+
+    // Maharashtra Wing
+    mw_breadcrumb: 'Maharashtra Wing',
+    mw_hero_title: '🏙️ Maharashtra Wing',
+    mw_hero_subtitle: 'Aimhop Trust\'s Special Wing in Maharashtra',
+    mw_label: 'Maharashtra Wing',
+    mw_p1: 'Under the Maharashtra Wing, we are active in Mumbai, Pune, Nagpur, and other cities. Students from both rural and urban areas of Maharashtra are given the opportunity to pursue higher education with a 100% scholarship.',
+    mw_p2: 'Through this wing of Aimhop Trust, students from Maharashtra can also secure admission in government-recognized colleges with a 100% tuition scholarship.',
+    mw_goal_title: '🎯 Our Goal',
+    mw_goal_desc: 'To provide 100% scholarship to every deserving student in Maharashtra.',
+    mw_achieve_title: '📊 Achievements',
+    mw_achieve_desc: '1000+ students from Maharashtra have benefited from Aimhop Trust.',
+    mw_network_title: '🤝  Network',
+    mw_network_desc: '30+ Associates and 100+ Coordinators active in Maharashtra.',
+    mw_contact_title: '📞 Contact',
+    mw_leader_title: 'Wing Leader',
+    mw_leader_desc: 'Maharashtra Wing Head',
+    mw_courses_title: '📋 Available Courses',
+    mw_courses_desc: 'Engineering • Nursing • Pharma • BCA • BBA • B.Com • Diploma • ITI • MBA • M.Tech & More.',
+    mw_eligibility_title: '✅ Eligibility',
+
+    // New Keys for secondary pages (English)
+    breadcrumb_home: 'Home',
+    course: 'Courses',
+    course_hero_title: 'Courses with 100% Scholarship',
+    courses_desc: 'Students get complete tuition coverage for the entire duration of these courses.',
+    all_courses: 'All Courses',
+    after_10th: 'After 10th',
+    after_12th: 'After 12th',
+    after_grad: 'After Graduation',
+    c1_title: 'Diploma in Engineering',
+    dur_3yr: 'Duration: 3 Years',
+    c1_desc: 'Diploma in Mechanical, Civil, Electrical, CS. For 10th pass.',
+    c2_title: 'ITI Courses',
+    dur_1_2yr: 'Duration: 1-2 Years',
+    c2_desc: 'Industrial Training Institute courses. Technical skill dev.',
+    c3_title: 'Paramedical Diploma',
+    dur_1_3yr: 'Duration: 1-3 Years',
+    c3_desc: 'Paramedical diploma for a career in healthcare.',
+    c4_title: 'B.Tech / B.E',
+    dur_4yr: 'Duration: 4 Years',
+    c4_desc: 'Bachelor of Technology - The most popular engineering course.',
+    c5_title: 'B.Pharma',
+    c5_desc: 'Bachelor of Pharmacy - Career in pharma industry.',
+    c6_title: 'B.Sc Nursing',
+    c6_desc: 'B.Sc Nursing - Best choice for healthcare career.',
+    c7_title: 'BCA / BBA / B.Com',
+    c7_desc: 'Degree in Computer Apps, Business Admin and Commerce.',
+    c8_title: 'BMLT / B.Sc',
+    c8_desc: 'Bachelor of Medical Lab Technology and Science.',
+    c9_title: 'M.Tech / M.E',
+    dur_2yr: 'Duration: 2 Years',
+    c9_desc: 'Master of Technology - High technical education.',
+    c10_title: 'MBA / MCA',
+    c10_desc: 'Master of Business Admin and Computer Apps.',
+    c11_title: 'M.Sc / M.Com',
+    c11_desc: 'Postgrad in Science and Commerce.',
+    student_reg: 'Apply for Scholarship',
+
+    about_aimhop: 'About Aimhop',
+    about_aimhop_title: 'About Aimhop Educational Trust',
+    about_aimhop_subtitle: '100% Tuition Assistance for Economically Weaker Students',
+    identity_label: 'Our Identity',
+    identity_title: 'Aimhop Educational <span class="accent">&amp; Charitable Trust</span>',
+    identity_p1: 'Aimhop Educational &amp; Charitable Trust is a dedicated organization committed to making higher education accessible to economically weaker students.',
+    identity_p2: 'By taking responsibility for their college tuition, the trust plays a crucial role in turning their academic aspirations into reality.',
+    identity_p3: 'Aimhop Trust is continuously creating a new revolution in the field of education for this purpose.',
+    ahi_students: 'Students Benefited',
+    ahi_tuition: 'Tuition Waiver',
+    ahi_associates: 'Associate Network',
+    ahi_est: 'Established',
+    apply_scholarship: 'Apply for Scholarship',
+    mission: 'Mission',
+    mission_desc: 'Padeha India, Badega India: We provide full tuition assistance to eligible students so they can pursue higher education and contribute to the progress of the nation.',
+    vision: 'Vision',
+    vision_desc: 'To create a society where every eligible student gets quality education.',
+    values: 'Values',
+    values_desc: 'We believe in equal educational opportunities, empowering students and excellence.',
+    why_different: 'Why We Stand Out',
+    diff_tuition: '100% Tuition Fee Waiver',
+    diff_no_loan: 'No Loan, No EMI',
+    diff_no_exam: 'No Entrance Exam Needed',
+    diff_colleges: 'Government Affiliated Colleges',
+    diff_network: 'All-India Network',
+
+    breadcrumb_contact: 'Contact Us',
+    contact_title: 'Contact Us',
+    contact_subtitle: 'Connect with us to start your educational journey.',
+    hq_address_title: 'HQ Address',
+    hq_address: 'First Floor, Meena Bhawan, Suba Bazar Block, Gorakhpur (U.P) 273010',
+    helpline_title: 'Helpline No',
+    helpline1: '+91 9151385320',
+    helpline2: '+91 9151385320',
+    email_title: 'Email Address',
+    email: 'aimhopgroup@gmail.com',
+    office_hours_title: 'Office Hours',
+    office_hours1: 'Monday - Saturday: 9:00 AM - 6:00 PM',
+    office_hours2: 'Sunday: Closed',
+    follow_us: '📱 Follow Us',
+    form_title: 'Send Message',
+    form_subtitle: 'We will reply within 24-48 hours.',
+    label_name: 'Full Name *',
+    ph_name: 'Your Name',
+    label_email: 'Email',
+    ph_email: 'Your Email',
+    label_subject: 'Subject',
+    ph_subject: 'Message Subject',
+    label_message: 'Message *',
+    ph_message: 'Write your message...',
+    btn_send: 'Send Message <i class="fas fa-paper-plane"></i>',
+    map_org: 'Aimhop Educational Trust',
+
+    nav_university: 'University',
+    uni_list: 'List of Universities',
+    uni_subtitle: 'We provide admission with 100% scholarship in government university affiliated colleges',
+    affiliated_uni_label: 'Affiliated Universities',
+    our_affiliated_uni: 'Our <span class="accent">Affiliated Universities</span>',
+    uni_section_desc: 'Get admission with 100% scholarship through Aimhop Trust in colleges affiliated to these government universities.',
+    more_uni: 'And Many More...',
+    contact_for_more: 'Contact for more details',
+    apply_admission_now: 'Apply For Admission Now',
+
+    nav_video_gallery: 'Video Gallery',
+    video_gallery_title: 'Video Gallery',
+    video_gallery_desc: 'Watch inspiring videos of Aimhop Trust',
+    v1_thumb_title: '🎓 Direct Admission 2026 Without Entrance Exam!',
+    v2_thumb_title: 'Study your favorite course in India absolutely free',
+    v3_thumb_title: 'College Life: Accommodation and Food - Student\'s Experience',
+    more_videos_yt: 'Watch more videos on YouTube',
+
+    nav_photo_gallery: 'Photo Gallery',
+    photo_gallery_title: 'Photo Gallery',
+    photo_gallery_desc: 'Glimpses of Aimhop Trust activities and events',
+    filter_all: 'All',
+    filter_event: 'Events',
+    filter_campus: 'Campus',
+    filter_award: 'Awards',
+    filter_student: 'Students',
+    gal_caption_1: 'Annual Function 2024',
+    gal_caption_2: 'Headquarters - Patna',
+    gal_caption_4: 'Student Convocation',
+    gal_caption_5: 'Counseling Camp 2024',
+    gal_caption_6: 'Information Center',
+    gal_caption_7: 'B.Tech Students On Campus',
+    gal_caption_11: 'Admission Camp 2025',
+    gal_caption_12: 'Nepal Wing Launch',
+
+    // achievements.html
+    achievements_page_title: 'Achievements – Aimhop Educational Trust',
+    achievements: 'Achievements',
+    achievements_hero_title: 'Our Achievements',
+    achievements_hero_subtitle: 'The numbers that tell the story of our dedication to students',
+    achievements_section_title: 'Our <span class="accent">Key Achievements</span>',
+    happy_students_label: 'Happy Students',
+    associates_label: 'Associates – India & Nepal',
+    coordinators_label: 'Coordinator Network',
+    top_inst: 'Top Institutions',
+    ach1_title: 'Pan-India Presence',
+    ach1_desc: 'Aimhop Trust network spans 28+ states including Bihar, Jharkhand, UP, West Bengal, Maharashtra, and more.',
+    ach2_title: 'Expanded to Nepal',
+    ach2_desc: 'In 2023, Aimhop Trust launched its Nepal Wing. Nepali students can now secure admission in India\'s recognized colleges with 100% scholarship.',
+    ach3_title: 'National Awards',
+    ach3_desc: 'Aimhop Trust has been honoured with 9+ national and state-level awards for outstanding contribution to education.',
+    ach4_title: 'Contribution to GER',
+    ach4_desc: 'Aimhop Trust\'s efforts are helping improve India\'s Gross Enrollment Ratio by reaching students who would otherwise miss higher education.',
+    ach5_title: 'Focus on Girl Education',
+    ach5_desc: 'Aimhop Trust is specially committed to girl education. 40%+ of our beneficiaries are female students reaching new heights in higher education.',
+    ach6_title: '100+ College Partnerships',
+    ach6_desc: 'Aimhop Trust has signed MOUs with 100+ government university affiliated colleges to ensure the best education for students.',
+
+    // success-story.html
+    success_page_title: 'Success Stories – Aimhop Educational Trust',
+    success: 'Success Stories',
+    success_hero_title: 'Success Stories',
+    success_hero_subtitle: 'Inspiring transformations – stories of students who fulfilled their dreams with Aimhop Trust',
+    success_label: 'Inspiring',
+    success_section_title: 'Our <span class="accent">Successful Students</span>',
+    success_section_desc: 'These students received higher education at 0 tuition fees through Aimhop Trust.',
+    s6_title: 'Trusting the Trust',
+
+    // our-team.html
+    our_team_page_title: 'Our Team – Aimhop Educational Trust',
+    our_team: 'Our Team',
+    our_team_hero_title: 'Our Team',
+    our_team_hero_subtitle: 'The dedicated people who carry forward the mission of Aimhop Trust',
+    team_label: 'Team',
+    team_section_title: 'Our <span class="accent">Core Team</span>',
+    role_founder_ceo: 'Chief Managing Director',
+    role_vp: 'Vice President',
+    role_md: 'Managing Director',
+    role_edu_coord: 'Education Coordinator',
+    role_counselor: 'Counselor',
+    role_student_rel: 'Head – Student Relations',
+    team_sk_desc: 'Founder and Chief Executive Officer of Aimhop Trust. Revolutionizing education for 6+ years.',
+    team_pd_desc: 'Dedicated to student welfare and women\'s education as Vice President of the Trust.',
+    team_rk_desc: 'Oversees operations and strategic planning of the Trust.',
+    team_ak_desc: 'Establishes coordination between students and colleges.',
+    team_sp_desc: 'Guides students in choosing the right course and career path.',
+    team_vk_desc: 'Manages digital platforms and technical operations.',
+    team_ms_desc: 'Ensures student issues are resolved and satisfaction is maintained.',
+    team_nk_desc: 'Works at the ground level to reach students.',
+
+    // our-mentors.html
+    our_mentors_page_title: 'Our Mentors – Aimhop Educational Trust',
+    our_mentors: 'Our Mentors',
+    mentors_hero_title: 'Our Mentors',
+    mentors_hero_subtitle: 'The sources of inspiration who guide us',
+    mentors_label: 'Mentors',
+    mentors_section_title: 'Our <span class="accent">Inspirations</span>',
+    mentors_section_desc: 'Aimhop Trust draws inspiration from the thoughts and principles of these great personalities.',
+    kalam_role: 'Bharat Ratna, Former President of India',
+    kalam_desc: 'Dr. Kalam believed education is every child\'s right. His "Wings of Fire" and "Ignited Minds" gave Aimhop Trust its goal.',
+    vivek_role: 'Spiritual Leader & Education Reformer',
+    vivek_desc: 'Swami Vivekananda\'s teaching – "Education that builds character" – is at the core of Aimhop Trust. We are realising his vision.',
+
+    // awards.html
+    awards_page_title: 'Awards – Aimhop Educational Trust',
+    awards: 'Awards',
+    awards_hero_title: 'Our Awards',
+    awards_hero_subtitle: 'National and state-level awards received for outstanding contribution to education',
+    awards_section_label: 'Recognitions',
+    awards_section_title: 'Our <span class="accent">Awards & Honours</span>',
+    awards_desc: 'These awards celebrate Aimhop Trust\'s commitment to educational empowerment.',
+    aw1_desc: 'Best Educational Trust Award at national level for outstanding contribution to education of economically weaker students.',
+    aw2_desc: 'Excellence in Social Service Award for extraordinary work done for underprivileged sections of society.',
+    aw3_desc: 'National Education Leadership Award for pioneering role in expanding education access in India.',
+    aw4_desc: 'Youth Empowerment Award for educating and empowering the youth of the country.',
+    aw5_desc: 'Outstanding Contribution to Education Award for making higher education accessible.',
+    aw6_desc: 'Social Impact Award 2024 for bringing positive change in the lives of millions of students.',
+    aw7_desc: 'Best NGO for Students Award for student-centric services and 100% scholarship model.',
+    aw8_desc: 'National literacy and education campaign award under the "Padhe India Badhe India" mission.',
+    aw9_desc: 'Bihar Education Champion Award 2024 for revolutionary change in Bihar\'s education sector.',
+
+    // appeal-parents.html
+    appeal_page_title: 'Appeal to Parents – Aimhop Educational Trust',
+    appeal: 'Appeal to Parents',
+    appeal_hero_title: 'Appeal to Parents',
+    appeal_hero_subtitle: 'An important message from Aimhop Trust to all parents',
+    appeal_salutation: 'Dear Parents,',
+    appeal_p1: 'Securing your child\'s future is our priority. We know college fees are very high today. Can your child not dream because of that?',
+    appeal_p2: 'Aimhop Trust exists for this very reason. We take responsibility for your child\'s full tuition fee so they can focus on studies.',
+    appeal_p2_strong: 'Absolutely Not!',
+    appeal_offer_title: 'What Do We Offer?',
+    appeal_offer_list: '✅ Admission in government university affiliated colleges<br/>✅ 100% Tuition Fee Waiver<br/>✅ No Loan, No EMI<br/>✅ Direct admission without entrance exam<br/>✅ 50+ Courses including Engineering, Nursing, Pharma, BCA, MBA<br/>✅ 221+ Associate network across India & Nepal',
+    appeal_concerns_title: 'Addressing Your Concerns',
+    appeal_q1: '<strong>Is it really free?</strong> Yes, tuition fee is completely waived. Students only pay hostel and exam fees which are very minimal.',
+    appeal_q2: '<strong>Is this Trust reliable?</strong> Aimhop Trust has been operating since 2018. 25,000+ students have benefited. We have government registration and recognition.',
+    appeal_q3: '<strong>Where will the college be?</strong> We work with 100+ government recognized colleges across India. You can get admission in your state or preferred location.',
+    appeal_cta_title: 'Take Action Today',
+    appeal_cta_desc: 'This is the best opportunity to fulfil your child\'s dream. Don\'t delay – seats are limited.',
+    call_now: 'Call Now',
+    reg_now: 'Register Now',
+    founder_sign_title: 'Chief Managing Director, Aimhop Educational & Charitable Trust',
+
+    // for-student.html
+    for_student_page_title: 'Services for Students – Aimhop Educational Trust',
+    for_student: 'For Students',
+    for_student_hero_title: 'Services for Students',
+    for_student_hero_subtitle: 'Aimhop Trust supports students at every step',
+    service: 'Services',
+    for_student_section_title: 'What We Offer <span class="accent">to Students</span>',
+    sv1_title: '100% Tuition Scholarship', sv1_desc: 'Full tuition fee waived. No loan, no EMI. Just focus on studies.',
+    sv2_title: 'Free Counseling', sv2_desc: 'Our experts will guide you in choosing the right course and college.',
+    sv3_title: 'Admission Assistance', sv3_desc: 'Our team is with you at every step from documents to admission.',
+    sv4_title: 'Hostel Information', sv4_desc: 'Information and assistance for affordable hostels near college.',
+    sv5_title: 'Career Guidance', sv5_desc: 'Information about career opportunities after the course and placement assistance.',
+    sv6_title: '24/7 Helpline', sv6_desc: 'Our helpline is always available for any problem. +91 9151385320',
+    sv7_title: 'Online Portal', sv7_desc: 'Online registration, document upload and application status check.',
+    sv8_title: 'Associate Network', sv8_desc: 'Meet your nearest associate and get information directly.',
+    sv9_title: 'Scholarship Tracking', sv9_desc: 'Track your scholarship status and get updates.',
+    sv_cta_title: 'Start Your Journey Today',
+    sv_cta_desc: 'Registration is completely free. Fill the form now and our team will contact you within 24 hours.',
+
+    // infrastructure.html
+    infra_page_title: 'Infrastructure – Aimhop Educational Trust',
+    infra: 'Infrastructure',
+    infra_hero_title: 'Our Infrastructure',
+    infra_hero_subtitle: 'Modern and convenient environment for students and parents',
+    infra_label: 'Facilities',
+    infra_section_title: 'Modern <span class="accent">Infrastructure</span>',
+    infra_p1: 'At Aimhop Educational & Charitable Trust, we prioritize the convenience of our students and their parents in every aspect.',
+    inf1_title: 'Main Office', inf1_desc: 'Our spacious headquarters in Patna, Bihar where students and parents can come for counseling.',
+    inf2_title: 'Counseling Hall', inf2_desc: 'A well-equipped counseling hall for open discussions and personal consultations.',
+    inf3_title: 'Computer Lab', inf3_desc: 'State-of-the-art computer facility for online registration and information.',
+    inf4_title: 'Information Center', inf4_desc: 'All courses, universities and scholarship information in one place.',
+    inf5_title: 'Parent Meeting Room', inf5_desc: 'A special meeting room for parents where they can discuss comfortably.',
+    inf6_title: 'Nationwide Network', inf6_desc: '221+ Associate offices active across India and Nepal.',
+    infra_p2: 'We have created spaces for open discussions, information sessions and personal consultations so parents can make informed decisions about their children\'s future.',
+
+    // latest-activity.html
+    activity_page_title: 'Latest Activities – Aimhop Educational Trust',
+    latest_activity: 'Latest Activities',
+    activity_hero_title: 'Latest Activities',
+    activity_hero_subtitle: 'Recent activities and events of Aimhop Trust',
+    date_march_25: 'March 2025', date_june_25: 'June 2025', date_feb_25: 'February 2025',
+    date_jan_25: 'January 2025', date_dec_24: 'December 2024', date_nov_24: 'November 2024',
+    visit_chairman: 'Chairman\'s Visit to Motivate and Connect with Students',
+    visit_desc1: 'O.P YADAV (ex-Army) visited various colleges and met students to motivate them.',
+    inspiring_college: 'Inspiring the Next Generation: Chairman\'s June College Tour',
+    visit_desc2: 'The Chairman visited several colleges in June and shared Aimhop Trust information with new students.',
+    relationship_building: 'Building Relationships: Chairman\'s Recent College Visit',
+    visit_desc3: 'Aimhop Trust Chairman met new college partners to discuss future plans.',
+    act4_title: 'Massive Admission Counseling Camp in Patna',
+    act4_desc: '5,000+ students and parents participated. Information on 100% scholarship was shared.',
+    act5_title: 'Nepal Wing Inauguration – New Door for Nepali Students',
+    act5_desc: 'Dignitaries from Nepal attended the inauguration ceremony of Aimhop Trust Nepal Wing.',
+    act6_title: 'Award Ceremony – Aimhop Trust receives Social Impact Award',
+    act6_desc: 'Aimhop Trust was honoured with the Social Impact Award 2024 at a ceremony in Delhi.',
+    read_more: 'Read More',
+
+    // â”€â”€ download.html â”€â”€
+    download_page_title: 'Downloads – Aimhop Educational Trust',
+    download: 'Downloads',
+    download_hero_title: 'Downloads',
+    download_hero_subtitle: 'Download useful forms and documents from Aimhop Trust',
+    download_label: 'Resources',
+    download_section_title: 'Useful <span class="accent">Downloads</span>',
+    download_section_desc: 'Download all these files for free. Contact us for any issues.',
+    dl1_title: 'Student Registration Form',
+    dl2_title: 'College Registration Form',
+    dl3_title: 'Associate Application Form',
+    dl4_title: 'Coordinator Application',
+    dl5_title: 'Course Brochure 2025-26',
+    dl6_title: 'University List 2025',
+    dl7_title: 'Aimhop Trust Profile',
+    btn_download: 'Download',
+
+    // â”€â”€ news.html â”€â”€
+    news_page_title: 'News – Aimhop Educational Trust',
+    news: 'News',
+    news_hero_title: 'Latest News',
+    news_hero_subtitle: 'Latest news and updates from Aimhop Trust',
+    cat_scholarship: 'Scholarship', cat_award: 'Award', cat_expansion: 'Expansion',
+    cat_milestone: 'Milestone', cat_partnership: 'Partnership', cat_girl_edu: 'Girl Education',
+    date_oct_24: 'October 2024',
+    n1_title: 'Direct Admission 2026: Get 100% Scholarship Without Entrance Exam',
+    n1_desc: 'Aimhop Trust announced a new batch for 2026. Get direct admission after 10th, 12th and Graduation.',
+    n2_title: 'Aimhop Trust Receives Bihar Education Champion Award 2024',
+    n2_desc: 'Aimhop Trust honoured with a prestigious award for revolutionary change in Bihar\'s education sector.',
+    n3_title: 'Aimhop Trust Nepal Wing: Nepali Students to Get 100% Scholarship',
+    n3_desc: 'Under the Nepal Wing, Nepali students can also study in India\'s government colleges with 100% scholarship.',
+    n4_title: '25,000 Students Received 100% Scholarship – Aimhop Trust Sets Record',
+    n4_desc: 'Aimhop Trust has provided 100% tuition scholarship to 25,000+ students since 2018.',
+    n5_title: 'MOU with 5 New Colleges: More Opportunities for Engineering and Medical',
+    n5_desc: 'Aimhop Trust partnered with 5 new government colleges. More seats for Engineering and Medical students.',
+    n6_title: 'Special Scholarship Campaign for Girls – Aimhop Trust Initiative',
+    n6_desc: 'Aimhop Trust launched a special campaign for girls\' higher education. 40% seats reserved for girls.',
+
+    // â”€â”€ blog.html â”€â”€
+    blog_page_title: 'Blog – Aimhop Educational Trust',
+    blog_spot: 'Blog Spot',
+    blog_hero_title: 'Blog Spot',
+    blog_hero_subtitle: 'Useful articles on education, careers and scholarships',
+    b1_title: 'How to Get 100% Scholarship? – Know the Complete Process',
+    b1_desc: 'The complete process of getting 100% tuition scholarship through Aimhop Trust. Information on every step from registration to admission.',
+    b2_title: 'Which Course to Choose After 12th? – Expert Advice',
+    b2_desc: 'After intermediate, B.Tech, B.Sc, BCA, BBA or B.Pharma – which course is right for you? Know from our experts.',
+    b3_title: 'Best Career Options After Engineering – 2025 Guide',
+    b3_desc: 'After B.Tech: job, MBA, M.Tech or government job? Know the pros and cons of every option.',
+    b4_title: 'Career in Nursing and Paramedical – Know Scope and Salary',
+    b4_desc: 'There is a huge demand for Nursing and Paramedical professionals in India. Learn how to build a career in this field.',
+    b5_title: 'Government Job vs Private Job – Which is Better?',
+    b5_desc: 'Stability of a government job or growth in private? An analysis of pros and cons of both.',
+    b6_title: 'AI and Machine Learning – The Fastest Growing Career of the Future',
+    b6_desc: 'Which courses to do to build a career in Artificial Intelligence? AI course at 0 fee at Aimhop Trust.',
+    read_full: 'Read Full Article',
+
+    // â”€â”€ our-coordinator.html â”€â”€
+    coordinator_page_title: 'Our Coordinators – Aimhop Educational Trust',
+    our_coordinators: 'Our Coordinators',
+    coordinator_hero_title: 'Our Coordinators',
+    coordinator_hero_subtitle: '1849+ Coordinators Serving Students Across India & Nepal',
+    coordinator_label: 'Coordinators',
+    coordinator_section_title: '1849+ <span class="accent">Dedicated Coordinators</span>',
+    coordinator_desc: 'Our coordinators reach students at the ground level and help them get the benefit of 100% scholarship.',
+    coord_benefits_title: 'Benefits of Becoming a Coordinator',
+    coord_b1_title: 'Attractive Commission', coord_b1_desc: 'Earn good commission on every successful admission.',
+    coord_b2_title: 'Aimhop Support', coord_b2_desc: 'Training, Marketing Material and full support.',
+    coord_b3_title: 'Social Service', coord_b3_desc: 'Help students and contribute to your community.',
+    become_coordinator: 'Become a Coordinator',
+    top_coordinators: 'Our Top Coordinators',
+
+    // â”€â”€ associate-registration.html & coordinator-registration.html (en) â”€â”€
+    assoc_reg_page_title: 'Associate Registration – Aimhop Educational Trust',
+    assoc_reg_breadcrumb: 'Associate Registration',
+    assoc_reg_hero_title: 'Associate Registration',
+    assoc_reg_hero_subtitle: 'Become an Associate of Aimhop Trust and help students',
+    assoc_form_title: 'Associate Registration Form',
+    coord_reg_page_title: 'Coordinator Registration – Aimhop Educational Trust',
+    coord_reg_breadcrumb: 'Coordinator Registration',
+    coord_reg_hero_title: 'Coordinator Registration',
+    coord_reg_hero_subtitle: 'Become a Coordinator of Aimhop Trust and earn',
+    coord_form_title: 'Coordinator Registration Form',
+    reg_form_subtitle: 'Fill in all details correctly. Our team will contact you soon.',
+
+    // shared form labels & placeholders
+    label_full_name: 'Full Name *',
+    ph_full_name: 'Full Name',
+    label_mobile: 'Mobile Number *',
+    ph_mobile: '10-digit number',
+    label_email_f: 'Email',
+    ph_email_f: 'Email Address',
+    label_whatsapp: 'WhatsApp Number',
+    ph_whatsapp: 'WhatsApp Number',
+    label_experience: 'Experience *',
+    opt_select_exp: 'Select Experience',
+    opt_0_1yr: '0-1 Year',
+    opt_1_3yr: '1-3 Years',
+    opt_3_5yr: '3-5 Years',
+    opt_5plus_yr: '5+ Years',
+    label_area: 'Area',
+    ph_area: 'Work Area',
+    label_qualification: 'Educational Qualification',
+    opt_12th_pass: '12th Pass',
+    opt_graduate: 'Graduate',
+    opt_postgraduate: 'Post Graduate',
+    label_work_area: 'Work Area',
+    ph_work_area: 'Your Work Area',
+    label_state: 'State *',
+    opt_select_state: 'Select State',
+    state_bihar: 'Bihar',
+    state_up: 'Uttar Pradesh',
+    state_jh: 'Jharkhand',
+    state_wb: 'West Bengal',
+    state_mh: 'Maharashtra',
+    state_np: 'Nepal',
+    state_other: 'Other',
+    label_district: 'District *',
+    ph_district: 'District',
+    label_address: 'Full Address *',
+    ph_address: 'Full Address',
+    label_message_f: 'Message / Question',
+    ph_message_f: 'Write your question here',
+    btn_submit_form: 'Submit Form',
+
+    // sidebar
+    assoc_benefits_title: '📋 Benefits of Becoming an Associate',
+    coord_benefits_title_s: '📋 Benefits of Becoming a Coordinator',
+    more_info_title: '📞 For More Information',
+    whatsapp_us: 'WhatsApp Us',
+  }
+};
+
+// â”€â”€ Also add Hindi keys for registration pages â”€â”€
+langMap.hi = Object.assign(langMap.hi, {
+  assoc_reg_page_title: 'एसोसिएट रजिस्ट्रेशन - Aimhop Educational Trust',
+  assoc_reg_breadcrumb: 'एसोसिएट रजिस्ट्रेशन',
+  assoc_reg_hero_title: 'एसोसिएट रजिस्ट्रेशन',
+  assoc_reg_hero_subtitle: 'Aimhop Trust के एसोसिएट बनें और छात्रों की मदद करें',
+  assoc_form_title: 'एसोसिएट रजिस्ट्रेशन फॉर्म',
+  coord_reg_page_title: 'समन्वयक रजिस्ट्रेशन - Aimhop Educational Trust',
+  coord_reg_breadcrumb: 'समन्वयक रजिस्ट्रेशन',
+  coord_reg_hero_title: 'समन्वयक रजिस्ट्रेशन',
+  coord_reg_hero_subtitle: 'Aimhop Trust के समन्वयक बनें और कमाएं',
+  coord_form_title: 'समन्वयक रजिस्ट्रेशन फॉर्म',
+  reg_form_subtitle: 'सभी जानकारी सही-सही भरें। हमारी टीम जल्द संपर्क करेगी।',
+  label_full_name: 'पूरा नाम *', ph_full_name: 'पूरा नाम',
+  label_mobile: 'मोबाइल नंबर *', ph_mobile: '10 अंकों का नंबर',
+  label_email_f: 'ईमेल', ph_email_f: 'ईमेल पता',
+  label_whatsapp: 'WhatsApp नंबर', ph_whatsapp: 'WhatsApp नंबर',
+  label_experience: 'अनुभव *',
+  opt_select_exp: 'अनुभव चुनें', opt_0_1yr: '0-1 वर्ष', opt_1_3yr: '1-3 वर्ष',
+  opt_3_5yr: '3-5 वर्ष', opt_5plus_yr: '5+ वर्ष',
+  label_area: 'क्षेत्र', ph_area: 'काम करने का क्षेत्र',
+  label_qualification: 'शैक्षणिक योग्यता',
+  opt_12th_pass: '12वीं पास', opt_graduate: 'ग्रैजुएट', opt_postgraduate: 'पोस्ट ग्रैजुएट',
+  label_work_area: 'कार्यक्षेत्र', ph_work_area: 'अपना कार्यक्षेत्र',
+  label_state: 'राज्य *', opt_select_state: 'राज्य चुनें',
+  state_bihar: 'बिहार', state_up: 'उत्तर प्रदेश', state_jh: 'झारखंड',
+  state_wb: 'पश्चिम बंगाल', state_mh: 'महाराष्ट्र', state_np: 'नेपाल', state_other: 'अन्य',
+  label_district: 'जिला *', ph_district: 'जिला',
+  label_address: 'पूरा पता *', ph_address: 'पूरा पता',
+  label_message_f: 'संदेश / प्रश्न', ph_message_f: 'कोई प्रश्न हो तो लिखें',
+  btn_submit_form: 'फॉर्म सबमिट करें',
+  assoc_benefits_title: 'एसोसिएट बनने के फायदे',
+  coord_benefits_title_s: 'समन्वयक बनने के फायदे',
+  more_info_title: 'अधिक जानकारी के लिए',
+  whatsapp_us: 'WhatsApp करें',
+});
+
+// â”€â”€ Shared Registration Form keys (used by student / college / assoc / coord pages) â”€â”€
+langMap.en = Object.assign(langMap.en, {
+  // student-registration.html
+  student_reg_hero: 'Student Registration',
+  student_reg_title: 'Student Registration',
+  student_reg_subtitle: 'Start your educational journey with 100% scholarship. Register today!',
+  reg_form_title: 'Registration Form',
+  reg_form_subtitle: 'Fill in all details correctly. Our team will contact you soon.',
+  label_name: 'Full Name *', ph_name: 'Enter your full name',
+  label_mobile: 'Mobile Number *', ph_mobile: '10-digit mobile number',
+  label_email: 'Email', ph_email: 'Your email address',
+  label_father: 'Father\'s Name *', ph_father: 'Father\'s Name',
+  label_dob: 'Date of Birth *',
+  label_gender: 'Gender *', opt_gender: 'Select Gender',
+  opt_male: 'Male', opt_female: 'Female', opt_other: 'Other',
+  label_state: 'State *', opt_state: 'Select State',
+  st_bihar: 'Bihar', st_up: 'Uttar Pradesh', st_jharkhand: 'Jharkhand',
+  st_wb: 'West Bengal', st_delhi: 'Delhi', st_maharashtra: 'Maharashtra',
+  st_nepal: 'Nepal', st_other: 'Other',
+  label_district: 'District *', ph_district: 'Enter your district',
+  label_qual: 'Educational Qualification *', opt_qual: 'Select Qualification',
+  q_10th: '10th Pass / Appearing', q_12th: '12th Pass / Appearing',
+  q_grad: 'Graduation Pass / Appearing',
+  label_pref_course: 'Preferred Course *', opt_course: 'Select Course',
+  c_other: 'Other',
+  label_address: 'Address *', ph_address: 'Enter your full address',
+  label_query: 'Question / Message', ph_query: 'Write your question or message (optional)',
+  btn_reg_submit: 'Submit Registration',
+  reg_info_title: '📋 Registration Information',
+  reg_info_p1: 'Registration is completely <strong>free</strong>. No fees.',
+  reg_info_p2: 'After filling the form our team will contact within <strong>24-48 hours</strong>.',
+  reg_info_p3: '100% Tuition Fee Waiver. <strong>No Loan, No EMI.</strong>',
+  reg_info_p4: 'Admission in <strong>recognized colleges</strong> affiliated to government universities.',
+  reg_info_p5: 'Direct admission without <strong>Entrance Exam</strong>.',
+  req_docs_title: '📄 Required Documents',
+  doc_marksheet: '10th / 12th / Graduation Marksheet',
+  doc_aadhar: 'Aadhar Card / Identity Proof',
+  doc_photo: 'Passport Size Photo (4 copies)',
+  doc_caste: 'Caste Certificate (if applicable)',
+  doc_residence: 'Residence Certificate',
+  contact_help_title: '📞 Contact for Help',
+  whatsapp_contact: 'Contact on WhatsApp',
+
+  // college-registration.html
+  label_college_title: 'College Name *', ph_college: 'College Name',
+  label_uni: 'University *', ph_uni: 'Affiliated University',
+  label_principal: 'Principal\'s Name', ph_principal: 'Principal\'s Name',
+  label_query: 'Message / Question', ph_query: 'Write your question here',
+  btn_reg_submit: 'Submit Form',
+  cb_title: '📋 Benefits of College Registration',
+  cb_1: 'Opportunity to join Aimhop Trust',
+  cb_2: 'Attractive commission and rewards',
+  cb_3: 'All India network',
+  cb_4: 'Training and support',
+  cb_5: 'Opportunity for social service',
+  contact_help_title: '📞 For More Information',
+  whatsapp_contact: 'WhatsApp Us',
+});
+
+langMap.hi = Object.assign(langMap.hi, {
+  student_reg_hero: 'छात्र रजिस्ट्रेशन',
+  student_reg_title: 'छात्र रजिस्ट्रेशन',
+  student_reg_subtitle: '100% छात्रवृत्ति के साथ अपनी शिक्षा यात्रा शुरू करें। आज ही रजिस्टर करें!',
+  reg_form_title: 'रजिस्ट्रेशन फॉर्म',
+  label_name: 'पूरा नाम *', ph_name: 'अपना पूरा नाम लिखें',
+  label_email: 'ईमेल', ph_email: 'आपका ईमेल पता',
+  label_father: 'पिता का नाम *', ph_father: 'पिता का नाम',
+  label_dob: 'जन्म तिथि *',
+  label_gender: 'लिंग *', opt_gender: 'लिंग चुनें',
+  opt_male: 'पुरुष', opt_female: 'महिला', opt_other: 'अन्य',
+  opt_state: 'राज्य चुनें',
+  st_bihar: 'बिहार', st_up: 'उत्तर प्रदेश', st_jharkhand: 'झारखंड',
+  st_wb: 'पश्चिम बंगाल', st_delhi: 'दिल्ली', st_maharashtra: 'महाराष्ट्र',
+  st_nepal: 'नेपाल', st_other: 'अन्य',
+  ph_district: 'अपना जिला लिखें',
+  label_qual: 'शैक्षणिक योग्यता *', opt_qual: 'योग्यता चुनें',
+  q_10th: '10वीं पास / पास होने वाले', q_12th: '12वीं पास / पास होने वाले',
+  q_grad: 'ग्रैजुएशन पास / पास होने वाले',
+  label_pref_course: 'पसंदीदा कोर्स *', opt_course: 'कोर्स चुनें', c_other: 'अन्य',
+  ph_address: 'अपना पूरा पता लिखें',
+  label_query: 'कोई प्रश्न या संदेश', ph_query: 'अपना प्रश्न या संदेश लिखें (वैकल्पिक)',
+  btn_reg_submit: 'रजिस्ट्रेशन सबमिट करें',
+  reg_info_title: 'रजिस्ट्रेशन की जानकारी',
+  reg_info_p1: 'रजिस्ट्रेशन बिल्कुल <strong>मुफ्त</strong> है। कोई शुल्क नहीं।',
+  reg_info_p2: 'फॉर्म भरने के बाद हमारी टीम <strong>24-48 घंटों</strong> में संपर्क करेगी।',
+  reg_info_p3: '100% ट्यूशन फीस माफी। <strong>कोई लोन नहीं, कोई EMI नहीं।</strong>',
+  reg_info_p4: 'सरकारी विश्वविद्यालय से संबद्ध <strong>मान्यता प्राप्त कॉलेजों</strong> में प्रवेश।',
+  reg_info_p5: 'बिना <strong>एंट्रेंस एग्जाम</strong> के सीधा एडमिशन।',
+  req_docs_title: 'आवश्यक दस्तावेज',
+  doc_marksheet: '10वीं / 12वीं / ग्रैजुएशन की मार्कशीट',
+  doc_aadhar: 'आधार कार्ड / पहचान पत्र',
+  doc_photo: 'पासपोर्ट साइज फोटो (4 प्रति)',
+  doc_caste: 'जाति प्रमाण पत्र (यदि लागू हो)',
+  doc_residence: 'निवास प्रमाण पत्र',
+  contact_help_title: 'सहायता के लिए संपर्क करें',
+  whatsapp_contact: 'WhatsApp पर संपर्क करें',
+});
+
+// â”€â”€ Nepal Wing & Maharashtra Wing â”€â”€
+langMap.en = Object.assign(langMap.en, {
+  home: 'Home',
+  breadcrumb_home: 'Home',
+  nepal_wing: 'Nepal Wing',
+  nepal_wing_h1: '🇳🇵 Nepal Wing',
+  nepal_wing_desc: 'Special Wing of Aimhop Trust in Nepal',
+  nepal_wing_label: 'Nepal Wing',
+  nepal_wing_h2: 'Nepal Wing – <span class="accent">Nepal</span>',
+  nepal_wing_p1: 'Nepal Wing was established in 2023. Students from Nepal who want to get higher education in India can get admission with 100% tuition scholarship through Aimhop Trust.',
+  nepal_wing_p2: 'Through this wing of Aimhop Trust, students from Nepal can also get admission in government recognized colleges with 100% tuition scholarship.',
+  our_goal_h3: '🎯 Our Goal',
+  our_goal_nepal: 'To provide 100% scholarship to every eligible student of Nepal.',
+  achieve_h3: '📊 Achievement',
+  achieve_nepal: '1000+ students from Nepal benefited by Aimhop Trust.',
+  network_h3: '🤝 Network',
+  network_nepal: '30+ Associates and 100+ Coordinators active in Nepal.',
+  contact_h3: '📞 Contact',
+  apply: 'Apply Now',
+  wing_leader: 'Wing Leader',
+  nepal_wing_head: 'Nepal Wing Head',
+  avail_courses_h3: '📋 Available Courses',
+  courses_list: 'Engineering • Nursing • Pharma • BCA • BBA • B.Com • Diploma • ITI • MBA • M.Tech and others.',
+  eligibility_h3: '✅ Eligibility',
+  elig_1: '• 10th / 12th / Graduation Pass',
+  elig_2: '• Financially weak family',
+  elig_3: '• Interest and dedication towards studies',
+  
+  mw_breadcrumb: 'Maharashtra Wing',
+  mw_hero_title: 'ðŸ™ Maharashtra Wing',
+  mw_hero_subtitle: 'Special Wing of Aimhop Trust in Maharashtra',
+  mw_label: 'Maharashtra Wing',
+  mw_p1: 'Under Maharashtra Wing, we are active in Mumbai, Pune, Nagpur and other cities. Higher education opportunities are provided with 100% scholarship to students from both rural and urban areas of Maharashtra.',
+  mw_p2: 'Through this wing of Aimhop Trust, students from Maharashtra can also get admission in government recognized colleges with 100% tuition scholarship.',
+  mw_goal_title: '🎯 Our Goal',
+  mw_goal_desc: 'To provide 100% scholarship to every eligible student of Maharashtra.',
+  mw_achieve_title: '📊 Achievement',
+  mw_achieve_desc: '1000+ students from Maharashtra benefited by Aimhop Trust.',
+  mw_network_title: '🤝 Network',
+  mw_network_desc: '30+ Associates and 100+ Coordinators active in Maharashtra.',
+  mw_contact_title: '📞 Contact',
+  apply_now: 'Apply Now',
+  mw_leader_title: 'Wing Leader',
+  mw_leader_desc: 'Maharashtra Wing Head',
+  mw_courses_title: 'Available Courses',
+  mw_courses_desc: 'Engineering • Nursing • Pharma • BCA • BBA • B.Com • Diploma • ITI • MBA • M.Tech and others.',
+  mw_eligibility_title: 'Eligibility',
+  kw_eli_1: '• 10th / 12th / Graduation Pass',
+  kw_eli_2: '• Financially weak family',
+  kw_eli_3: '• Interest and dedication towards studies',
+});
+
+langMap.hi = Object.assign(langMap.hi, {
+  home: 'होम',
+  breadcrumb_home: 'होम',
+  nepal_wing: 'नेपाल विंग',
+  nepal_wing_h1: 'नेपाल विंग',
+  nepal_wing_desc: 'नेपाल में Aimhop Trust का विशेष विंग',
+  nepal_wing_label: 'नेपाल विंग',
+  nepal_wing_h2: 'नेपाल विंग - <span class="accent">नेपाल</span>',
+  nepal_wing_p1: 'नेपाल विंग की स्थापना 2023 में हुई। नेपाल के छात्र जो भारत में उच्च शिक्षा प्राप्त करना चाहते हैं, वे Aimhop Trust के माध्यम से 100% ट्यूशन छात्रवृत्ति के साथ प्रवेश पा सकते हैं।',
+  nepal_wing_p2: 'Aimhop Trust के इस विंग के माध्यम से नेपाल के छात्र भी 100% ट्यूशन छात्रवृत्ति के साथ सरकारी मान्यता प्राप्त कॉलेजों में प्रवेश पा सकते हैं।',
+  our_goal_h3: 'हमारा लक्ष्य',
+  our_goal_nepal: 'नेपाल के हर योग्य छात्र तक 100% छात्रवृत्ति पहुँचाना।',
+  achieve_h3: 'उपलब्धि',
+  achieve_nepal: 'नेपाल से 1000+ छात्र Aimhop Trust से लाभान्वित।',
+  network_h3: 'नेटवर्क',
+  network_nepal: 'नेपाल में 30+ एसोसिएट और 100+ समन्वयक सक्रिय।',
+  contact_nepal: 'संपर्क',
+  apply: 'अभी आवेदन करें',
+  wing_leader: 'विंग लीडर',
+  nepal_wing_head: 'नेपाल विंग हेड',
+  avail_courses_h3: 'उपलब्ध कोर्स',
+  courses_list: 'इंजीनियरिंग • नर्सिंग • फार्मा • बीसीए • बीबीए • बी.कॉम • डिप्लोमा • आईटीआई • एमबीए • एम.टेक और अन्य।',
+  eligibility_h3: 'पात्रता',
+  elig_1: '• 10वीं / 12वीं / ग्रैजुएशन पास',
+  elig_2: '• आर्थिक रूप से कमजोर परिवार',
+  elig_3: '• पढ़ाई में रुचि और लगन',
+  
+  mw_breadcrumb: 'महाराष्ट्र विंग',
+  mw_hero_title: 'महाराष्ट्र विंग',
+  mw_hero_subtitle: 'महाराष्ट्र में Aimhop Trust का विशेष विंग',
+  mw_label: 'महाराष्ट्र विंग',
+  mw_p1: 'महाराष्ट्र विंग के अंतर्गत हम मुंबई, पुणे, नागपुर और अन्य शहरों में सक्रिय हैं। महाराष्ट्र के ग्रामीण और शहरी दोनों क्षेत्रों के छात्रों को 100% छात्रवृत्ति के साथ उच्च शिक्षा का अवसर दिया जाता है।',
+  mw_p2: 'Aimhop Trust के इस विंग के माध्यम से महाराष्ट्र के छात्र भी 100% ट्यूशन छात्रवृत्ति के साथ सरकारी मान्यता प्राप्त कॉलेजों में प्रवेश पा सकते हैं।',
+  mw_goal_title: 'हमारा लक्ष्य',
+  mw_goal_desc: 'महाराष्ट्र के हर योग्य छात्र तक 100% छात्रवृत्ति पहुँचाना।',
+  mw_achieve_title: 'उपलब्धि',
+  mw_achieve_desc: 'महाराष्ट्र से 1000+ छात्र Aimhop Trust से लाभान्वित।',
+  mw_network_title: 'नेटवर्क',
+  mw_network_desc: 'महाराष्ट्र में 30+ एसोसिएट और 100+ समन्वयक सक्रिय।',
+  mw_contact_title: 'संपर्क',
+  apply_now: 'अभी आवेदन करें',
+  mw_leader_title: 'विंग लीडर',
+  mw_leader_desc: 'महाराष्ट्र विंग हेड',
+  mw_courses_title: 'उपलब्ध कोर्स',
+  mw_courses_desc: 'इंजीनियरिंग • नर्सिंग • फार्मा • बीसीए • बीबीए • बी.कॉम • डिप्लोमा • आईटीआई • एमबीए • एम.टेक और अन्य।',
+  mw_eligibility_title: 'पात्रता',
+  kw_eli_1: '• 10वीं / 12वीं / ग्रैजुएशन पास',
+  kw_eli_2: '• आर्थिक रूप से कमजोर परिवार',
+  kw_eli_3: '• पढ़ाई में रुचि और लगन',
+});
+
+// â”€â”€ About Page & Chairman’s Message â”€â”€
+langMap.en = Object.assign(langMap.en, {
+  about_aimhop: 'About Aimhop',
+  about_aimhop_title: 'About Aimhop Educational Trust',
+  about_aimhop_subtitle: '100% Tuition Assistance to Financially Underprivileged Students',
+  identity_label: 'Our Identity',
+  identity_title: 'Aimhop Educational <span class="accent">& Charitable Trust</span>',
+  identity_p1: 'Aimhop Educational & Charitable Trust is a dedicated organization committed to making higher education accessible to financially underprivileged students. Inspired by the visionary dreams of Swami Vivekananda and former President Dr. APJ Abdul Kalam, this trust focuses on empowering students who can afford accommodation and examination fees but struggle with the burden of heavy college tuition.',
+  identity_p2: 'By taking responsibility for their college fees, the trust plays a crucial role in transforming their academic aspirations into reality. The trust aims to improve India\'s Gross Enrollment Ratio (GER).',
+  identity_p3: 'Swami Vivekananda said — "We want that education by which character is formed, strength of mind is increased, the intellect is expanded, and by which one can stand on one\'s own feet." DLECT is continuously making new revolutions in the field of education for this purpose.',
+  ahi_students: 'Students Benefited',
+  ahi_tuition: 'Tuition Waivers',
+  ahi_associates: 'Associate Network',
+  ahi_est: 'Year of Establishment',
+  apply_scholarship: 'Apply for Scholarship',
+  mission: 'Mission',
+  mission_desc: 'Padeha India, Badega India: We provide full tuition assistance to eligible students so they can pursue higher education and contribute to the progress of the nation.',
+  vision: 'Vision',
+  vision_desc: 'To create a society where every eligible student gets quality education.',
+  values: 'Values',
+  values_desc: 'We believe in equal educational opportunities, empowering students and excellence.',
+  why_different: 'Why We are Different',
+  diff_tuition: '100% Tuition Fee Waiver',
+  diff_no_loan: 'No Loan, No EMI',
+  diff_no_exam: 'Admission without Entrance Exam',
+  diff_colleges: 'Government Recognized Colleges',
+  diff_network: 'Nationwide Network',
+  
+  about: 'About Us',
+  chairman: 'Chairman\'s Message',
+  chairman_page_title: 'Chairman\'s Message – Aimhop Educational Trust',
+  chairman_hero_title: 'Chairman\'s Message',
+  chairman_hero_subtitle: 'O.P YADAV (ex-Army) – Founder CEO, Aimhop Educational Trust',
+  chairman_name: 'O.P YADAV (ex-Army)',
+  chairman_post: 'Chief Managing Director',
+  chairman_edu: 'M.A. (Political Science)',
+  chairman_location: 'Patna, Bihar',
+  chairman_active: 'Active since 2018',
+  kalam_quote: '"Dream is not that which you see while sleeping, it is something that does not let you sleep."',
+  vivek_quote: '"Arise, awake and stop not till the goal is reached."',
+  chairman_msg_label: 'Chairman\'s Message',
+  chairman_msg_title: 'Dear <span class="accent">Students and Parents</span>,',
+  chairman_msg_p1: 'A warm welcome to Aimhop Educational & Charitable Trust. I, O.P YADAV (ex-Army), Chief Managing Director of this trust, want to share an important message with you today.',
+  chairman_msg_p2: 'When I established this trust, I had only one dream — to bring education to those bright students of India who leave their studies incomplete due to financial constraints. Dr. APJ Abdul Kalam used to say, "Dream is not that which you see while sleeping, it is something that does not let you sleep." We are moving forward with this dream.',
+  chairman_mission_title: 'Our Journey',
+  chairman_mission_p1: 'In this journey starting in 2018, more than 25,000 students have been benefited today. We have proved that lack of money cannot be an obstacle in the path of education. Our mission "Padeha India, Badega India" is a symbol of this ideology.',
+  chairman_mission_p2: 'Swami Vivekananda said, "We want that education by which character is formed, strength of mind is increased, the intellect is expanded." We are following this ideal.',
+  chairman_req_title: 'Request to You',
+  chairman_req_p: 'If you or any bright student in your family is deprived of higher education due to financial reasons, join Aimhop Trust today. We take the responsibility of college fees so that you can move towards your dreams without worry.',
+  chairman_msg_footer: 'Remember — Education is the weapon with which you can change the world. And we are those hands who will bring this weapon to you.',
+  founder_title: 'Founder CEO',
+});
+
+langMap.hi = Object.assign(langMap.hi, {
+  about_aimhop: 'Aimhop के बारे में',
+  about_aimhop_title: 'Aimhop Educational Trust के बारे में',
+  about_aimhop_subtitle: 'आर्थिक रूप से वंचित छात्रों को 100% ट्यूशन सहायता',
+  identity_label: 'हमारी पहचान',
+  identity_title: 'Aimhop Educational <span class="accent">& Charitable Trust</span>',
+  identity_p1: 'Aimhop Educational & Charitable Trust एक समर्पित संगठन है जो आर्थिक रूप से वंचित छात्रों के लिए उच्च शिक्षा को सुलभ बनाने के लिए प्रतिबद्ध है। पूर्व राष्ट्रपति डॉ. एपीजे अब्दुल कलाम और स्वामी विवेकानंद के सपनों से प्रेरित होकर, यह ट्रस्ट उन छात्रों के सशक्तिकरण पर ध्यान केंद्रित करता है जो रहने और परीक्षा शुल्क का खर्च उठा सकते हैं लेकिन कॉलेज की भारी ट्यूशन फीस के बोझ से संघर्ष करते हैं।',
+  identity_p2: 'उनके कॉलेज शुल्क की जिम्मेदारी लेकर, यह ट्रस्ट छात्रों की शैक्षणिक आकांक्षाओं को वास्तविकता में बदलने में महत्वपूर्ण भूमिका निभाता है। ट्रस्ट का लक्ष्य भारत के ग्रॉस एनरोलमेंट रेशियो (GER) में सुधार करना है।',
+  identity_p3: 'स्वामी विवेकानंद ने कहा था — "हमें वह शिक्षा चाहिए जिससे चरित्र निर्माण हो, मानसिक शक्ति बढ़े, बुद्धि का विकास हो और जिससे व्यक्ति अपने पैरों पर खड़ा हो सके।" यह ट्रस्ट इसी उद्देश्य के लिए शिक्षा के क्षेत्र में निरंतर नई क्रांतियाँ कर रहा है।',
+  ahi_students: 'लाभान्वित छात्र',
+  ahi_tuition: 'ट्यूशन छूट',
+  ahi_associates: 'सहयोगी नेटवर्क',
+  ahi_est: 'स्थापना वर्ष',
+  apply_scholarship: 'छात्रवृत्ति के लिए आवेदन करें',
+  mission: '🎯 मिशन',
+  mission_desc: 'पढ़ेगा इंडिया, बढ़ेगा इंडिया: हम योग्य छात्रों को पूर्ण ट्यूशन सहायता प्रदान करते हैं ताकि वे उच्च शिक्षा प्राप्त कर सकें और राष्ट्र की प्रगति में योगदान दे सकें।',
+  vision: '👁 विजन',
+  vision_desc: 'एक ऐसे समाज का निर्माण करना जहाँ हर योग्य छात्र को गुणवत्तापूर्ण शिक्षा मिल सके।',
+  values: '💎 मूल्य',
+  values_desc: 'हम समान शैक्षिक अवसरों, छात्रों के सशक्तिकरण और उत्कृष्टता में विश्वास करते हैं।',
+  why_different: '✅ हम अलग क्यों हैं',
+  diff_tuition: '100% ट्यूशन फीस माफी',
+  diff_no_loan: 'कोई लोन नहीं, कोई EMI नहीं',
+  diff_no_exam: 'प्रवेश परीक्षा के बिना सीधा प्रवेश',
+  diff_colleges: 'सरकारी मान्यता प्राप्त कॉलेज',
+  diff_network: 'देशव्यापी नेटवर्क',
+  
+  about: 'हमारे बारे में',
+  chairman: 'अध्यक्ष का संदेश',
+  chairman_page_title: 'अध्यक्ष का संदेश - Aimhop Educational Trust',
+  chairman_hero_title: 'अध्यक्ष का संदेश',
+  chairman_hero_subtitle: 'ओ.पी यादव (पूर्व सैनिक) – संस्थापक CMD, Aimhop Educational Trust',
+  chairman_name: 'ओ.पी यादव (पूर्व सैनिक)',
+  chairman_post: 'चीफ मैनेजिंग डायरेक्टर',
+  chairman_edu: 'एम.ए. (राजनीति विज्ञान)',
+  chairman_location: 'पटना, बिहार',
+  chairman_active: '2018 से सक्रिय',
+  kalam_quote: '"सपने वो नहीं जो आप सोते समय देखते हैं, सपने वो हैं जो आपको सोने नहीं देते।"',
+  vivek_quote: '"उठो, जागो और तब तक मत रुको जब तक लक्ष्य प्राप्त न हो जाए। "',
+  chairman_msg_label: 'अध्यक्ष का संदेश',
+  chairman_msg_title: 'प्रिय <span class="accent">छात्रों और अभिभावकों</span>,',
+  chairman_msg_p1: 'Aimhop Educational & Charitable Trust में आपका हार्दिक स्वागत है। मैं, ओ.पी यादव (पूर्व सैनिक), इस ट्रस्ट का Chief Managing Director, आज आपसे एक महत्वपूर्ण संदेश साझा करना चाहता हूँ।',
+  chairman_msg_p2: 'जब मैंने इस ट्रस्ट की स्थापना की थी, तो मेरे मन में एक ही सपना था — भारत के उन होनहार छात्रों तक शिक्षा पहुँचाना जो आर्थिक तंगी के कारण अपनी पढ़ाई अधूरी छोड़ देते हैं। डॉ. एपीजे अब्दुल कलाम कहते थे, "सपने वो नहीं जो सोते वक्त आते हैं, सपने वो हैं जो सोने नहीं देते।" इसी सपने को लेकर हम आगे बढ़ रहे हैं।',
+  chairman_mission_title: 'हमारी यात्रा',
+  chairman_mission_p1: '2018 में शुरू हुई इस यात्रा में आज 25,000 से अधिक छात्र लाभान्वित हो चुके हैं। हमने साबित किया है कि पैसे की कमी शिक्षा की राह में बाधा नहीं बन सकती। हमारा मिशन "पढ़ेगा इंडिया, बढ़ेगा इंडिया" इसी विचारधारा का प्रतीक है।',
+  chairman_mission_p2: 'स्वामी विवेकानंद ने कहा था, "हमें वह शिक्षा चाहिए जिससे चरित्र निर्माण हो, मानसिक शक्ति बढ़े, बुद्धि का विकास हो।" हम इसी आदर्श पर चल रहे हैं।',
+  chairman_req_title: 'आपसे निवेदन',
+  chairman_req_p: 'यदि आप या आपके परिवार में कोई होनहार छात्र है जो आर्थिक कारणों से उच्च शिक्षा से वंचित है, तो आज ही Aimhop Trust से जुड़ें। हम कॉलेज फीस की जिम्मेदारी लेते हैं ताकि आप बिना चिंता के अपने सपनों की ओर बढ़ सकें।',
+  chairman_msg_footer: 'याद रखें — शिक्षा वो अस्त्र है जिससे आप दुनिया बदल सकते हैं। और हम वो हाथ हैं जो इस अस्त्र को आप तक पहुँचाएंगे।',
+  founder_title: 'चीफ मैनेजिंग डायरेक्टर',
+});
+
+// â”€â”€ Photo Gallery â”€â”€
+langMap.en = Object.assign(langMap.en, {
+  nav_photo_gallery: 'Photo Gallery',
+  photo_gallery_title: 'Photo Gallery',
+  photo_gallery_desc: 'Glimpses of activities and events of Aimhop Trust',
+  filter_all: 'All',
+  filter_event: 'Events',
+  filter_campus: 'Campus',
+  filter_award: 'Awards',
+  filter_student: 'Students',
+  gal_caption_1: 'Annual Function 2024',
+  gal_caption_2: 'Headquarters – Patna',
+  gal_caption_4: 'Student Graduation Ceremony',
+  gal_caption_5: 'Counseling Camp 2024',
+  gal_caption_6: 'Information Center',
+  gal_caption_7: 'B.Tech Students in Campus',
+  gal_caption_11: 'Admission Camp 2025',
+  gal_caption_12: 'Nepal Wing Launch',
+});
+
+langMap.hi = Object.assign(langMap.hi, {
+  nav_photo_gallery: 'फोटो गैलरी',
+  photo_gallery_title: 'फोटो गैलरी',
+  photo_gallery_desc: 'Aimhop Trust की गतिविधियों और कार्यक्रमों की झलकियाँ',
+  filter_all: 'सभी',
+  filter_event: 'कार्यक्रम',
+  filter_campus: 'कैंपस',
+  filter_award: 'पुरस्कार',
+  filter_student: 'छात्र',
+  gal_caption_1: 'वार्षिक समारोह 2024',
+  gal_caption_2: 'मुख्यालय - पटना',
+  gal_caption_4: 'छात्र दीक्षांत समारोह',
+  gal_caption_5: 'काउंसलिंग शिविर 2024',
+  gal_caption_6: 'सूचना केंद्र',
+  gal_caption_7: 'B.Tech छात्र कैंपस में',
+  gal_caption_11: 'एडमिशन कैंप 2025',
+  gal_caption_12: 'नेपाल विंग लॉन्च',
+});
+
+
+// ── Missing keys: EN ──────────────────────────────────────────────────────────
+langMap.en = Object.assign(langMap.en, {
+  university       : 'University',
+  btn_subscribe    : '▶ Subscribe on YouTube',
+  apply_scholarship: 'Apply for Scholarship',
+  contact_h3       : 'Contact',
+  infra_svg_title  : 'Our Infrastructure',
+  success_story    : 'Success Story',
+  founder_ceo      : 'FOUNDER & CEO',
+  aimhop_trust     : 'Aimhop Educational Trust',
+  site_title       : 'Aimhop Educational Trust – Padhega India, Badhega India',
+  site_desc        : 'Aimhop Educational & Charitable Trust - Helping students get 100% scholarship admission in Govt. affiliated colleges.',
+  about_us_label   : 'About Us',
+  about_us_title   : 'Secure Admission in Govt. University Affiliated Colleges with <span class="accent">100% Scholarship</span>',
+  about_us_desc    : 'Start your academic journey with this incredible opportunity. We provide admission in govt. university affiliated colleges with scholarships covering up to 100% of the cost. We make the impossible possible — providing expert guidance at every step.',
+});
+
+// ── Missing keys: HI ──────────────────────────────────────────────────────────
+langMap.hi = Object.assign(langMap.hi, {
+  university       : 'विश्वविद्यालय',
+  btn_subscribe    : '▶ सब्सक्राइब करें',
+  apply_scholarship: 'छात्रवृत्ति के लिए आवेदन करें',
+  contact_h3       : 'संपर्क',
+  infra_svg_title  : 'हमारा बुनियादी ढाँचा',
+  success_story    : 'सफलता की कहानी',
+  founder_ceo      : 'संस्थापक और CEO',
+  aimhop_trust     : 'Aimhop Educational Trust',
+  site_title       : 'Aimhop Educational Trust – पढ़ेगा इंडिया, बढ़ेगा इंडिया',
+  site_desc        : 'Aimhop Educational & Charitable Trust - 100% छात्रवृत्ति के साथ सरकारी विश्वविद्यालय से संबद्ध कॉलेज में प्रवेश।',
+  about_us_label   : 'हमारे बारे में',
+  about_us_title   : 'सरकारी विश्वविद्यालय से संबद्ध कॉलेज में <span class="accent">100% छात्रवृत्ति</span> के साथ प्रवेश सुरक्षित करें',
+  about_us_desc    : 'अपनी शैक्षणिक यात्रा इस अविश्वसनीय अवसर के साथ शुरू करें। हम सरकारी विश्वविद्यालय से संबद्ध कॉलेजों में 100% तक छात्रवृत्ति प्रदान करते हैं। हम हर कदम पर विशेषज्ञ मार्गदर्शन प्रदान करते हैं और आपके सपनों को सच करने में मदद करते हैं।',
+});
+
+/**
+ * Localization Logic – v2
+ * Handles: input/textarea (placeholder), option (textContent),
+ * button/element with icons (safe text-node swap), HTML translations (innerHTML).
+ */
+function setLanguage(lang) {
+  const map = langMap[lang];
+  if (!map) return;
+
+  document.querySelectorAll('[data-langkey]').forEach(el => {
+    const key  = el.getAttribute('data-langkey');
+    const text = map[key];
+    if (!text) return;
+
+    const tag = el.tagName;
+
+    // â”€â”€ inputs & textareas â†’ update placeholder â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    if (tag === 'INPUT' || tag === 'TEXTAREA') {
+      if (el.type === 'submit' || el.type === 'button') {
+        el.value = text;
+      } else {
+        el.placeholder = text;
+      }
+      return;
+    }
+
+    // â”€â”€ <option> â†’ update textContent only â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    if (tag === 'OPTION') {
+      el.textContent = text;
+      return;
+    }
+
+    // â”€â”€ translation with HTML markup â†’ use innerHTML â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    if (text.includes('<')) {
+      el.innerHTML = text;
+      return;
+    }
+
+    // â”€â”€ plain text with child icons/SVG â†’ replace only text nodes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    const hasIcons = el.querySelector('i, svg') !== null;
+    if (hasIcons) {
+      let replaced = false;
+      el.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          if (!replaced && node.textContent.trim() !== '') {
+            node.textContent = ' ' + text + ' ';
+            replaced = true;
+          } else if (replaced) {
+            node.textContent = '';
+          }
+        }
+      });
+      if (!replaced) el.prepend(document.createTextNode(text + ' '));
+      return;
+    }
+
+    // â”€â”€ label with child <span> (asterisk "*") â†’ only replace text portion â”€â”€â”€
+    if (tag === 'LABEL' && el.querySelector('span')) {
+      const span = el.querySelector('span');
+      el.firstChild.textContent = text + ' ';
+      // keep the span intact
+      if (!el.contains(span)) el.appendChild(span);
+      return;
+    }
+
+    // â”€â”€ everything else â†’ safe innerHTML â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    el.innerHTML = text;
+  });
+
+  if (map.site_title) document.title = map.site_title;
+  if (map.site_desc) {
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', map.site_desc);
+  }
+  document.documentElement.lang = lang;
+}
+
+/**
+ * Initialize Components
+ */
+function initComps() {
+  const h = document.getElementById('site-header');
+  const f = document.getElementById('site-footer');
+
+  // Inject header & footer HTML first
+  if (h) h.innerHTML = HEADER_HTML;
+  if (f) f.innerHTML = FOOTER_HTML;
+
+  // Read saved preference (default: Hindi)
+  const savedLang = localStorage.getItem('aimhop-lang') || 'hi';
+
+  // Apply language to the entire page (header + footer + page body all together)
+  setLanguage(savedLang);
+
+  // Wire up the language switcher dropdown in the header
+  const langSel = document.getElementById('lang-switcher');
+  if (langSel) {
+    langSel.value = savedLang;           // reflect current language in the UI
+    langSel.addEventListener('change', e => {
+      const newLang = e.target.value;
+      localStorage.setItem('aimhop-lang', newLang);
+      setLanguage(newLang);              // switch entire page instantly
+    });
+  }
+
+  // Active navigation link highlighting
+  const currentFileName = pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.main-nav a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && (href === currentFileName || href.endsWith(currentFileName))) {
+      a.classList.add('active');
+      const parentDropdown = a.closest('.has-dropdown');
+      if (parentDropdown) parentDropdown.querySelector(':scope>a')?.classList.add('active');
+    }
+  });
+}
+
+// Run as early as possible (DOMContentLoaded or immediately if already ready)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initComps);
+} else {
+  initComps();
+}
+
+

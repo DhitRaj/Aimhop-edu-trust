@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>वीडियो गैलरी – Aimhop Educational Trust</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="../assets/css/style.css"/>
+<link rel="stylesheet" href="../assets/css/pages.css"/>
+</head>
+<body>
+<div id="site-header"></div>
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html" data-langkey="breadcrumb_home">होम</a><i class="fas fa-chevron-right"></i><span data-langkey="nav_video_gallery">वीडियो गैलरी</span></div>
+    <h1 data-langkey="video_gallery_title">वीडियो गैलरी</h1>
+    <p data-langkey="video_gallery_desc">Aimhop Trust के प्रेरणादायक वीडियो देखें</p>
+  </div>
+</section>
+<section class="inner-section">
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="gallery-item" style="cursor:pointer;" onclick="openVideo('https://www.youtube.com/watch?v=CAkXBp-wjXU')">
+        <div class="gallery-thumb" style="position:relative;">🎬<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);"><div style="width:50px;height:50px;background:rgba(245,158,11,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><i class="fas fa-play"></i></div></div></div>
+        <div class="gallery-caption" data-langkey="v1_thumb_title">🎓 बिना एंट्रेंस एग्जाम सीधा एडमिशन 2026!</div>
+      </div>
+      <div class="gallery-item" style="cursor:pointer;" onclick="openVideo('https://www.youtube.com/watch?v=y6kJZuSYwtw')">
+        <div class="gallery-thumb" style="position:relative;">🎬<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);"><div style="width:50px;height:50px;background:rgba(245,158,11,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><i class="fas fa-play"></i></div></div></div>
+        <div class="gallery-caption" data-langkey="v2_thumb_title">भारत में अपने मनपसंद कोर्स की पढ़ाई बिल्कुल मुफ्त</div>
+      </div>
+      <div class="gallery-item" style="cursor:pointer;" onclick="openVideo('https://www.youtube.com/watch?v=SnvvfyJiVFU')">
+        <div class="gallery-thumb" style="position:relative;">🎬<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);"><div style="width:50px;height:50px;background:rgba(245,158,11,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><i class="fas fa-play"></i></div></div></div>
+        <div class="gallery-caption" data-langkey="v3_thumb_title">कॉलेज लाइफ: रहना और खाना – छात्र का अनुभव</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="https://www.youtube.com/channel/UC42F1t1PeenBsVCudVFU-5g" target="_blank" class="btn-youtube" data-langkey="more_videos_yt"><i class="fab fa-youtube"></i> YouTube पर और वीडियो देखें</a>
+    </div>
+  </div>
+</section>
+<div class="video-modal" id="videoModal">
+  <div class="modal-backdrop" onclick="closeVideo()"></div>
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<div id="site-footer"></div>
+<script src="../assets/js/components.js"></script><script src="../assets/js/main.js"></script>
+</body>
+</html>
+
