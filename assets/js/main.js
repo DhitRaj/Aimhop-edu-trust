@@ -220,4 +220,26 @@ function updateSlider() {
   });
 }
 
+function prevTestimonial() {
+  const track = document.getElementById('testimonialsTrack');
+  const cards = track?.querySelectorAll('.testimonial-card');
+  if (!cards || !cards.length) return;
+  
+  slidesPerView = getSlidesPerView();
+  const totalSlides = Math.ceil(cards.length / slidesPerView);
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateSlider();
+}
+
+function nextTestimonial() {
+  const track = document.getElementById('testimonialsTrack');
+  const cards = track?.querySelectorAll('.testimonial-card');
+  if (!cards || !cards.length) return;
+  
+  slidesPerView = getSlidesPerView();
+  const totalSlides = Math.ceil(cards.length / slidesPerView);
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateSlider();
+}
+
 window.addEventListener('resize', initTestimonials);

@@ -290,6 +290,128 @@ app.post('/api/v1/college-register', registrationLimiter, async (req, res) => {
   }
 });
 
+// 🔒 SECURITY: Associate Registration with rate limiting & validation
+app.post('/api/v1/associate-register', registrationLimiter, async (req, res) => {
+  try {
+    const { name, email, phone, experience, qualification, state, district, address, message } = req.body;
+
+    if (!name || !email || !phone || !state || !district) {
+      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें' });
+    }
+
+    if (!validateName(name)) {
+      return res.status(400).json({ error: 'नाम 2-100 अक्षरों का होना चाहिए' });
+    }
+
+    if (!validateEmail(email)) {
+      return res.status(400).json({ error: 'ईमेल सही नहीं है' });
+    }
+
+    if (!validatePhone(phone)) {
+      return res.status(400).json({ error: 'फोन नंबर 10 अंकों का होना चाहिए' });
+    }
+
+    if (!validateState(state)) {
+      return res.status(400).json({ error: 'राज्य सही नहीं है' });
+    }
+
+    // 🔒 SECURITY: Escape all user input
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone);
+    const safeExperience = escapeHtml(experience);
+    const safeQualification = escapeHtml(qualification);
+    const safeState = escapeHtml(state);
+    const safeDistrict = escapeHtml(district);
+    const safeAddress = escapeHtml(address);
+    const safeMessage = escapeHtml(message);
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.ADMIN_EMAIL || 'aimhopgroup@gmail.com',
+      subject: 'नया एसोसिएट रजिस्ट्रेशन',
+      html: `
+        <h3>नया एसोसिएट रजिस्ट्रेशन</h3>
+        <p><strong>नाम:</strong> ${safeName}</p>
+        <p><strong>ईमेल:</strong> ${safeEmail}</p>
+        <p><strong>फोन:</strong> ${safePhone}</p>
+        <p><strong>अनुभव:</strong> ${safeExperience}</p>
+        <p><strong>योग्यता:</strong> ${safeQualification}</p>
+        <p><strong>राज्य:</strong> ${safeState}</p>
+        <p><strong>जिला:</strong> ${safeDistrict}</p>
+        <p><strong>पता:</strong> ${safeAddress}</p>
+        <p><strong>संदेश:</strong> ${safeMessage}</p>
+      `
+    });
+
+    res.json({ success: true, message: 'एसोसिएट रजिस्ट्रेशन सफल! हमारी टीम जल्द संपर्क करेगी।' });
+  } catch (error) {
+    console.error('Associate registration error:', error);
+    res.status(500).json({ error: 'सर्वर में त्रुटि हुई' });
+  }
+});
+
+// 🔒 SECURITY: Coordinator Registration with rate limiting & validation
+app.post('/api/v1/coordinator-register', registrationLimiter, async (req, res) => {
+  try {
+    const { name, email, phone, experience, qualification, state, district, address, message } = req.body;
+
+    if (!name || !email || !phone || !state || !district) {
+      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें' });
+    }
+
+    if (!validateName(name)) {
+      return res.status(400).json({ error: 'नाम 2-100 अक्षरों का होना चाहिए' });
+    }
+
+    if (!validateEmail(email)) {
+      return res.status(400).json({ error: 'ईमेल सही नहीं है' });
+    }
+
+    if (!validatePhone(phone)) {
+      return res.status(400).json({ error: 'फोन नंबर 10 अंकों का होना चाहिए' });
+    }
+
+    if (!validateState(state)) {
+      return res.status(400).json({ error: 'राज्य सही नहीं है' });
+    }
+
+    // 🔒 SECURITY: Escape all user input
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone);
+    const safeExperience = escapeHtml(experience);
+    const safeQualification = escapeHtml(qualification);
+    const safeState = escapeHtml(state);
+    const safeDistrict = escapeHtml(district);
+    const safeAddress = escapeHtml(address);
+    const safeMessage = escapeHtml(message);
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.ADMIN_EMAIL || 'aimhopgroup@gmail.com',
+      subject: 'नया समन्वयक रजिस्ट्रेशन',
+      html: `
+        <h3>नया समन्वयक रजिस्ट्रेशन</h3>
+        <p><strong>नाम:</strong> ${safeName}</p>
+        <p><strong>ईमेल:</strong> ${safeEmail}</p>
+        <p><strong>फोन:</strong> ${safePhone}</p>
+        <p><strong>अनुभव:</strong> ${safeExperience}</p>
+        <p><strong>योग्यता:</strong> ${safeQualification}</p>
+        <p><strong>राज्य:</strong> ${safeState}</p>
+        <p><strong>जिला:</strong> ${safeDistrict}</p>
+        <p><strong>पता:</strong> ${safeAddress}</p>
+        <p><strong>संदेश:</strong> ${safeMessage}</p>
+      `
+    });
+
+    res.json({ success: true, message: 'समन्वयक रजिस्ट्रेशन सफल! हमारी टीम जल्द संपर्क करेगी।' });
+  } catch (error) {
+    console.error('Coordinator registration error:', error);
+    res.status(500).json({ error: 'सर्वर में त्रुटि हुई' });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

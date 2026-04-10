@@ -145,6 +145,98 @@ async function submitCollegeForm(e) {
   }
 }
 
+// Associate Registration Form
+async function submitAssociateForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+
+  try {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'भेज रहे हैं...';
+
+    const formData = {
+      name: form.querySelector('[name="name"]')?.value,
+      email: form.querySelector('[name="email"]')?.value,
+      phone: form.querySelector('[name="phone"]')?.value,
+      experience: form.querySelector('[name="experience"]')?.value,
+      qualification: form.querySelector('[name="qualification"]')?.value,
+      state: form.querySelector('[name="state"]')?.value,
+      district: form.querySelector('[name="district"]')?.value,
+      address: form.querySelector('[name="address"]')?.value,
+      message: form.querySelector('[name="message"]')?.value
+    };
+
+    const response = await fetch(`${API_BASE}/v1/associate-register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      showAlert(data.message, 'success');
+      form.reset();
+    } else {
+      showAlert(data.error || 'कोई त्रुटि हुई', 'error');
+    }
+  } catch (error) {
+    console.error(error);
+    showAlert('नेटवर्क त्रुटि। कृपया बाद में कोशिश करें।', 'error');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+}
+
+// Coordinator Registration Form
+async function submitCoordinatorForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+
+  try {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'भेज रहे हैं...';
+
+    const formData = {
+      name: form.querySelector('[name="name"]')?.value,
+      email: form.querySelector('[name="email"]')?.value,
+      phone: form.querySelector('[name="phone"]')?.value,
+      experience: form.querySelector('[name="experience"]')?.value,
+      qualification: form.querySelector('[name="qualification"]')?.value,
+      state: form.querySelector('[name="state"]')?.value,
+      district: form.querySelector('[name="district"]')?.value,
+      address: form.querySelector('[name="address"]')?.value,
+      message: form.querySelector('[name="message"]')?.value
+    };
+
+    const response = await fetch(`${API_BASE}/v1/coordinator-register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      showAlert(data.message, 'success');
+      form.reset();
+    } else {
+      showAlert(data.error || 'कोई त्रुटि हुई', 'error');
+    }
+  } catch (error) {
+    console.error(error);
+    showAlert('नेटवर्क त्रुटि। कृपया बाद में कोशिश करें।', 'error');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+}
+
 // Alert notification
 function showAlert(message, type = 'info') {
   const alertDiv = document.createElement('div');
