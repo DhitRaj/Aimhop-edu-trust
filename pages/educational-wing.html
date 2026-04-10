@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educational Wing – Aimhop Educational Trust</title>
+  <meta name="description" content="Aimhop Educational Wing - शिक्षा के क्षेत्र में हमारी प्रतिबद्धता और सेवाएं।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-langkey="breadcrumb_home">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span data-langkey="edu_wing">Educational Wing</span>
+      </div>
+      <h1 data-langkey="edu_wing_title">🎓 Educational Wing</h1>
+      <p data-langkey="edu_wing_subtitle">Developing India through Education</p>
+    </div>
+  </section>
+
+  <section class="inner-section">
+    <div class="container wing-grid">
+      <div>
+        <h2 class="section-title" data-langkey="edu_wing_h2">Educational Wing Mission</h2>
+        <p data-langkey="edu_wing_p1">The main objective of Aimhop Educational Wing is to provide quality education to every corner of India. We believe that education is the most powerful medium of social change.</p>
+        <p data-langkey="edu_wing_p2">Our Educational Wing performs the following functions:</p>
+        
+        <div class="wing-info-card">
+          <h3 data-langkey="edu_wing_course">📚 Course Development</h3>
+          <p data-langkey="edu_wing_course_desc">We develop new and relevant courses that meet market demands.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="edu_wing_training">👨‍🏫 Teacher Training</h3>
+          <p data-langkey="edu_wing_training_desc">Teachers are trained in modern teaching methods.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="edu_wing_infra">🏫 Institution Development</h3>
+          <p data-langkey="edu_wing_infra_desc">We work with colleges and universities to improve education quality.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="edu_wing_curriculum">📖 Curriculum Improvement</h3>
+          <p data-langkey="edu_wing_curriculum_desc">Regular improvements are made to make curriculum industry-ready.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="wing-map-placeholder">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="wing-info-card highlight-card">
+          <h3 data-langkey="edu_wing_achievements">🎯 Our Achievements</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> <span data-langkey="edu_wing_ach1">50+ Courses Developed</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="edu_wing_ach2">100+ Institutions Partnered</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="edu_wing_ach3">25,000+ Students Benefited</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="edu_wing_ach4">10+ States Active</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div id="videoModal" class="video-modal">
+    <div class="modal-backdrop" onclick="closeVideo()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+      <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

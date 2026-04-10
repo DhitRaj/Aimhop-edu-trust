@@ -130,7 +130,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .section-title .accent { color: var(--accent); }
 .section-title .highlight { color: var(--accent); }
-.section-desc { font-size: 1rem; color: var(--gray-600); line-height: 1.8; margin-bottom: 24px; }
+.section-desc { font-size: 1rem; color: #475569; line-height: 1.8; margin-bottom: 24px; }
 .section-header-center { text-align: center; max-width: 700px; margin: 0 auto 48px; }
 
 /* ===== BUTTONS ===== */
@@ -422,11 +422,18 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-section {
   position: relative;
   height: 92vh;
-  min-height: 600px;
+  min-height: 500px;
   display: flex;
   align-items: center;
   overflow: hidden;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    min-height: 450px;
+    padding: 60px 0;
+  }
 }
 .hero-slider {
   width: 100%;
@@ -469,6 +476,13 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 80px 24px;
   max-width: 1240px;
   margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 24px;
+  }
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
@@ -583,7 +597,6 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 1.2rem;
 }
 
-/* No hover effect as requested */
 .hero-nav-btn:hover { 
   transform: translateY(-50%); 
 }
@@ -591,10 +604,14 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-nav-btn.prev { left: 40px; }
 .hero-nav-btn.next { right: 40px; }
 
+@media (max-width: 1024px) {
+  .hero-nav-btn { width: 45px; height: 45px; font-size: 1rem; }
+  .hero-nav-btn.prev { left: 20px; }
+  .hero-nav-btn.next { right: 20px; }
+}
+
 @media (max-width: 768px) {
-  .hero-nav-btn { width: 40px; height: 40px; font-size: 1rem; }
-  .hero-nav-btn.prev { left: 15px; }
-  .hero-nav-btn.next { right: 15px; }
+  .hero-nav-btn { display: none; }
 }
 
 /* ===== ABOUT SECTION ===== */

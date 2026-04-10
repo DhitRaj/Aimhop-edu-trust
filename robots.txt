@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tmp/
+Disallow: /node_modules/
+
+Sitemap: https://aimhop.com/sitemap.xml

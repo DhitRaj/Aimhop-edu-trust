@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Aimhop Educational Trust</title>
+  <meta name="description" content="Aimhop Educational Trust की फोटो और वीडियो गैलरी।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-langkey="breadcrumb_home">होम</a>
+        <i class="fas fa-chevron-right"></i>
+        <span data-langkey="gallery">गैलरी</span>
+      </div>
+      <h1 data-langkey="gallery_title">📸 गैलरी</h1>
+      <p data-langkey="gallery_subtitle">Aimhop की यादें और पल</p>
+    </div>
+  </section>
+
+  <section class="inner-section">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-title" data-langkey="gallery_h2">हमारी गैलरी</h2>
+        <p data-langkey="gallery_desc">Aimhop के साथ बिताए गए खूबसूरत पलों को देखें।</p>
+      </div>
+
+      <div class="gallery-filter">
+        <button class="filter-btn active" onclick="filterGallery('all')">सभी</button>
+        <button class="filter-btn" onclick="filterGallery('events')">इवेंट्स</button>
+        <button class="filter-btn" onclick="filterGallery('students')">छात्र</button>
+        <button class="filter-btn" onclick="filterGallery('campus')">कैंपस</button>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="events">
+          <div class="gallery-thumb">📸</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-caption">इवेंट फोटो 1</div>
+        </div>
+        <div class="gallery-item" data-category="students">
+          <div class="gallery-thumb">📸</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-caption">छात्र फोटो 1</div>
+        </div>
+        <div class="gallery-item" data-category="campus">
+          <div class="gallery-thumb">📸</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-caption">कैंपस फोटो 1</div>
+        </div>
+        <div class="gallery-item" data-category="events">
+          <div class="gallery-thumb">📸</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-caption">इवेंट फोटो 2</div>
+        </div>
+        <div class="gallery-item" data-category="students">
+          <div class="gallery-thumb">📸</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-caption">छात्र फोटो 2</div>
+        </div>
+        <div class="gallery-item" data-category="campus">
+          <div class="gallery-thumb">📸</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-caption">कैंपस फोटो 2</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div id="videoModal" class="video-modal">
+    <div class="modal-backdrop" onclick="closeVideo()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+      <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

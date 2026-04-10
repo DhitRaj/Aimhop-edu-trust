@@ -92,12 +92,12 @@
     <div class="contact-form-card">
       <h2 style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:8px;" data-langkey="form_title">संदेश भेजें</h2>
       <p style="font-size:0.88rem;color:var(--gray-600);margin-bottom:28px;" data-langkey="form_subtitle">हम 24-48 घंटे में जवाब देंगे।</p>
-      <form>
-        <div class="form-group"><label data-langkey="label_name">पूरा नाम *</label><input type="text" data-langkey="ph_name" placeholder="आपका नाम" required /></div>
-        <div class="form-group"><label data-langkey="label_mobile">मोबाइल नंबर *</label><input type="tel" data-langkey="ph_mobile" placeholder="10 अंक का मोबाइल नंबर" required /></div>
-        <div class="form-group"><label data-langkey="label_email">ईमेल</label><input type="email" data-langkey="ph_email" placeholder="आपका ईमेल" /></div>
-        <div class="form-group"><label data-langkey="label_subject">विषय</label><input type="text" data-langkey="ph_subject" placeholder="संदेश का विषय" /></div>
-        <div class="form-group"><label data-langkey="label_message">संदेश *</label><textarea rows="5" data-langkey="ph_message" placeholder="अपना संदेश लिखें..." required></textarea></div>
+      <form onsubmit="submitContactForm(event)">
+        <div class="form-group"><label data-langkey="label_name">पूरा नाम *</label><input type="text" name="name" data-langkey="ph_name" placeholder="आपका नाम" required /></div>
+        <div class="form-group"><label data-langkey="label_mobile">मोबाइल नंबर *</label><input type="tel" name="phone" data-langkey="ph_mobile" placeholder="10 अंक का मोबाइल नंबर" required /></div>
+        <div class="form-group"><label data-langkey="label_email">ईमेल</label><input type="email" name="email" data-langkey="ph_email" placeholder="आपका ईमेल" /></div>
+        <div class="form-group"><label data-langkey="label_subject">विषय</label><input type="text" name="subject" data-langkey="ph_subject" placeholder="संदेश का विषय" /></div>
+        <div class="form-group"><label data-langkey="label_message">संदेश *</label><textarea rows="5" name="message" data-langkey="ph_message" placeholder="अपना संदेश लिखें..." required></textarea></div>
         <button type="submit" class="form-submit" data-langkey="btn_send">संदेश भेजें <i class="fas fa-paper-plane"></i></button>
       </form>
     </div>
@@ -119,5 +119,6 @@
 <div id="site-footer"></div>
 <script src="../assets/js/components.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/forms.js"></script>
 </body>
 </html>

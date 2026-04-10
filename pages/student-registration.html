@@ -125,41 +125,41 @@
       <h2 class="form-title" data-langkey="reg_form_title">रजिस्ट्रेशन फॉर्म</h2>
       <p class="form-subtitle" data-langkey="reg_form_subtitle">सभी जानकारी सही-सही भरें। हमारी टीम जल्द आपसे संपर्क करेगी।</p>
 
-      <form>
+      <form onsubmit="submitStudentForm(event)">
         <div class="form-row">
           <div class="form-group">
             <label data-langkey="label_name">पूरा नाम <span>*</span></label>
-            <input type="text" data-langkey="ph_name" placeholder="अपना पूरा नाम लिखें" required />
+            <input type="text" name="name" data-langkey="ph_name" placeholder="अपना पूरा नाम लिखें" required />
           </div>
           <div class="form-group">
             <label data-langkey="label_mobile">मोबाइल नंबर <span>*</span></label>
-            <input type="tel" data-langkey="ph_mobile" placeholder="10 अंकों का मोबाइल नंबर" required />
+            <input type="tel" name="phone" data-langkey="ph_mobile" placeholder="10 अंकों का मोबाइल नंबर" required />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label data-langkey="label_email">ईमेल</label>
-            <input type="email" data-langkey="ph_email" placeholder="आपका ईमेल पता" />
+            <input type="email" name="email" data-langkey="ph_email" placeholder="आपका ईमेल पता" />
           </div>
           <div class="form-group">
             <label data-langkey="label_father">पिता का नाम <span>*</span></label>
-            <input type="text" data-langkey="ph_father" placeholder="पिता का नाम" required />
+            <input type="text" name="father" data-langkey="ph_father" placeholder="पिता का नाम" required />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label data-langkey="label_dob">जन्म तिथि <span>*</span></label>
-            <input type="date" required />
+            <input type="date" name="dob" required />
           </div>
           <div class="form-group">
             <label data-langkey="label_gender">लिंग <span>*</span></label>
-            <select required>
+            <select name="gender" required>
               <option value="" data-langkey="opt_gender">लिंग चुनें</option>
-              <option data-langkey="opt_male">पुरुष</option>
-              <option data-langkey="opt_female">महिला</option>
-              <option data-langkey="opt_other">अन्य</option>
+              <option value="पुरुष" data-langkey="opt_male">पुरुष</option>
+              <option value="महिला" data-langkey="opt_female">महिला</option>
+              <option value="अन्य" data-langkey="opt_other">अन्य</option>
             </select>
           </div>
         </div>
@@ -167,58 +167,58 @@
         <div class="form-row">
           <div class="form-group">
             <label data-langkey="label_state">राज्य <span>*</span></label>
-            <select required>
+            <select name="state" required>
               <option value="" data-langkey="opt_state">राज्य चुनें</option>
-              <option data-langkey="st_bihar">बिहार</option>
-              <option data-langkey="st_up">उत्तर प्रदेश</option>
-              <option data-langkey="st_jharkhand">झारखंड</option>
-              <option data-langkey="st_wb">पश्चिम बंगाल</option>
-              <option data-langkey="st_delhi">दिल्ली</option>
-              <option data-langkey="st_maharashtra">महाराष्ट्र</option>
-              <option data-langkey="st_other">अन्य</option>
+              <option value="बिहार" data-langkey="st_bihar">बिहार</option>
+              <option value="उत्तर प्रदेश" data-langkey="st_up">उत्तर प्रदेश</option>
+              <option value="झारखंड" data-langkey="st_jharkhand">झारखंड</option>
+              <option value="पश्चिम बंगाल" data-langkey="st_wb">पश्चिम बंगाल</option>
+              <option value="दिल्ली" data-langkey="st_delhi">दिल्ली</option>
+              <option value="महाराष्ट्र" data-langkey="st_maharashtra">महाराष्ट्र</option>
+              <option value="अन्य" data-langkey="st_other">अन्य</option>
             </select>
           </div>
           <div class="form-group">
             <label data-langkey="label_district">जिला <span>*</span></label>
-            <input type="text" data-langkey="ph_district" placeholder="अपना जिला लिखें" required />
+            <input type="text" name="district" data-langkey="ph_district" placeholder="अपना जिला लिखें" required />
           </div>
         </div>
 
         <div class="form-group">
           <label data-langkey="label_qual">शैक्षणिक योग्यता <span>*</span></label>
-          <select required>
+          <select name="qualification" required>
             <option value="" data-langkey="opt_qual">योग्यता चुनें</option>
-            <option data-langkey="q_10th">10वीं पास / पास होने वाले</option>
-            <option data-langkey="q_12th">12वीं पास / पास होने वाले</option>
-            <option data-langkey="q_grad">ग्रेजुएशन पास / पास होने वाले</option>
+            <option value="10वीं पास" data-langkey="q_10th">10वीं पास / पास होने वाले</option>
+            <option value="12वीं पास" data-langkey="q_12th">12वीं पास / पास होने वाले</option>
+            <option value="ग्रेजुएशन पास" data-langkey="q_grad">ग्रेजुएशन पास / पास होने वाले</option>
           </select>
         </div>
 
         <div class="form-group">
           <label data-langkey="label_pref_course">पसंदीदा कोर्स <span>*</span></label>
-          <select required>
+          <select name="course" required>
             <option value="" data-langkey="opt_course">कोर्स चुनें</option>
-            <option data-langkey="c_btech">B.Tech / B.E</option>
-            <option data-langkey="c_nursing">B.Sc Nursing</option>
-            <option data-langkey="c_bca">BCA / BBA / B.Com</option>
-            <option data-langkey="c_pharma">B.Pharma / BMLT</option>
-            <option data-langkey="c_dip_eng">Diploma in Engineering</option>
-            <option data-langkey="c_para">Paramedical Diploma</option>
-            <option data-langkey="c_mtech">M.Tech</option>
-            <option data-langkey="c_mba">MBA / MCA</option>
-            <option data-langkey="c_msc">M.Sc / M.Com</option>
-            <option data-langkey="c_other">अन्य</option>
+            <option value="B.Tech" data-langkey="c_btech">B.Tech / B.E</option>
+            <option value="B.Sc Nursing" data-langkey="c_nursing">B.Sc Nursing</option>
+            <option value="BCA/BBA/B.Com" data-langkey="c_bca">BCA / BBA / B.Com</option>
+            <option value="B.Pharma" data-langkey="c_pharma">B.Pharma / BMLT</option>
+            <option value="Diploma" data-langkey="c_dip_eng">Diploma in Engineering</option>
+            <option value="Paramedical" data-langkey="c_para">Paramedical Diploma</option>
+            <option value="M.Tech" data-langkey="c_mtech">M.Tech</option>
+            <option value="MBA/MCA" data-langkey="c_mba">MBA / MCA</option>
+            <option value="M.Sc/M.Com" data-langkey="c_msc">M.Sc / M.Com</option>
+            <option value="अन्य" data-langkey="c_other">अन्य</option>
           </select>
         </div>
 
         <div class="form-group">
           <label data-langkey="label_address">पता <span>*</span></label>
-          <textarea rows="3" data-langkey="ph_address" placeholder="अपना पूरा पता लिखें" required></textarea>
+          <textarea name="address" rows="3" data-langkey="ph_address" placeholder="अपना पूरा पता लिखें" required></textarea>
         </div>
 
         <div class="form-group">
           <label data-langkey="label_query">कोई प्रश्न या संदेश</label>
-          <textarea rows="3" data-langkey="ph_query" placeholder="अपना प्रश्न या संदेश लिखें (वैकल्पिक)"></textarea>
+          <textarea name="query" rows="3" data-langkey="ph_query" placeholder="अपना प्रश्न या संदेश लिखें (वैकल्पिक)"></textarea>
         </div>
 
         <button type="submit" class="form-submit" data-langkey="btn_reg_submit">
@@ -283,6 +283,7 @@
 <button class="scroll-top" id="scrollTop" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
 <script src="../assets/js/components.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/forms.js"></script>
 </body>
 </html>
 

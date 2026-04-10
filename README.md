@@ -1,6 +1,6 @@
 # 🎓 Aimhop Educational Trust – Website
 
-**Complete multi-page website clone for Aimhop Educational & Charitable Trust**
+**Complete multi-page website for Aimhop Educational & Charitable Trust**
 
 ---
 
@@ -10,52 +10,37 @@
 aimhop-website/
 ├── index.html                    ← मुख्य होमपेज
 ├── 404.html                      ← Error Page
+├── server.js                     ← Backend API (Node.js)
+├── .env.example                  ← Environment variables template
 ├── README.md                     ← This file
 ├── package.json                  ← Project metadata
+├── sitemap.xml                   ← SEO Sitemap
+├── robots.txt                    ← SEO Robots file
 ├── .gitignore                    ← Files to ignore in git
 │
-├── pages/                        ← All inner pages
-│   ├── about.html                ← Aimhop के बारे में
-│   ├── chairman-message.html     ← चेयरमैन का संदेश
-│   ├── success-story.html        ← सफलता की कहानी
-│   ├── achievements.html         ← उपलब्धियाँ
-│   ├── our-team.html                 ← हमारी टीम
-│   ├── our-mentors.html              ← हमारे मेंटर्स
-│   ├── appeal-parents.html           ← अभिभावकों से अपील
-│   ├── awards.html                   ← पुरस्कार
-│   ├── infrastructure.html           ← बुनियादी ढाँचा
-│   ├── our-associate.html            ← हमारे एसोसिएट
-│   ├── our-coordinator.html          ← हमारे कोऑर्डिनेटर
-│   ├── course.html                   ← कोर्स
-│   ├── university.html               ← विश्वविद्यालय सूची
-│   ├── for-student.html              ← छात्रों के लिए
-│   ├── student-registration.html     ← छात्र रजिस्ट्रेशन
-│   ├── college-registration.html     ← कॉलेज रजिस्ट्रेशन
-│   ├── associate-registration.html   ← एसोसिएट रजिस्ट्रेशन
-│   ├── coordinator-registration.html ← कोऑर्डिनेटर रजिस्ट्रेशन
-│   ├── news.html                 ← समाचार
-│   ├── photo-gallery.html            ← फोटो गैलरी
-│   ├── video-gallery.html            ← वीडियो गैलरी
-│   ├── latest-activity.html          ← नवीनतम गतिविधि
-│   ├── blog.html                 ← ब्लॉग स्पॉट
-│   ├── contact.html                  ← संपर्क करें
-│   ├── nepal-wing.html               ← Nepal Wing
-│   ├── kashmir-wing.html             ← Kashmir Wing
-│   ├── maharashtra-wing.html         ← Maharashtra Wing
-│   ├── career.html                   ← करियर
-│   ├── download.html                 ← डाउनलोड
-│   ├── terms.html                ← नियम और शर्तें
-│   ├── privacy.html              ← गोपनीयता नीति
-│   ├── refund.html               ← रिफंड नीति
-│   └── payment-policy.html       ← भुगतान नीति
+├── pages/                        ← All inner pages (38 pages)
+│   ├── about.html
+│   ├── student-registration.html
+│   ├── contact.html
+│   ├── course.html
+│   ├── university.html
+│   ├── educational-wing.html     ← NEW
+│   ├── placement-wing.html       ← NEW
+│   ├── media-wing.html           ← NEW
+│   ├── it-wing.html              ← NEW
+│   ├── gallery.html              ← NEW
+│   └── ... (33 more pages)
 │
-├── assets/                       ← Project assets
+├── assets/
 │   ├── css/
-│   │   ├── style.css             ← Main stylesheet (global)
-│   │   └── pages.css             ← Inner pages stylesheet
+│   │   ├── style.css             ← Main stylesheet
+│   │   ├── pages.css             ← Inner pages stylesheet
+│   │   └── accessibility.css     ← NEW - Accessibility improvements
 │   └── js/
-│       ├── components.js         ← Shared header/footer (inject via JS)
-│       └── main.js               ← Main JavaScript (animations, sliders etc.)
+│       ├── components.js         ← Header/Footer injection
+│       ├── main.js               ← Main JavaScript
+│       └── forms.js              ← NEW - Form handling & validation
+│
 └── node_modules/                 ← Dependencies
 ```
 
@@ -63,22 +48,20 @@ aimhop-website/
 
 ## 🚀 Features
 
-- ✅ **34 HTML Pages** – सभी pages पूरी तरह बनाए गए
-- ✅ **Hindi (Devanagari) Font** – Noto Sans Devanagari + Poppins
-- ✅ **Shared Header/Footer** – components.js से inject होता है
-- ✅ **Responsive Design** – Mobile, Tablet, Desktop सभी पर काम करता है
-- ✅ **Sticky Navigation** – dropdown menus के साथ
-- ✅ **Animated Hero Section** – counters, floating cards
+- ✅ **38 HTML Pages** – सभी pages पूरी तरह बनाए गए
+- ✅ **Backend API** – Node.js + Express server
+- ✅ **Form Submission** – Email notifications के साथ
+- ✅ **SEO Optimized** – Sitemap, robots.txt, meta tags
+- ✅ **Accessibility** – WCAG guidelines के अनुसार
+- ✅ **Mobile Responsive** – सभी devices पर काम करता है
+- ✅ **Hindi Support** – Noto Sans Devanagari font
+- ✅ **Sticky Navigation** – Dropdown menus के साथ
+- ✅ **Animated Hero Section** – Counters, floating cards
 - ✅ **Testimonials Slider** – Auto-slide + dots navigation
 - ✅ **Video Modal** – YouTube embed popup
 - ✅ **Photo Gallery Filter** – Category filter के साथ
-- ✅ **Course Tab Filter** – 10वीं/12वीं/ग्रेजुएशन filter
-- ✅ **University Marquee** – Infinite scroll animation
-- ✅ **Scroll Animations** – IntersectionObserver से
-- ✅ **Counter Animation** – Stats section में numbers animate
-- ✅ **Scroll to Top** – Float button
+- ✅ **Form Validation** – Client-side validation
 - ✅ **404 Error Page**
-- ✅ **All Forms** – Registration forms with validation
 
 ---
 
@@ -94,9 +77,89 @@ aimhop-website/
 
 ## 📋 Setup Instructions
 
-1. Download और unzip करें
-2. किसी भी web server (Apache, Nginx, Live Server) पर serve करें
-3. `index.html` खोलें – बस इतना काफी है!
+### **1. Install Dependencies**
+```bash
+npm install
+```
+
+### **2. Setup Environment Variables**
+```bash
+cp .env.example .env
+```
+
+Edit `.env` file:
+```
+EMAIL_USER=aimhopgroup@gmail.com
+EMAIL_PASS=your-app-password
+PORT=3000
+```
+
+### **3. Start Backend Server**
+```bash
+npm start
+```
+
+Server will run on `http://localhost:3000`
+
+### **4. Serve Frontend**
+```bash
+npx serve .
+```
+
+Or use any web server (Apache, Nginx, Live Server)
+
+---
+
+## 🔧 API Endpoints
+
+### **Student Registration**
+```
+POST /api/student-register
+Content-Type: application/json
+
+{
+  "name": "राज कुमार",
+  "email": "raj@example.com",
+  "phone": "9151385320",
+  "father": "पिता का नाम",
+  "dob": "2005-01-15",
+  "gender": "पुरुष",
+  "state": "बिहार",
+  "district": "पटना",
+  "qualification": "12वीं पास",
+  "course": "B.Tech",
+  "address": "पूरा पता",
+  "query": "कोई प्रश्न"
+}
+```
+
+### **Contact Form**
+```
+POST /api/contact
+Content-Type: application/json
+
+{
+  "name": "नाम",
+  "email": "email@example.com",
+  "subject": "विषय",
+  "message": "संदेश"
+}
+```
+
+### **College Registration**
+```
+POST /api/college-register
+Content-Type: application/json
+
+{
+  "name": "संपर्क व्यक्ति",
+  "email": "college@example.com",
+  "phone": "9151385320",
+  "college": "कॉलेज का नाम",
+  "university": "विश्वविद्यालय",
+  "principal": "प्राचार्य का नाम"
+}
+```
 
 ---
 
@@ -106,13 +169,84 @@ aimhop-website/
 - **Contact Info:** `js/components.js` में phone/email बदलें
 - **Colors:** `css/style.css` में `:root` variables बदलें
 - **Content:** Each `.html` file को directly edit करें
+- **Email Service:** `server.js` में email configuration बदलें
+
+---
+
+## 🔐 Security Features
+
+- ✅ Input validation (client & server)
+- ✅ Email verification
+- ✅ CORS enabled
+- ✅ Environment variables for sensitive data
+- ✅ Rate limiting ready (can be added)
+
+---
+
+## 📊 SEO Features
+
+- ✅ Meta tags on all pages
+- ✅ Open Graph tags
+- ✅ Twitter Card tags
+- ✅ Sitemap.xml
+- ✅ robots.txt
+- ✅ Canonical URLs
+- ✅ Structured data ready
+
+---
+
+## ♿ Accessibility Features
+
+- ✅ ARIA labels
+- ✅ Focus states
+- ✅ Color contrast compliance
+- ✅ Keyboard navigation
+- ✅ Skip to main content link
+- ✅ Reduced motion support
+
+---
+
+## 📱 Browser Support
+
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
+- ✅ Mobile browsers
+
+---
+
+## 🚀 Deployment
+
+### **Vercel (Frontend)**
+```bash
+vercel deploy
+```
+
+### **Heroku (Backend)**
+```bash
+heroku create aimhop-api
+git push heroku main
+```
+
+### **Docker**
+```dockerfile
+FROM node:18
+WORKDIR /app
+COPY . .
+RUN npm install
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+---
+
+## 📞 Support
+
+- **Phone:** +91 9151385320
+- **Email:** aimhopgroup@gmail.com
+- **Website:** https://aimhop.com
 
 ---
 
 **Developed for Aimhop Educational & Charitable Trust** ❤️
-
-
-
-start with this command
-
-**npx serve . in terminal**

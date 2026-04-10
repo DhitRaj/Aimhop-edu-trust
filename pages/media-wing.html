@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Wing – Aimhop Educational Trust</title>
+  <meta name="description" content="Aimhop Media Wing - समाचार, ब्लॉग और मीडिया कवरेज।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-langkey="breadcrumb_home">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span data-langkey="media_wing">Media Wing</span>
+      </div>
+      <h1 data-langkey="media_wing_title">📺 Media Wing</h1>
+      <p data-langkey="media_wing_subtitle">Our Stories, To Your Ears</p>
+    </div>
+  </section>
+
+  <section class="inner-section">
+    <div class="container wing-grid">
+      <div>
+        <h2 class="section-title" data-langkey="media_wing_h2">Media Wing Role</h2>
+        <p data-langkey="media_wing_p1">Aimhop Media Wing informs society about Aimhop activities and success stories. We communicate through various media.</p>
+        
+        <div class="wing-info-card">
+          <h3 data-langkey="media_wing_news">📰 News</h3>
+          <p data-langkey="media_wing_news_desc">Regular news and updates are published.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="media_wing_video">📹 Video Content</h3>
+          <p data-langkey="media_wing_video_desc">Regular videos are uploaded on YouTube.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="media_wing_social">📱 Social Media</h3>
+          <p data-langkey="media_wing_social_desc">Active presence on Facebook, Instagram and Twitter.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="media_wing_blog">✍️ Blog</h3>
+          <p data-langkey="media_wing_blog_desc">Blog posts related to education and career.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="wing-map-placeholder">
+          <i class="fas fa-newspaper"></i>
+        </div>
+        <div class="wing-info-card highlight-card">
+          <h3 data-langkey="media_wing_presence">📊 Media Presence</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> <span data-langkey="media_wing_youtube">50,000+ YouTube Subscribers</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="media_wing_social_followers">100,000+ Social Media Followers</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="media_wing_blog_posts">200+ Blog Posts</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="media_wing_coverage">500+ Media Coverage</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div id="videoModal" class="video-modal">
+    <div class="modal-backdrop" onclick="closeVideo()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+      <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

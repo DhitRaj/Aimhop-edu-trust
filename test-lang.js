@@ -1,4 +1,16 @@
-/* ============================================
+
+  const window = { location: { pathname: '/pages/index.html' } };
+  const document = { 
+    documentElement: {}, 
+    querySelectorAll: () => [], 
+    querySelector: () => null, 
+    getElementById: () => null,
+    addEventListener: () => null,
+    readyState: 'complete'
+  };
+  const localStorage = { getItem: () => null, setItem: () => null };
+  const requestAnimationFrame = cb => cb();
+  /* ============================================
    AIMHOP EDUCATIONAL TRUST – COMPONENTS & LOCALIZATION
    ============================================ */
 
@@ -2643,3 +2655,5 @@ if (document.readyState === 'loading') {
 }
 
 
+
+  module.exports = langMap;

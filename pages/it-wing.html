@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Wing – Aimhop Educational Trust</title>
+  <meta name="description" content="Aimhop IT Wing - तकनीकी विकास और डिजिटल समाधान।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-langkey="breadcrumb_home">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span data-langkey="it_wing">IT Wing</span>
+      </div>
+      <h1 data-langkey="it_wing_title">💻 IT Wing</h1>
+      <p data-langkey="it_wing_subtitle">Education Through Technological Innovation</p>
+    </div>
+  </section>
+
+  <section class="inner-section">
+    <div class="container wing-grid">
+      <div>
+        <h2 class="section-title" data-langkey="it_wing_h2">IT Wing Vision</h2>
+        <p data-langkey="it_wing_p1">Aimhop IT Wing provides technical education and digital solutions. We improve education using modern technologies.</p>
+        
+        <div class="wing-info-card">
+          <h3 data-langkey="it_wing_platform">💾 Digital Platform</h3>
+          <p data-langkey="it_wing_platform_desc">Modern platforms have been developed for online education.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="it_wing_support">🔧 Technical Support</h3>
+          <p data-langkey="it_wing_support_desc">Students receive assistance with technical issues.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="it_wing_courses">🎓 IT Courses</h3>
+          <p data-langkey="it_wing_courses_desc">Various IT and programming courses are available.</p>
+        </div>
+
+        <div class="wing-info-card">
+          <h3 data-langkey="it_wing_web">🌐 Web Development</h3>
+          <p data-langkey="it_wing_web_desc">Website and application development services are provided.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="wing-map-placeholder">
+          <i class="fas fa-laptop"></i>
+        </div>
+        <div class="wing-info-card highlight-card">
+          <h3 data-langkey="it_wing_achievements">🚀 Technical Achievements</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> <span data-langkey="it_wing_ach1">10+ Digital Platforms</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="it_wing_ach2">20+ IT Courses</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="it_wing_ach3">5,000+ IT Students</span></li>
+            <li><i class="fas fa-check"></i> <span data-langkey="it_wing_ach4">24/7 Technical Support</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div id="videoModal" class="video-modal">
+    <div class="modal-backdrop" onclick="closeVideo()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+      <iframe id="videoFrame" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

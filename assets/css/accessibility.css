@@ -1,0 +1,71 @@
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Focus visible for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Better color contrast */
+.section-desc,
+.mvv-card p,
+.course-card p,
+.activity-card p {
+  color: #1f2937;
+}
+
+/* Ensure buttons have sufficient size */
+button, a.btn-primary, a.btn-outline {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Improved focus states for navigation */
+.main-nav > ul > li > a:focus-visible {
+  background: rgba(26,58,110,0.12);
+  outline: 2px solid var(--primary);
+}
+
+/* No underline anywhere */
+a {
+  text-decoration: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  :root {
+    --primary: #0a1f3d;
+    --accent: #d97706;
+  }
+}
