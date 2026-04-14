@@ -9,10 +9,9 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 
-// 🔒 SECURITY: Fail fast if secrets are missing
+// 🔒 SECURITY: Warn if secrets are missing (don't exit — Vercel sets these at runtime)
 if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-  console.error('❌ ERROR: EMAIL_USER and EMAIL_PASS must be set in .env file');
-  process.exit(1);
+  console.warn('⚠️  WARNING: EMAIL_USER and EMAIL_PASS not set — email features will be disabled');
 }
 
 // 🔒 SECURITY: Add security headers
@@ -27,7 +26,7 @@ app.use(cors({
   origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'],
   credentials: true
 }));
-app.use(express.static('./src/public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // 🔒 SECURITY: Rate limiting for registration (5 per hour per IP)
 const registrationLimiter = rateLimit({
@@ -412,6 +411,11 @@ app.post('/api/v1/coordinator-register', registrationLimiter, async (req, res) =
     console.error('Coordinator registration error:', error);
     res.status(500).json({ error: 'सर्वर में त्रुटि हुई' });
   }
+});
+
+// Catch-all: serve index.html for any non-API route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
