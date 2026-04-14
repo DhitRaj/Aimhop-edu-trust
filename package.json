@@ -2,10 +2,10 @@
   "name": "aimhop-trust-complete-website",
   "version": "1.0.0",
   "description": "Complete multi-page website for Aimhop Educational & Charitable Trust",
-  "main": "server.js",
+  "main": "src/server/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node src/server/server.js",
+    "dev": "nodemon src/server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

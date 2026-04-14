@@ -3,7 +3,9 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-require('dotenv').config();
+const path = require('path');
+
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 
@@ -25,7 +27,7 @@ app.use(cors({
   origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'],
   credentials: true
 }));
-app.use(express.static('.'));
+app.use(express.static('./src/public'));
 
 // 🔒 SECURITY: Rate limiting for registration (5 per hour per IP)
 const registrationLimiter = rateLimit({
@@ -413,6 +415,41 @@ app.post('/api/v1/coordinator-register', registrationLimiter, async (req, res) =
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+
+const server = app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+  console.log(`📍 Access at: http://localhost:${PORT}`);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received, shutting down gracefully...');
+  server.close(() => {
+    console.log('Server closed');
+    process.exit(0);
+  });
+});
+
+// Handle port already in use - try next available port
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    const nextPort = PORT + 1;
+    console.warn(`⚠️  Port ${PORT} is already in use, trying port ${nextPort}...`);
+    
+    const retryServer = app.listen(nextPort, () => {
+      console.log(`✅ Server running on port ${nextPort}`);
+      console.log(`📍 Access at: http://localhost:${nextPort}`);
+    });
+    
+    retryServer.on('error', (retryErr) => {
+      if (retryErr.code === 'EADDRINUSE') {
+        console.error(`❌ Ports ${PORT} and ${nextPort} are both in use`);
+        console.log(`💡 Try: PORT=3003 npm start`);
+        process.exit(1);
+      }
+      throw retryErr;
+    });
+  } else {
+    throw err;
+  }
 });

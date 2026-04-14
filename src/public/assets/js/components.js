@@ -2527,17 +2527,18 @@ function setLanguage(lang) {
   const map = langMap[lang];
   if (!map) return;
 
-  // Initialize or update cache
-  if (!translatableElementsCache) {
-    translatableElementsCache = Array.from(document.querySelectorAll('[data-langkey]'));
-  }
+  // Always refresh cache to get newly injected elements
+  translatableElementsCache = Array.from(document.querySelectorAll('[data-langkey]'));
 
   // Use requestAnimationFrame for smoother UI update
   requestAnimationFrame(() => {
     translatableElementsCache.forEach(el => {
       const key = el.getAttribute('data-langkey');
       const text = map[key];
-      if (!text) return;
+      if (!text) {
+        console.warn(`Missing translation for key: ${key}`);
+        return;
+      }
 
       const tag = el.tagName;
 
