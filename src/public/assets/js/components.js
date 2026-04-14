@@ -20,7 +20,7 @@ const HEADER_HTML = `
         <div class="lang-selector" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.1); padding:4px 10px; border-radius:4px; margin-right:15px;">
           <i class="fas fa-globe" style="font-size:0.75rem; color:var(--accent);"></i>
           <select class="lang-switcher" style="background:transparent; border:none; color:inherit; font-size:0.75rem; font-weight:600; cursor:pointer; outline:none;">
-            <option value="hi" style="color:#333;">हिन्दी (Hindi)</option>
+            <option value="hi" style="color:#333;">हिन्दी</option>
             <option value="en" style="color:#333;">English</option>
           </select>
         </div>
