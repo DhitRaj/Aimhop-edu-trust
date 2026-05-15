@@ -66,6 +66,7 @@ html {
   font-size: 16px; 
   overflow-x: hidden; 
   width: 100%;
+  scroll-padding-top: 100px; /* For anchor links to land below fixed header */
 }
 html, body {
   overflow-x: hidden;
@@ -81,8 +82,14 @@ body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
-  -webkit-tap-highlight-color: transparent; /* Fix touch blur/highlight */
+  -webkit-tap-highlight-color: transparent; 
+  padding-top: 110px; /* Spacer for fixed header */
 }
+
+@media (max-width: 900px) {
+  body { padding-top: 80px; }
+}
+
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
@@ -240,7 +247,8 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 8px 0;
   font-size: 0.82rem;
   position: relative;
-  z-index: 1001; /* Main header (1000) se upar */
+  z-index: 1001; 
+  transition: var(--transition);
 }
 .top-bar-inner {
   display: flex;
@@ -281,14 +289,29 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ===== HEADER ===== */
 .main-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   background: var(--white);
   box-shadow: 0 2px 20px rgba(26,58,110,0.1);
   transition: var(--transition);
 }
-.main-header.scrolled { box-shadow: 0 4px 30px rgba(26,58,110,0.15); }
+
+.main-header.scrolled { 
+  transform: translateY(-40px); /* Hides top-bar */
+  box-shadow: 0 4px 30px rgba(26,58,110,0.15); 
+}
+
+@media (max-width: 900px) {
+  .main-header.scrolled { transform: translateY(0); } /* Don't hide on mobile to keep things simple */
+}
+
+.main-header.scrolled .top-bar {
+  opacity: 0;
+  pointer-events: none;
+}
 .header-inner {
   display: flex;
   align-items: center;

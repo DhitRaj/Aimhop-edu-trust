@@ -97,15 +97,16 @@ const validateCourse = (course) => {
 // 🔒 SECURITY: Student Registration with rate limiting & validation
 app.post('/api/v1/student-register', registrationLimiter, async (req, res) => {
   try {
-    const { name, email, phone, father, dob, gender, state, district, qualification, course, address, query } = req.body;
+    const { 
+      firstName, lastName, email, phone, gender, qualification, category, 
+      nationality, dob, fatherName, motherName, fatherNumber, motherNumber, 
+      parentsOccupation, annualIncome, program, course, referenceNo, 
+      associateName, address, locations, otherState, agreed 
+    } = req.body;
 
-    // 🔒 SECURITY: Comprehensive validation
-    if (!name || !email || !phone || !father || !state || !district || !qualification || !course) {
-      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें' });
-    }
-
-    if (!validateName(name)) {
-      return res.status(400).json({ error: 'नाम 2-100 अक्षरों का होना चाहिए' });
+    // 🔒 SECURITY: Essential validation
+    if (!firstName || !lastName || !email || !phone || !course || !address) {
+      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें (नाम, ईमेल, फोन, कोर्स, पता)' });
     }
 
     if (!validateEmail(email)) {
@@ -116,31 +117,14 @@ app.post('/api/v1/student-register', registrationLimiter, async (req, res) => {
       return res.status(400).json({ error: 'फोन नंबर 10 अंकों का होना चाहिए' });
     }
 
-    if (!validateState(state)) {
-      return res.status(400).json({ error: 'राज्य सही नहीं है' });
-    }
-
-    if (!validateQualification(qualification)) {
-      return res.status(400).json({ error: 'योग्यता सही नहीं है' });
-    }
-
-    if (!validateCourse(course)) {
-      return res.status(400).json({ error: 'कोर्स सही नहीं है' });
-    }
-
-    // 🔒 SECURITY: Escape all user input before using in HTML
-    const safeName = escapeHtml(name);
+    // 🔒 SECURITY: Escape essential user input
+    const safeName = escapeHtml(`${firstName} ${lastName}`);
     const safeEmail = escapeHtml(email);
     const safePhone = escapeHtml(phone);
-    const safeFather = escapeHtml(father);
-    const safeDob = escapeHtml(dob);
-    const safeGender = escapeHtml(gender);
-    const safeState = escapeHtml(state);
-    const safeDistrict = escapeHtml(district);
-    const safeQualification = escapeHtml(qualification);
     const safeCourse = escapeHtml(course);
     const safeAddress = escapeHtml(address);
-    const safeQuery = escapeHtml(query);
+    const safeProgram = escapeHtml(program || '');
+    const safeLocations = Array.isArray(locations) ? locations.map(l => escapeHtml(l)).join(', ') : escapeHtml(locations || '');
 
     // Send confirmation email
     await transporter.sendMail({
@@ -156,7 +140,7 @@ app.post('/api/v1/student-register', registrationLimiter, async (req, res) => {
           <li>नाम: ${safeName}</li>
           <li>ईमेल: ${safeEmail}</li>
           <li>फोन: ${safePhone}</li>
-          <li>योग्यता: ${safeQualification}</li>
+          <li>प्रोग्राम: ${safeProgram}</li>
           <li>पसंदीदा कोर्स: ${safeCourse}</li>
         </ul>
         <p>धन्यवाद,<br>Aimhop Educational Trust</p>
@@ -173,15 +157,10 @@ app.post('/api/v1/student-register', registrationLimiter, async (req, res) => {
         <p><strong>नाम:</strong> ${safeName}</p>
         <p><strong>ईमेल:</strong> ${safeEmail}</p>
         <p><strong>फोन:</strong> ${safePhone}</p>
-        <p><strong>पिता का नाम:</strong> ${safeFather}</p>
-        <p><strong>जन्म तिथि:</strong> ${safeDob}</p>
-        <p><strong>लिंग:</strong> ${safeGender}</p>
-        <p><strong>राज्य:</strong> ${safeState}</p>
-        <p><strong>जिला:</strong> ${safeDistrict}</p>
-        <p><strong>योग्यता:</strong> ${safeQualification}</p>
+        <p><strong>प्रोग्राम:</strong> ${safeProgram}</p>
         <p><strong>पसंदीदा कोर्स:</strong> ${safeCourse}</p>
+        <p><strong>पसंदीदा स्थान:</strong> ${safeLocations}</p>
         <p><strong>पता:</strong> ${safeAddress}</p>
-        <p><strong>प्रश्न/संदेश:</strong> ${safeQuery || 'कोई नहीं'}</p>
       `
     });
 
@@ -243,14 +222,12 @@ app.post('/api/v1/contact', contactLimiter, async (req, res) => {
 // 🔒 SECURITY: College Registration with rate limiting & validation
 app.post('/api/v1/college-register', registrationLimiter, async (req, res) => {
   try {
-    const { name, email, phone, college, university, principal } = req.body;
+    const { 
+      collegeName, principleName, email, phone, country, state, city, zipCode, address 
+    } = req.body;
 
-    if (!name || !email || !phone || !college || !university) {
-      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें' });
-    }
-
-    if (!validateName(name)) {
-      return res.status(400).json({ error: 'नाम 2-100 अक्षरों का होना चाहिए' });
+    if (!collegeName || !principleName || !email || !phone) {
+      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें (कॉलेज नाम, प्राचार्य, ईमेल, फोन)' });
     }
 
     if (!validateEmail(email)) {
@@ -262,25 +239,28 @@ app.post('/api/v1/college-register', registrationLimiter, async (req, res) => {
     }
 
     // 🔒 SECURITY: Escape all user input
-    const safeName = escapeHtml(name);
+    const safeCollege = escapeHtml(collegeName);
+    const safePrincipal = escapeHtml(principleName);
     const safeEmail = escapeHtml(email);
     const safePhone = escapeHtml(phone);
-    const safeCollege = escapeHtml(college);
-    const safeUniversity = escapeHtml(university);
-    const safePrincipal = escapeHtml(principal);
+    const safeCountry = escapeHtml(country || '');
+    const safeState = escapeHtml(state || '');
+    const safeCity = escapeHtml(city || '');
+    const safeZip = escapeHtml(zipCode || '');
+    const safeAddress = escapeHtml(address || '');
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.ADMIN_EMAIL || 'aimhopgroup@gmail.com',
-      subject: 'कॉलेज रजिस्ट्रेशन',
+      subject: 'नया कॉलेज रजिस्ट्रेशन',
       html: `
         <h3>नया कॉलेज रजिस्ट्रेशन</h3>
-        <p><strong>संपर्क व्यक्ति:</strong> ${safeName}</p>
+        <p><strong>कॉलेज का नाम:</strong> ${safeCollege}</p>
+        <p><strong>प्राचार्य:</strong> ${safePrincipal}</p>
         <p><strong>ईमेल:</strong> ${safeEmail}</p>
         <p><strong>फोन:</strong> ${safePhone}</p>
-        <p><strong>कॉलेज:</strong> ${safeCollege}</p>
-        <p><strong>विश्वविद्यालय:</strong> ${safeUniversity}</p>
-        <p><strong>प्राचार्य:</strong> ${safePrincipal || 'नहीं दिया गया'}</p>
+        <p><strong>स्थान:</strong> ${safeCity}, ${safeState}, ${safeCountry} - ${safeZip}</p>
+        <p><strong>पता:</strong> ${safeAddress}</p>
       `
     });
 
@@ -294,14 +274,12 @@ app.post('/api/v1/college-register', registrationLimiter, async (req, res) => {
 // 🔒 SECURITY: Associate Registration with rate limiting & validation
 app.post('/api/v1/associate-register', registrationLimiter, async (req, res) => {
   try {
-    const { name, email, phone, experience, qualification, state, district, address, message } = req.body;
+    const { 
+      firstName, lastName, email, phone, address, country, state, city, zipCode 
+    } = req.body;
 
-    if (!name || !email || !phone || !state || !district) {
-      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें' });
-    }
-
-    if (!validateName(name)) {
-      return res.status(400).json({ error: 'नाम 2-100 अक्षरों का होना चाहिए' });
+    if (!firstName || !lastName || !email || !phone) {
+      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें (नाम, ईमेल, फोन)' });
     }
 
     if (!validateEmail(email)) {
@@ -312,20 +290,16 @@ app.post('/api/v1/associate-register', registrationLimiter, async (req, res) => 
       return res.status(400).json({ error: 'फोन नंबर 10 अंकों का होना चाहिए' });
     }
 
-    if (!validateState(state)) {
-      return res.status(400).json({ error: 'राज्य सही नहीं है' });
-    }
-
     // 🔒 SECURITY: Escape all user input
-    const safeName = escapeHtml(name);
+    const safeFirstName = escapeHtml(firstName);
+    const safeLastName = escapeHtml(lastName);
     const safeEmail = escapeHtml(email);
     const safePhone = escapeHtml(phone);
-    const safeExperience = escapeHtml(experience);
-    const safeQualification = escapeHtml(qualification);
-    const safeState = escapeHtml(state);
-    const safeDistrict = escapeHtml(district);
-    const safeAddress = escapeHtml(address);
-    const safeMessage = escapeHtml(message);
+    const safeAddress = escapeHtml(address || '');
+    const safeCountry = escapeHtml(country || '');
+    const safeState = escapeHtml(state || '');
+    const safeCity = escapeHtml(city || '');
+    const safeZip = escapeHtml(zipCode || '');
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
@@ -333,19 +307,15 @@ app.post('/api/v1/associate-register', registrationLimiter, async (req, res) => 
       subject: 'नया एसोसिएट रजिस्ट्रेशन',
       html: `
         <h3>नया एसोसिएट रजिस्ट्रेशन</h3>
-        <p><strong>नाम:</strong> ${safeName}</p>
+        <p><strong>नाम:</strong> ${safeFirstName} ${safeLastName}</p>
         <p><strong>ईमेल:</strong> ${safeEmail}</p>
         <p><strong>फोन:</strong> ${safePhone}</p>
-        <p><strong>अनुभव:</strong> ${safeExperience}</p>
-        <p><strong>योग्यता:</strong> ${safeQualification}</p>
-        <p><strong>राज्य:</strong> ${safeState}</p>
-        <p><strong>जिला:</strong> ${safeDistrict}</p>
+        <p><strong>स्थान:</strong> ${safeCity}, ${safeState}, ${safeCountry} - ${safeZip}</p>
         <p><strong>पता:</strong> ${safeAddress}</p>
-        <p><strong>संदेश:</strong> ${safeMessage}</p>
       `
     });
 
-    res.json({ success: true, message: 'एसोसिएट रजिस्ट्रेशन सफल! हमारी टीम जल्द संपर्क करेगी।' });
+    res.json({ success: true, message: 'एसोसिएट रजिस्ट्रेशन सफल!' });
   } catch (error) {
     console.error('Associate registration error:', error);
     res.status(500).json({ error: 'सर्वर में त्रुटि हुई' });
@@ -355,14 +325,12 @@ app.post('/api/v1/associate-register', registrationLimiter, async (req, res) => 
 // 🔒 SECURITY: Coordinator Registration with rate limiting & validation
 app.post('/api/v1/coordinator-register', registrationLimiter, async (req, res) => {
   try {
-    const { name, email, phone, experience, qualification, state, district, address, message } = req.body;
+    const { 
+      firstName, lastName, email, phone, address, country, state, city, zipCode 
+    } = req.body;
 
-    if (!name || !email || !phone || !state || !district) {
-      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें' });
-    }
-
-    if (!validateName(name)) {
-      return res.status(400).json({ error: 'नाम 2-100 अक्षरों का होना चाहिए' });
+    if (!firstName || !lastName || !email || !phone) {
+      return res.status(400).json({ error: 'सभी आवश्यक फील्ड भरें (नाम, ईमेल, फोन)' });
     }
 
     if (!validateEmail(email)) {
@@ -373,40 +341,32 @@ app.post('/api/v1/coordinator-register', registrationLimiter, async (req, res) =
       return res.status(400).json({ error: 'फोन नंबर 10 अंकों का होना चाहिए' });
     }
 
-    if (!validateState(state)) {
-      return res.status(400).json({ error: 'राज्य सही नहीं है' });
-    }
-
     // 🔒 SECURITY: Escape all user input
-    const safeName = escapeHtml(name);
+    const safeFirstName = escapeHtml(firstName);
+    const safeLastName = escapeHtml(lastName);
     const safeEmail = escapeHtml(email);
     const safePhone = escapeHtml(phone);
-    const safeExperience = escapeHtml(experience);
-    const safeQualification = escapeHtml(qualification);
-    const safeState = escapeHtml(state);
-    const safeDistrict = escapeHtml(district);
-    const safeAddress = escapeHtml(address);
-    const safeMessage = escapeHtml(message);
+    const safeAddress = escapeHtml(address || '');
+    const safeCountry = escapeHtml(country || '');
+    const safeState = escapeHtml(state || '');
+    const safeCity = escapeHtml(city || '');
+    const safeZip = escapeHtml(zipCode || '');
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.ADMIN_EMAIL || 'aimhopgroup@gmail.com',
-      subject: 'नया समन्वयक रजिस्ट्रेशन',
+      subject: 'नया कोऑर्डिनेटर रजिस्ट्रेशन',
       html: `
-        <h3>नया समन्वयक रजिस्ट्रेशन</h3>
-        <p><strong>नाम:</strong> ${safeName}</p>
+        <h3>नया कोऑर्डिनेटर रजिस्ट्रेशन</h3>
+        <p><strong>नाम:</strong> ${safeFirstName} ${safeLastName}</p>
         <p><strong>ईमेल:</strong> ${safeEmail}</p>
         <p><strong>फोन:</strong> ${safePhone}</p>
-        <p><strong>अनुभव:</strong> ${safeExperience}</p>
-        <p><strong>योग्यता:</strong> ${safeQualification}</p>
-        <p><strong>राज्य:</strong> ${safeState}</p>
-        <p><strong>जिला:</strong> ${safeDistrict}</p>
+        <p><strong>स्थान:</strong> ${safeCity}, ${safeState}, ${safeCountry} - ${safeZip}</p>
         <p><strong>पता:</strong> ${safeAddress}</p>
-        <p><strong>संदेश:</strong> ${safeMessage}</p>
       `
     });
 
-    res.json({ success: true, message: 'समन्वयक रजिस्ट्रेशन सफल! हमारी टीम जल्द संपर्क करेगी।' });
+    res.json({ success: true, message: 'कोऑर्डिनेटर रजिस्ट्रेशन सफल!' });
   } catch (error) {
     console.error('Coordinator registration error:', error);
     res.status(500).json({ error: 'सर्वर में त्रुटि हुई' });

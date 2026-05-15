@@ -128,103 +128,210 @@
       <form onsubmit="submitStudentForm(event)">
         <div class="form-row">
           <div class="form-group">
-            <label data-langkey="label_name">पूरा नाम <span>*</span></label>
-            <input type="text" name="name" data-langkey="ph_name" placeholder="अपना पूरा नाम लिखें" required />
+            <label>First Name <span>*</span></label>
+            <input type="text" name="firstName" placeholder="Enter Your First Name" required />
           </div>
           <div class="form-group">
-            <label data-langkey="label_mobile">मोबाइल नंबर <span>*</span></label>
-            <input type="tel" name="phone" data-langkey="ph_mobile" placeholder="10 अंकों का मोबाइल नंबर" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label data-langkey="label_email">ईमेल</label>
-            <input type="email" name="email" data-langkey="ph_email" placeholder="आपका ईमेल पता" />
-          </div>
-          <div class="form-group">
-            <label data-langkey="label_father">पिता का नाम <span>*</span></label>
-            <input type="text" name="father" data-langkey="ph_father" placeholder="पिता का नाम" required />
+            <label>Last Name <span>*</span></label>
+            <input type="text" name="lastName" placeholder="Enter Your Last Name" required />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label data-langkey="label_dob">जन्म तिथि <span>*</span></label>
+            <label>Email <span>*</span></label>
+            <input type="email" name="email" placeholder="Enter Your Email" required />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number <span>*</span></label>
+            <input type="tel" name="phone" placeholder="Enter Your Mobile Number" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Gender <span>*</span></label>
+            <select name="gender" required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Education <span>*</span></label>
+            <select name="qualification" required>
+              <option value="">Select</option>
+              <option value="Class 10th">Class 10th</option>
+              <option value="Class 12th">Class 12th</option>
+              <option value="Graduation">Graduation</option>
+              <option value="Post Graduation">Post Graduation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category <span>*</span></label>
+            <select name="category" required>
+              <option value="">Select Category</option>
+              <option value="General">General</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="EWS">EWS</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Nationality <span>*</span></label>
+            <input type="text" name="nationality" placeholder="Enter Your Nationality" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date Of Birth <span>*</span></label>
             <input type="date" name="dob" required />
           </div>
           <div class="form-group">
-            <label data-langkey="label_gender">लिंग <span>*</span></label>
-            <select name="gender" required>
-              <option value="" data-langkey="opt_gender">लिंग चुनें</option>
-              <option value="पुरुष" data-langkey="opt_male">पुरुष</option>
-              <option value="महिला" data-langkey="opt_female">महिला</option>
-              <option value="अन्य" data-langkey="opt_other">अन्य</option>
-            </select>
+            <label>Father Name <span>*</span></label>
+            <input type="text" name="fatherName" placeholder="Enter Father Name" required />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label data-langkey="label_state">राज्य <span>*</span></label>
-            <select name="state" required>
-              <option value="" data-langkey="opt_state">राज्य चुनें</option>
-              <option value="बिहार" data-langkey="st_bihar">बिहार</option>
-              <option value="उत्तर प्रदेश" data-langkey="st_up">उत्तर प्रदेश</option>
-              <option value="झारखंड" data-langkey="st_jharkhand">झारखंड</option>
-              <option value="पश्चिम बंगाल" data-langkey="st_wb">पश्चिम बंगाल</option>
-              <option value="दिल्ली" data-langkey="st_delhi">दिल्ली</option>
-              <option value="महाराष्ट्र" data-langkey="st_maharashtra">महाराष्ट्र</option>
-              <option value="अन्य" data-langkey="st_other">अन्य</option>
-            </select>
+            <label>Mother Name <span>*</span></label>
+            <input type="text" name="motherName" placeholder="Enter Mother Name" required />
           </div>
           <div class="form-group">
-            <label data-langkey="label_district">जिला <span>*</span></label>
-            <input type="text" name="district" data-langkey="ph_district" placeholder="अपना जिला लिखें" required />
+            <label>Father Number <span>*</span></label>
+            <input type="tel" name="fatherNumber" placeholder="Enter Father Number" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Parents Occupation</label>
+            <input type="text" name="parentsOccupation" placeholder="Enter Occupation" />
+          </div>
+          <div class="form-group">
+            <label>Annual Income</label>
+            <input type="text" name="annualIncome" placeholder="Enter Annual Income" />
           </div>
         </div>
 
         <div class="form-group">
-          <label data-langkey="label_qual">शैक्षणिक योग्यता <span>*</span></label>
-          <select name="qualification" required>
-            <option value="" data-langkey="opt_qual">योग्यता चुनें</option>
-            <option value="10वीं पास" data-langkey="q_10th">10वीं पास / पास होने वाले</option>
-            <option value="12वीं पास" data-langkey="q_12th">12वीं पास / पास होने वाले</option>
-            <option value="ग्रेजुएशन पास" data-langkey="q_grad">ग्रेजुएशन पास / पास होने वाले</option>
+          <label>Select Program <span>*</span></label>
+          <select name="program" required>
+            <option value="">Select</option>
+            <option value="Technical">1. Technical</option>
+            <option value="B.Tech">2. Engineering (B.Tech)</option>
+            <option value="Medical">3. Medical (MBBS/BDS)</option>
+            <option value="Nursing">4. Nursing (B.Sc/GNM)</option>
+            <option value="Pharmacy">5. Pharmacy (B.Pharma)</option>
+            <option value="Management">6. Management (BBA/MBA)</option>
+            <option value="Other">7. Other</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label data-langkey="label_pref_course">पसंदीदा कोर्स <span>*</span></label>
-          <select name="course" required>
-            <option value="" data-langkey="opt_course">कोर्स चुनें</option>
-            <option value="B.Tech" data-langkey="c_btech">B.Tech / B.E</option>
-            <option value="B.Sc Nursing" data-langkey="c_nursing">B.Sc Nursing</option>
-            <option value="BCA/BBA/B.Com" data-langkey="c_bca">BCA / BBA / B.Com</option>
-            <option value="B.Pharma" data-langkey="c_pharma">B.Pharma / BMLT</option>
-            <option value="Diploma" data-langkey="c_dip_eng">Diploma in Engineering</option>
-            <option value="Paramedical" data-langkey="c_para">Paramedical Diploma</option>
-            <option value="M.Tech" data-langkey="c_mtech">M.Tech</option>
-            <option value="MBA/MCA" data-langkey="c_mba">MBA / MCA</option>
-            <option value="M.Sc/M.Com" data-langkey="c_msc">M.Sc / M.Com</option>
-            <option value="अन्य" data-langkey="c_other">अन्य</option>
-          </select>
+          <label>Course <span>*</span></label>
+          <input type="text" name="course" placeholder="Enter Course You Want To Pursue" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Coordinator Reference No</label>
+            <input type="text" name="referenceNo" placeholder="Coordinator Reference No." />
+          </div>
+          <div class="form-group">
+            <label>Associate Name & District</label>
+            <input type="text" name="associateName" placeholder="Associate Name & District" />
+          </div>
         </div>
 
         <div class="form-group">
-          <label data-langkey="label_address">पता <span>*</span></label>
-          <textarea name="address" rows="3" data-langkey="ph_address" placeholder="अपना पूरा पता लिखें" required></textarea>
+          <label>Address <span>*</span></label>
+          <textarea name="address" rows="3" placeholder="Enter Your Address Here" required></textarea>
         </div>
 
         <div class="form-group">
-          <label data-langkey="label_query">कोई प्रश्न या संदेश</label>
-          <textarea name="query" rows="3" data-langkey="ph_query" placeholder="अपना प्रश्न या संदेश लिखें (वैकल्पिक)"></textarea>
+          <label>Choice Of Location For your Higher Education</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: #f8fafc; padding: 15px; border-radius: 8px; margin-top: 5px;">
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="NCR/New Delhi" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>NCR/New Delhi</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Chandigarh" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Chandigarh</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Punjab Haryana" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Punjab Haryana</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="W.Bengal" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>W.Bengal</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Rajasthan" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Rajasthan</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Uttarakhand" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Uttarakhand</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Chhattisgarh" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Chhattisgarh</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Odisha" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Odisha</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Karnataka" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Karnataka</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="MP" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>MP</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="UP" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>UP</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Tamil Nadu" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Tamil Nadu</span>
+            </label>
+            <label style="font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="locations" value="Telangana" style="width: 16px; height: 16px; margin: 0; cursor: pointer; flex-shrink: 0;"> 
+              <span>Telangana</span>
+            </label>
+          </div>
         </div>
 
-        <button type="submit" class="form-submit" data-langkey="btn_reg_submit">
-          <i class="fas fa-paper-plane"></i> रजिस्ट्रेशन सबमिट करें
+        <div class="form-group">
+          <label>Other State</label>
+          <input type="text" name="otherState" placeholder="Enter State Name Here" />
+        </div>
+
+        <div style="background: #fffbeb; padding: 15px; border-radius: 8px; border: 1px solid #fef3c7; margin-bottom: 20px;">
+          <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; line-height: 1.5; color: #92400e;">
+            <input type="checkbox" name="agreed" required style="width: 18px; height: 18px; margin: 2px 0 0 0; cursor: pointer; flex-shrink: 0;">
+            <span>मुझे यह जानकारी है कि एडमिशन के बाद, रहने-खाने (हॉस्टल-फी) और परीक्षा शुल्क मुझे खुद अदा करनी हैं, और मुझे यह भी जानकारी है कि नामांकन की प्रक्रिया कॉलेज प्रांगण में पूरी हो जाने के बाद कोर्स पाठ्यक्रम की अवधि पूरी (Complete Duration of the Course) होने तक कॉलेज के प्रांगण में रहना है और कॉलेज के अनुशासन का पालन करते हुए कोर्स को पूरा करना है।</span>
+          </label>
+        </div>
+
+
+        <button type="submit" class="form-submit">
+          <i class="fas fa-paper-plane"></i> Submit form
         </button>
       </form>
+
     </div>
 
     <!-- INFO SIDEBAR -->
