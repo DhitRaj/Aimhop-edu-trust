@@ -29,69 +29,63 @@
       <form onsubmit="submitAssociateForm(event)">
         <div class="form-row-2">
           <div class="form-group">
-            <label data-langkey="label_full_name">पूरा नाम <span>*</span></label>
-            <input type="text" data-langkey="ph_full_name" placeholder="पूरा नाम" required/>
+            <label>First Name <span>*</span></label>
+            <input type="text" name="firstName" placeholder="First Name" required />
           </div>
           <div class="form-group">
-            <label data-langkey="label_mobile">मोबाइल नंबर <span>*</span></label>
-            <input type="tel" data-langkey="ph_mobile" placeholder="10 अंक का नंबर" required/>
+            <label>Last Name <span>*</span></label>
+            <input type="text" name="lastName" placeholder="Last Name" required />
           </div>
         </div>
+
         <div class="form-row-2">
           <div class="form-group">
-            <label data-langkey="label_email_f">ईमेल</label>
-            <input type="email" data-langkey="ph_email_f" placeholder="ईमेल पता"/>
+            <label>Email <span>*</span></label>
+            <input type="email" name="email" placeholder="Enter Your Email" required />
           </div>
           <div class="form-group">
-            <label data-langkey="label_whatsapp">WhatsApp नंबर</label>
-            <input type="tel" data-langkey="ph_whatsapp" placeholder="WhatsApp नंबर"/>
+            <label>Mobile Number <span>*</span></label>
+            <input type="tel" name="phone" placeholder="Enter Your Mobile Number" required />
           </div>
         </div>
-        <div class="form-row-2">
-          <div class="form-group">
-            <label data-langkey="label_experience">अनुभव <span>*</span></label>
-            <select required>
-              <option value="" data-langkey="opt_select_exp">अनुभव चुनें</option>
-              <option data-langkey="opt_0_1yr">0-1 वर्ष</option>
-              <option data-langkey="opt_1_3yr">1-3 वर्ष</option>
-              <option data-langkey="opt_3_5yr">3-5 वर्ष</option>
-              <option data-langkey="opt_5plus_yr">5+ वर्ष</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label data-langkey="label_area">क्षेत्र</label>
-            <input type="text" data-langkey="ph_area" placeholder="काम करने का क्षेत्र"/>
-          </div>
-        </div>
-        <div class="form-row-2">
-          <div class="form-group">
-            <label data-langkey="label_state">राज्य <span>*</span></label>
-            <select required>
-              <option value="" data-langkey="opt_select_state">राज्य चुनें</option>
-              <option data-langkey="state_bihar">बिहार</option>
-              <option data-langkey="state_up">उत्तर प्रदेश</option>
-              <option data-langkey="state_jh">झारखंड</option>
-              <option data-langkey="state_wb">पश्चिम बंगाल</option>
-              <option data-langkey="state_mh">महाराष्ट्र</option>
-              <option data-langkey="state_np">नेपाल</option>
-              <option data-langkey="state_other">अन्य</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label data-langkey="label_district">जिला <span>*</span></label>
-            <input type="text" data-langkey="ph_district" placeholder="जिला" required/>
-          </div>
-        </div>
+
         <div class="form-group">
-          <label data-langkey="label_address">पूरा पता <span>*</span></label>
-          <textarea rows="3" data-langkey="ph_address" placeholder="पूरा पता" required></textarea>
+          <label>Address <span>*</span></label>
+          <textarea name="address" rows="3" placeholder="Address" required></textarea>
         </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Country <span>*</span></label>
+            <input type="text" name="country" placeholder="Enter Your Country" required />
+          </div>
+          <div class="form-group">
+            <label>State <span>*</span></label>
+            <input type="text" name="state" placeholder="State" required />
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>City / Town <span>*</span></label>
+            <input type="text" name="city" placeholder="City / Town" required />
+          </div>
+          <div class="form-group">
+            <label>Zip Code <span>*</span></label>
+            <input type="text" name="zipCode" placeholder="Zip Code" required />
+          </div>
+        </div>
+
         <div class="form-group">
-          <label data-langkey="label_message_f">संदेश / प्रश्न</label>
-          <textarea rows="2" data-langkey="ph_message_f" placeholder="कोई प्रश्न हो तो लिखें"></textarea>
+          <label>Upload Photo</label>
+          <input type="file" name="photo" accept="image/*" />
         </div>
-        <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> <span data-langkey="btn_submit_form">फॉर्म सबमिट करें</span></button>
+
+        <button type="submit" class="form-submit">
+          <i class="fas fa-paper-plane"></i> Submit Form
+        </button>
       </form>
+
     </div>
     <div>
       <div class="info-sidebar-card">

@@ -24,22 +24,74 @@
       <p class="form-subtitle" data-langkey="reg_form_subtitle">सभी जानकारी सही-सही भरें। हमारी टीम जल्द संपर्क करेगी।</p>
       <form onsubmit="submitCollegeForm(event)">
         <div class="form-row-2">
-          <div class="form-group"><label data-langkey="label_name">पूरा नाम <span>*</span></label><input type="text" data-langkey="ph_name" placeholder="पूरा नाम" required/></div>
-          <div class="form-group"><label data-langkey="label_mobile">मोबाइल नंबर <span>*</span></label><input type="tel" data-langkey="ph_mobile" placeholder="10 अंक का नंबर" required/></div>
+          <div class="form-group">
+            <label>College Name <span>*</span></label>
+            <input type="text" name="collegeName" placeholder="College Name" required />
+          </div>
+          <div class="form-group">
+            <label>Principle Name <span>*</span></label>
+            <input type="text" name="principleName" placeholder="Principle Name" required />
+          </div>
         </div>
+
         <div class="form-row-2">
-          <div class="form-group"><label data-langkey="label_email">ईमेल</label><input type="email" data-langkey="ph_email" placeholder="ईमेल पता"/></div>
-          <div class="form-group"><label data-langkey="label_whatsapp">WhatsApp नंबर</label><input type="tel" data-langkey="ph_whatsapp" placeholder="WhatsApp नंबर"/></div>
+          <div class="form-group">
+            <label>Email <span>*</span></label>
+            <input type="email" name="email" placeholder="Enter Your Email" required />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number <span>*</span></label>
+            <input type="tel" name="phone" placeholder="Enter Your Mobile Number" required />
+          </div>
         </div>
-        <div class="form-row-2"><div class="form-group"><label data-langkey="label_college_title">कॉलेज का नाम <span>*</span></label><input type="text" data-langkey="ph_college" placeholder="कॉलेज का नाम" required/></div><div class="form-group"><label data-langkey="label_uni">विश्वविद्यालय <span>*</span></label><input type="text" data-langkey="ph_uni" placeholder="संबद्ध विश्वविद्यालय" required/></div></div><div class="form-group"><label data-langkey="label_principal">Principal का नाम</label><input type="text" data-langkey="ph_principal" placeholder="Principal का नाम"/></div>
+
         <div class="form-row-2">
-          <div class="form-group"><label data-langkey="label_state">राज्य <span>*</span></label><select required><option value="" data-langkey="opt_state">राज्य चुनें</option><option data-langkey="st_bihar">बिहार</option><option data-langkey="st_up">उत्तर प्रदेश</option><option data-langkey="st_jharkhand">झारखंड</option><option data-langkey="st_wb">पश्चिम बंगाल</option><option data-langkey="st_maharashtra">महाराष्ट्र</option><option data-langkey="st_nepal">नेपाल</option><option data-langkey="st_other">अन्य</option></select></div>
-          <div class="form-group"><label data-langkey="label_district">जिला <span>*</span></label><input type="text" data-langkey="ph_district" placeholder="जिला" required/></div>
+          <div class="form-group">
+            <label>Country <span>*</span></label>
+            <input type="text" name="country" placeholder="Enter Your Country" required />
+          </div>
+          <div class="form-group">
+            <label>State <span>*</span></label>
+            <input type="text" name="state" placeholder="State" required />
+          </div>
         </div>
-        <div class="form-group"><label data-langkey="label_address">पूरा पता <span>*</span></label><textarea rows="3" data-langkey="ph_address" placeholder="पूरा पता" required></textarea></div>
-        <div class="form-group"><label data-langkey="label_query">संदेश / प्रश्न</label><textarea rows="2" data-langkey="ph_query" placeholder="कोई प्रश्न हो तो लिखें"></textarea></div>
-        <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> <span data-langkey="btn_reg_submit">फॉर्म सबमिट करें</span></button>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>City / Town <span>*</span></label>
+            <input type="text" name="city" placeholder="City / Town" required />
+          </div>
+          <div class="form-group">
+            <label>Zip Code <span>*</span></label>
+            <input type="text" name="zipCode" placeholder="Zip Code" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Office Address <span>*</span></label>
+          <textarea name="address" rows="3" placeholder="Office Address" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>College Photo</label>
+          <input type="file" name="collegePhoto" accept="image/*" />
+        </div>
+
+        <div class="form-group">
+          <label>Upload Brochure</label>
+          <input type="file" name="brochure" accept=".pdf,.doc,.docx" />
+        </div>
+
+        <div class="form-group">
+          <label>Upload Other Document's</label>
+          <input type="file" name="otherDocs" multiple />
+        </div>
+
+        <button type="submit" class="form-submit">
+          <i class="fas fa-paper-plane"></i> Submit Form
+        </button>
       </form>
+
     </div>
     <div>
       <div class="info-sidebar-card">

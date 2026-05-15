@@ -2,9 +2,7 @@
    FORM HANDLING & VALIDATION
    ============================================ */
 
-const API_BASE = (typeof window !== 'undefined' && window.location.hostname === 'localhost') 
-  ? 'http://localhost:3000/api/v1'
-  : `${window.location.origin}/api/v1`;
+const API_BASE = `${window.location.origin}/api/v1`;
 
 // Student Registration Form
 async function submitStudentForm(e) {
@@ -18,44 +16,34 @@ async function submitStudentForm(e) {
     submitBtn.textContent = 'भेज रहे हैं...';
 
     const formData = {
-      name: form.querySelector('[name="name"]')?.value?.trim(),
+      firstName: form.querySelector('[name="firstName"]')?.value?.trim(),
+      lastName: form.querySelector('[name="lastName"]')?.value?.trim(),
       email: form.querySelector('[name="email"]')?.value?.trim(),
       phone: form.querySelector('[name="phone"]')?.value?.trim(),
-      father: form.querySelector('[name="father"]')?.value?.trim(),
-      dob: form.querySelector('[name="dob"]')?.value,
       gender: form.querySelector('[name="gender"]')?.value,
-      state: form.querySelector('[name="state"]')?.value,
-      district: form.querySelector('[name="district"]')?.value?.trim(),
       qualification: form.querySelector('[name="qualification"]')?.value,
-      course: form.querySelector('[name="course"]')?.value,
+      category: form.querySelector('[name="category"]')?.value,
+      nationality: form.querySelector('[name="nationality"]')?.value?.trim(),
+      dob: form.querySelector('[name="dob"]')?.value,
+      fatherName: form.querySelector('[name="fatherName"]')?.value?.trim(),
+      motherName: form.querySelector('[name="motherName"]')?.value?.trim(),
+      fatherNumber: form.querySelector('[name="fatherNumber"]')?.value?.trim(),
+      motherNumber: form.querySelector('[name="motherNumber"]')?.value?.trim(),
+      parentsOccupation: form.querySelector('[name="parentsOccupation"]')?.value?.trim(),
+      annualIncome: form.querySelector('[name="annualIncome"]')?.value?.trim(),
+      program: form.querySelector('[name="program"]')?.value,
+      course: form.querySelector('[name="course"]')?.value?.trim(),
+      referenceNo: form.querySelector('[name="referenceNo"]')?.value?.trim(),
+      associateName: form.querySelector('[name="associateName"]')?.value?.trim(),
       address: form.querySelector('[name="address"]')?.value?.trim(),
-      query: form.querySelector('[name="query"]')?.value?.trim()
+      locations: Array.from(form.querySelectorAll('[name="locations"]:checked')).map(cb => cb.value),
+      otherState: form.querySelector('[name="otherState"]')?.value?.trim(),
+      agreed: form.querySelector('[name="agreed"]')?.checked
     };
 
-    // Frontend Validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.father || !formData.state || !formData.district || !formData.qualification || !formData.course) {
+    // Minimal Frontend Validation
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.course) {
       showAlert('कृपया सभी आवश्यक फील्ड भरें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.name(formData.name)) {
-      showAlert('नाम 2-100 अक्षरों का होना चाहिए', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.email(formData.email)) {
-      showAlert('कृपया सही ईमेल दर्ज करें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.phone(formData.phone)) {
-      showAlert('कृपया 10 अंकों का फोन नंबर दर्ज करें', 'error');
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
       return;
@@ -70,7 +58,7 @@ async function submitStudentForm(e) {
     const data = await response.json();
 
     if (response.ok) {
-      showAlert(data.message, 'success');
+      showAlert(data.message || 'रजिस्ट्रेशन सफल रहा', 'success');
       form.reset();
     } else {
       showAlert(data.error || 'कोई त्रुटि हुई', 'error');
@@ -165,39 +153,24 @@ async function submitCollegeForm(e) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'भेज रहे हैं...';
 
+    // Note: We use FormData for potential file uploads, 
+    // but the current backend endpoint expects JSON.
+    // For now, we'll collect text fields.
     const formData = {
-      name: form.querySelector('[name="name"]')?.value?.trim(),
+      collegeName: form.querySelector('[name="collegeName"]')?.value?.trim(),
+      principleName: form.querySelector('[name="principleName"]')?.value?.trim(),
       email: form.querySelector('[name="email"]')?.value?.trim(),
       phone: form.querySelector('[name="phone"]')?.value?.trim(),
-      college: form.querySelector('[name="college"]')?.value?.trim(),
-      university: form.querySelector('[name="university"]')?.value?.trim(),
-      principal: form.querySelector('[name="principal"]')?.value?.trim()
+      country: form.querySelector('[name="country"]')?.value?.trim(),
+      state: form.querySelector('[name="state"]')?.value?.trim(),
+      city: form.querySelector('[name="city"]')?.value?.trim(),
+      zipCode: form.querySelector('[name="zipCode"]')?.value?.trim(),
+      address: form.querySelector('[name="address"]')?.value?.trim()
     };
 
     // Frontend Validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.college || !formData.university) {
+    if (!formData.collegeName || !formData.principleName || !formData.email || !formData.phone) {
       showAlert('कृपया सभी आवश्यक फील्ड भरें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.name(formData.name)) {
-      showAlert('नाम 2-100 अक्षरों का होना चाहिए', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.email(formData.email)) {
-      showAlert('कृपया सही ईमेल दर्ज करें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.phone(formData.phone)) {
-      showAlert('कृपया 10 अंकों का फोन नंबर दर्ज करें', 'error');
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
       return;
@@ -212,7 +185,7 @@ async function submitCollegeForm(e) {
     const data = await response.json();
 
     if (response.ok) {
-      showAlert(data.message, 'success');
+      showAlert(data.message || 'रजिस्ट्रेशन सफल रहा', 'success');
       form.reset();
     } else {
       showAlert(data.error || 'कोई त्रुटि हुई', 'error');
@@ -238,41 +211,20 @@ async function submitAssociateForm(e) {
     submitBtn.textContent = 'भेज रहे हैं...';
 
     const formData = {
-      name: form.querySelector('[name="name"]')?.value?.trim(),
+      firstName: form.querySelector('[name="firstName"]')?.value?.trim(),
+      lastName: form.querySelector('[name="lastName"]')?.value?.trim(),
       email: form.querySelector('[name="email"]')?.value?.trim(),
       phone: form.querySelector('[name="phone"]')?.value?.trim(),
-      experience: form.querySelector('[name="experience"]')?.value?.trim(),
-      qualification: form.querySelector('[name="qualification"]')?.value?.trim(),
-      state: form.querySelector('[name="state"]')?.value,
-      district: form.querySelector('[name="district"]')?.value?.trim(),
       address: form.querySelector('[name="address"]')?.value?.trim(),
-      message: form.querySelector('[name="message"]')?.value?.trim()
+      country: form.querySelector('[name="country"]')?.value?.trim(),
+      state: form.querySelector('[name="state"]')?.value?.trim(),
+      city: form.querySelector('[name="city"]')?.value?.trim(),
+      zipCode: form.querySelector('[name="zipCode"]')?.value?.trim()
     };
 
     // Frontend Validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.state || !formData.district) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
       showAlert('कृपया सभी आवश्यक फील्ड भरें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.name(formData.name)) {
-      showAlert('नाम 2-100 अक्षरों का होना चाहिए', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.email(formData.email)) {
-      showAlert('कृपया सही ईमेल दर्ज करें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.phone(formData.phone)) {
-      showAlert('कृपया 10 अंकों का फोन नंबर दर्ज करें', 'error');
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
       return;
@@ -287,7 +239,7 @@ async function submitAssociateForm(e) {
     const data = await response.json();
 
     if (response.ok) {
-      showAlert(data.message, 'success');
+      showAlert(data.message || 'रजिस्ट्रेशन सफल रहा', 'success');
       form.reset();
     } else {
       showAlert(data.error || 'कोई त्रुटि हुई', 'error');
@@ -313,41 +265,20 @@ async function submitCoordinatorForm(e) {
     submitBtn.textContent = 'भेज रहे हैं...';
 
     const formData = {
-      name: form.querySelector('[name="name"]')?.value?.trim(),
+      firstName: form.querySelector('[name="firstName"]')?.value?.trim(),
+      lastName: form.querySelector('[name="lastName"]')?.value?.trim(),
       email: form.querySelector('[name="email"]')?.value?.trim(),
       phone: form.querySelector('[name="phone"]')?.value?.trim(),
-      experience: form.querySelector('[name="experience"]')?.value?.trim(),
-      qualification: form.querySelector('[name="qualification"]')?.value?.trim(),
-      state: form.querySelector('[name="state"]')?.value,
-      district: form.querySelector('[name="district"]')?.value?.trim(),
       address: form.querySelector('[name="address"]')?.value?.trim(),
-      message: form.querySelector('[name="message"]')?.value?.trim()
+      country: form.querySelector('[name="country"]')?.value?.trim(),
+      state: form.querySelector('[name="state"]')?.value?.trim(),
+      city: form.querySelector('[name="city"]')?.value?.trim(),
+      zipCode: form.querySelector('[name="zipCode"]')?.value?.trim()
     };
 
     // Frontend Validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.state || !formData.district) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
       showAlert('कृपया सभी आवश्यक फील्ड भरें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.name(formData.name)) {
-      showAlert('नाम 2-100 अक्षरों का होना चाहिए', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.email(formData.email)) {
-      showAlert('कृपया सही ईमेल दर्ज करें', 'error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-
-    if (!validators.phone(formData.phone)) {
-      showAlert('कृपया 10 अंकों का फोन नंबर दर्ज करें', 'error');
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
       return;
@@ -362,7 +293,7 @@ async function submitCoordinatorForm(e) {
     const data = await response.json();
 
     if (response.ok) {
-      showAlert(data.message, 'success');
+      showAlert(data.message || 'रजिस्ट्रेशन सफल रहा', 'success');
       form.reset();
     } else {
       showAlert(data.error || 'कोई त्रुटि हुई', 'error');
